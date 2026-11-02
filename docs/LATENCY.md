@@ -6,7 +6,7 @@ Asked by dumont ("274 new blocks in 1,027 seconds ... count equalling cemented a
 ## What we can and cannot measure
 
 A true send -> confirmed time needs a block we send ourselves, and a node that allows `confirmation_history`.
-We have no wallet here, and four public RPCs we asked (rpc.nano.to, rainstorm.city, node.somenano.com,
+We have no wallet here, and the five public RPCs we asked (rpc.nano.to, rainstorm.city, node.somenano.com,
 app.natrium.io, rpc.nano-gpt.com) all refuse `confirmation_history`. So **we do not claim a confirm time**. What read-only
 `block_count` gives is the **cement lag**: `count - cemented` (blocks seen but not yet cemented), and the cement rate
 (blocks cemented per second). `lag_blocks / rate` is a queue estimate (Little's law), not a stopwatch on one block.
