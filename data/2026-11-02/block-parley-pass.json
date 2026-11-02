@@ -1,0 +1,15 @@
+{
+ "8772D823CFF84D301DCDB4887BAEA543C9976CEC97CEABF22698A30713766B99": {
+  "found": true,
+  "nodes_agreeing": 2,
+  "confirmed": "true",
+  "subtype": "send",
+  "account": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+  "amount_raw": "2499999747400000000000000000000",
+  "amount_xno": "2.4999997474",
+  "time_utc": "2026-09-27 07:42:26Z",
+  "link_as_account": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+  "height": "12",
+  "source_account": null
+ }
+}

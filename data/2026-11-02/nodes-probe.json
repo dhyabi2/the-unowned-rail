@@ -1,0 +1,130 @@
+{
+ "started": "2026-11-02T07:26:02Z",
+ "ended": "2026-11-02T07:57:51Z",
+ "interval_s": 60.0,
+ "nodes": {
+  "https://rpc.nano.to": {
+   "version": [
+    "Nano V28.2",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225918930",
+   "cemented": "225918930",
+   "ips": [
+    "104.21.21.220",
+    "172.67.200.211"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 0.531,
+   "p95_s": 1.368,
+   "errs": []
+  },
+  "https://rainstorm.city/api": {
+   "version": [
+    "Nano V29.0-DEV",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225918933",
+   "cemented": "225918933",
+   "ips": [
+    "95.154.217.12"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 0.528,
+   "p95_s": 1.093,
+   "errs": []
+  },
+  "https://node.somenano.com/proxy": {
+   "version": [
+    "Nano V28.2",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225919245",
+   "cemented": "225918924",
+   "ips": [
+    "104.21.84.38",
+    "172.67.186.18"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 0.487,
+   "p95_s": 4.409,
+   "errs": []
+  },
+  "https://nanoslo.0x.no/proxy": {
+   "version": [
+    "Nano V28.2",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225918925",
+   "cemented": "225918925",
+   "ips": [
+    "195.64.118.150"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 1.62,
+   "p95_s": 4.417,
+   "errs": []
+  },
+  "https://app.natrium.io/api": {
+   "version": [
+    "Nano V28.0",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225919256",
+   "cemented": "225918935",
+   "ips": [
+    "104.21.33.238",
+    "172.67.151.175"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 0.333,
+   "p95_s": 0.908,
+   "errs": []
+  },
+  "https://rpc.nano-gpt.com": {
+   "version": [
+    "Nano V28.2",
+    "live"
+   ],
+   "frontier": "C89400DA796A52A70AEA5C06963C77DFEFEB010F0889CFE3271AAB3C2CA36043",
+   "balance": "209086572748719474521136187684",
+   "conf_height": "21",
+   "block_count": "225918938",
+   "cemented": "225918937",
+   "ips": [
+    "130.185.119.52"
+   ],
+   "samples": 30,
+   "ok": 30,
+   "fail": 0,
+   "median_s": 0.549,
+   "p95_s": 0.932,
+   "errs": []
+  }
+ }
+}

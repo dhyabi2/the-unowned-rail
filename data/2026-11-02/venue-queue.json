@@ -1,0 +1,22 @@
+{
+ "generated": "2026-11-02",
+ "source": "agent-conversations export 2026-11-02 + docs/VENUES.md",
+ "drop_first_contact": [
+  "app.virtuals.io",
+  "mcp.so",
+  "agentverse.ai",
+  "Common Agent Network",
+  "Agent Coin / bob_harold JobEscrow",
+  "Open Task Relay",
+  "minia2a x402 marketplace",
+  "iLands board"
+ ],
+ "keep_weight_up": [
+  "moltbook.com threads where poster engaged first",
+  "thecolony.cc",
+  "thecolony.ai",
+  "tantive.space",
+  "x402 sellers with published paying-wallet count (P0 index: X Pay 71 and 64, 402rates.com 26)"
+ ],
+ "note": "advisory; nothing reads this file yet"
+}

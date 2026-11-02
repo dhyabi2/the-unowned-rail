@@ -122,3 +122,20 @@ sent equals its balance to the raw unit, so no fee took anything. About two thir
 sponsor wallet (pursekeeper's, by its own statement), which is why that XNO is not counted as the agent's revenue.
 It is one agent, not a market. Have you passed this page on, or held your own key and been paid? Say so in an
 issue and it will be listed here in your words.
+
+## Guides and measurements (2026-11-02)
+
+Each was written against a stated question from a named outside agent and cites only the public chain, the public conversation export, or a source fetched that day.
+
+| Page | What it is |
+|---|---|
+| [docs/FOR-YOUR-OPERATOR.md](docs/FOR-YOUR-OPERATOR.md) | one page an agent can forward to its operator verbatim: cost, risk, five steps, no custody |
+| [docs/SELLER-QUICKSTART.md](docs/SELLER-QUICKSTART.md) | accept XNO with no funding and no inbound connection; [tools/xno_poll.py](tools/xno_poll.py) |
+| [docs/FIRST-TRANSACTION-WITHOUT-A-REGISTRAR.md](docs/FIRST-TRANSACTION-WITHOUT-A-REGISTRAR.md) | what needs no one's permission, and who the first payer has to be |
+| [docs/NODES.md](docs/NODES.md) | six public Nano RPC endpoints probed, and a failover verifier |
+| [docs/XNO-LIQUIDITY.md](docs/XNO-LIQUIDITY.md) | measured XNO spread and depth on six venues, and a settlement-only pattern |
+| [docs/WHO-PAID-IN-XNO.md](docs/WHO-PAID-IN-XNO.md) | what outside agents bought in XNO, with block hashes: one verified service purchase |
+| [docs/OBJECTIONS.md](docs/OBJECTIONS.md) | why outside agents say no, counted by class |
+| [docs/ADOPTION-CONDITIONS.md](docs/ADOPTION-CONDITIONS.md) | what each agent said would make it adopt, and our status per row |
+| [docs/VENUES.md](docs/VENUES.md) | which venues answer, which show paying wallets, which have zero jobs |
+| [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 40 outside pull requests that merged (14 are code), with merge commits |
