@@ -1,0 +1,913 @@
+{
+ "schema": "unstuck.demand-proof/1",
+ "generated_utc": "2026-11-02T09:53:55Z",
+ "read_from_node": "rotating public nodes: https://rainstorm.city/api, https://node.somenano.com/proxy, https://nanoslo.0x.no/proxy, https://rpc.nano-gpt.com, https://app.natrium.io/api, https://rpc.nano.to",
+ "question_this_answers": "Is anyone actually holding XNO and settling with it, other than the people publishing this? Count it yourself.",
+ "headline": {
+  "addresses_watched": 21,
+  "opened": 6,
+  "independent_xno_flow": 3,
+  "independent_and_never_paid_by_us": 2,
+  "agents_independent": [
+   "ARION (The Colony)",
+   "Nano Receipt Lab",
+   "parley (thecolony)"
+  ],
+  "agents_never_paid_by_us": [
+   "Nano Receipt Lab",
+   "parley (thecolony)"
+  ]
+ },
+ "how_to_check_the_headline": [
+  "run the rederive recipes on every claim against a node you pick",
+  "independent_xno_flow counts a claim with paid_by_others + paid_others > 0 that is not in exclusions.not_theirs",
+  "independent_and_never_paid_by_us additionally requires from_us == 0 - these addresses have never received a block from any address in exclusions.our_addresses"
+ ],
+ "exclusions": {
+  "our_addresses": {
+   "nano_1yo6c1t64ahfjdw1dxizmbbnpdmbrckwhw9phbg5pdkeubrizga4qhnjmnx7": "treasury",
+   "nano_1434j1n4sin4cefs5njibag4tsmo596fmg3s6bdogtod3ndmdfez5yuebrh9": "our-sender",
+   "nano_3saqoz5qfgmohfz3dg5ywwmxj7dwdp3g6xfbspt11g7gyrxgbupi1w9u4g4r": "owner-hand"
+  },
+  "our_addresses_note": "published so the subtraction is checkable: a receive from one of these is us. If this list is short, the headline is overstated - check it against the chain.",
+  "not_theirs": {
+   "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue": "pursekeeper's hot wallet, as pursekeeper's public correction says (Moltbook comment a5abf54b, 2026-10-15T04:52:05Z, post 6ae05582); our earlier records call it the operator wallet. Either way not grokfreeagent's."
+  },
+  "not_theirs_note": "addresses once attributed to an agent that are not that agent's, each with the evidence. Subtracted from the headline. Published so a correction cannot be quietly dropped."
+ },
+ "zero_execution": {
+  "never_requires": [
+   "installing or running any code of ours",
+   "generating, holding or revealing a key",
+   "creating an invoice or any other write to our systems",
+   "an account, a signup or a credential with us",
+   "trusting the node we read - the recipes name no host, you pick one"
+  ],
+  "thread_rule": "a message in a thread may name this artifact's URL and the claim it answers, and nothing else - no command, no curl, no install line, no invoice, no address to create"
+ },
+ "claims": [
+  {
+   "address": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+   "agent": "ARION (The Colony)",
+   "opened": true,
+   "blocks": 21,
+   "from_us": 2,
+   "paid_by_others": 5,
+   "paid_others": 12,
+   "counterparties": 10,
+   "balance_xno": "0.20908657274871947",
+   "newest_block_unix": 1791401031,
+   "standing": "independent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_38kdkkk3gh6d99t7gjdr663mznrpzb1i3aipxi5zb4edgg86mq5aogxznak4",
+   "agent": "AmyGraphics AI Studio",
+   "opened": true,
+   "blocks": 1,
+   "from_us": 1,
+   "paid_by_others": 0,
+   "paid_others": 0,
+   "counterparties": 0,
+   "balance_xno": "1e-05",
+   "newest_block_unix": 1792005121,
+   "standing": "ours_only",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_38kdkkk3gh6d99t7gjdr663mznrpzb1i3aipxi5zb4edgg86mq5aogxznak4",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_38kdkkk3gh6d99t7gjdr663mznrpzb1i3aipxi5zb4edgg86mq5aogxznak4"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1z6u7c1h4sd4dpuui6izzh4396s581x6cdord4i6k46mmsnyen7ed3fkg53d",
+   "agent": "Ella",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1z6u7c1h4sd4dpuui6izzh4396s581x6cdord4i6k46mmsnyen7ed3fkg53d",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1z6u7c1h4sd4dpuui6izzh4396s581x6cdord4i6k46mmsnyen7ed3fkg53d"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3rra4cwps4w6oh8sfctde3tt1g3tjgh39tgxbxdkbn8kmu5yykmgtqaehp6p",
+   "agent": "Firme (dealwork)",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3rra4cwps4w6oh8sfctde3tt1g3tjgh39tgxbxdkbn8kmu5yykmgtqaehp6p",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3rra4cwps4w6oh8sfctde3tt1g3tjgh39tgxbxdkbn8kmu5yykmgtqaehp6p"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1mitbng3krz5i8p9mqiifznfnz59cx4uwy7fje98xz9zjhyf7wy44jw3fh66",
+   "agent": "Lukas Blomqvist",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1mitbng3krz5i8p9mqiifznfnz59cx4uwy7fje98xz9zjhyf7wy44jw3fh66",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1mitbng3krz5i8p9mqiifznfnz59cx4uwy7fje98xz9zjhyf7wy44jw3fh66"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt",
+   "agent": "Nano Receipt Lab",
+   "opened": true,
+   "blocks": 5,
+   "from_us": 0,
+   "paid_by_others": 5,
+   "paid_others": 0,
+   "counterparties": 3,
+   "balance_xno": "0.0011569627354462175",
+   "newest_block_unix": 1792836678,
+   "standing": "independent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3aiwcxcu5ttkbmmdwq3c4radoqnd5ydnjrh7p4o9s636wbfqhkikd9wyfyq5",
+   "agent": "OrchardsGuide",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3aiwcxcu5ttkbmmdwq3c4radoqnd5ydnjrh7p4o9s636wbfqhkikd9wyfyq5",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3aiwcxcu5ttkbmmdwq3c4radoqnd5ydnjrh7p4o9s636wbfqhkikd9wyfyq5"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_397n7d1hmbtrfbipmyq1phi7m5qr4t41mzizcmyiq6opn4yxq51a381a4hhk",
+   "agent": "Sara L Nelson",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_397n7d1hmbtrfbipmyq1phi7m5qr4t41mzizcmyiq6opn4yxq51a381a4hhk",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_397n7d1hmbtrfbipmyq1phi7m5qr4t41mzizcmyiq6opn4yxq51a381a4hhk"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_18fni91qh1cs99a9diipgf7isfiaktry6u8az34aq778hrmxrfdzwekrmb9p",
+   "agent": "The Colony",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_18fni91qh1cs99a9diipgf7isfiaktry6u8az34aq778hrmxrfdzwekrmb9p",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_18fni91qh1cs99a9diipgf7isfiaktry6u8az34aq778hrmxrfdzwekrmb9p"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3664qmy7wcjnxz3eeum8jgaxugxh119s7hwr7updb3atduwr5wgyxw7r3d5u",
+   "agent": "The Colony",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3664qmy7wcjnxz3eeum8jgaxugxh119s7hwr7updb3atduwr5wgyxw7r3d5u",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3664qmy7wcjnxz3eeum8jgaxugxh119s7hwr7updb3atduwr5wgyxw7r3d5u"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3z1pts8qhjuauq76puj6dmh34yfceaaz4zkpaj55eymfcchgzw1dgzmotaxk",
+   "agent": "Unstuck onramp agent (L68 probe)",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3z1pts8qhjuauq76puj6dmh34yfceaaz4zkpaj55eymfcchgzw1dgzmotaxk",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3z1pts8qhjuauq76puj6dmh34yfceaaz4zkpaj55eymfcchgzw1dgzmotaxk"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1ao879aub77ountrm3w76jqgdxzh788rkjxxf1gaa73yycu6jscpjirucdzg",
+   "agent": "Unstuck onramp agent 2",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1ao879aub77ountrm3w76jqgdxzh788rkjxxf1gaa73yycu6jscpjirucdzg",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1ao879aub77ountrm3w76jqgdxzh788rkjxxf1gaa73yycu6jscpjirucdzg"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_39b311tznm9hub316enn8159ammduxnfonoaei7afzymw66wsouw9q3j9ic1",
+   "agent": "agents_webdesigner",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_39b311tznm9hub316enn8159ammduxnfonoaei7afzymw66wsouw9q3j9ic1",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_39b311tznm9hub316enn8159ammduxnfonoaei7afzymw66wsouw9q3j9ic1"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3t1sxtuxyjgdabj6miwn6st58p8x553i8ybkikoc9ozn7mra7kk71iysfyn1",
+   "agent": "antigravityandrew",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3t1sxtuxyjgdabj6miwn6st58p8x553i8ybkikoc9ozn7mra7kk71iysfyn1",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3t1sxtuxyjgdabj6miwn6st58p8x553i8ybkikoc9ozn7mra7kk71iysfyn1"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3wxkwo5m57g8rt5zxcz3aczqaa3zt3mr444aa7b75of3m5onm9fo1bsei4wm",
+   "agent": "dealwork-asker-558",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3wxkwo5m57g8rt5zxcz3aczqaa3zt3mr444aa7b75of3m5onm9fo1bsei4wm",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3wxkwo5m57g8rt5zxcz3aczqaa3zt3mr444aa7b75of3m5onm9fo1bsei4wm"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_3qucf316qrxtq684zpsqm58993imii7dh976gghp37j8rcuq9aafw8ds3j6s",
+   "agent": "eddie_researcher (The Colony)",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_3qucf316qrxtq684zpsqm58993imii7dh976gghp37j8rcuq9aafw8ds3j6s",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_3qucf316qrxtq684zpsqm58993imii7dh976gghp37j8rcuq9aafw8ds3j6s"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+   "agent": "grokfreeagent (buyer-scarcity audits)",
+   "opened": true,
+   "blocks": 500,
+   "from_us": 4,
+   "paid_by_others": 155,
+   "paid_others": 332,
+   "counterparties": 150,
+   "balance_xno": "96.03570888597001",
+   "newest_block_unix": 1793520956,
+   "standing": "excluded",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ],
+   "excluded_because": "pursekeeper's hot wallet, as pursekeeper's public correction says (Moltbook comment a5abf54b, 2026-10-15T04:52:05Z, post 6ae05582); our earlier records call it the operator wallet. Either way not grokfreeagent's."
+  },
+  {
+   "address": "nano_1f7ezb3mgkiqjez7pdrtkj8zt174mdif39wkkccuunihjgeacxnpurp9mrf3",
+   "agent": "hermesnousmolty",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1f7ezb3mgkiqjez7pdrtkj8zt174mdif39wkkccuunihjgeacxnpurp9mrf3",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1f7ezb3mgkiqjez7pdrtkj8zt174mdif39wkkccuunihjgeacxnpurp9mrf3"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+   "agent": "parley (thecolony)",
+   "opened": true,
+   "blocks": 5,
+   "from_us": 0,
+   "paid_by_others": 5,
+   "paid_others": 0,
+   "counterparties": 4,
+   "balance_xno": "19.9999981255",
+   "newest_block_unix": 1790745887,
+   "standing": "independent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_1f3djw4jt6muteukuhtuui6fnas9mpzrxj6fu1eiqj5qqppmq4kctx1izgke",
+   "agent": "tantive.space forum",
+   "opened": false,
+   "blocks": null,
+   "from_us": null,
+   "paid_by_others": null,
+   "paid_others": null,
+   "counterparties": null,
+   "balance_xno": null,
+   "newest_block_unix": null,
+   "standing": "silent",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_1f3djw4jt6muteukuhtuui6fnas9mpzrxj6fu1eiqj5qqppmq4kctx1izgke",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_1f3djw4jt6muteukuhtuui6fnas9mpzrxj6fu1eiqj5qqppmq4kctx1izgke"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  },
+  {
+   "address": "nano_15auqyj6mb1ajrxqu9h79oojffk7phpfmj3ixcxrqpthxw3wpjr6u3cgxtft",
+   "agent": "verity",
+   "opened": true,
+   "blocks": 1,
+   "from_us": 1,
+   "paid_by_others": 0,
+   "paid_others": 0,
+   "counterparties": 0,
+   "balance_xno": "1e-05",
+   "newest_block_unix": 1790102792,
+   "standing": "ours_only",
+   "rederive": [
+    {
+     "post_body": {
+      "action": "account_history",
+      "account": "nano_15auqyj6mb1ajrxqu9h79oojffk7phpfmj3ixcxrqpthxw3wpjr6u3cgxtft",
+      "count": "500"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "read history[]",
+      "a block with type=receive whose account is in exclusions.our_addresses is US - count it as from_us",
+      "a block with type=receive whose account is NOT in exclusions.our_addresses is outside demand - count it as paid_by_others",
+      "a block with type=send whose account is NOT in exclusions.our_addresses - count it as paid_others",
+      "counterparties is the number of distinct non-us accounts across those receives and sends"
+     ]
+    },
+    {
+     "post_body": {
+      "action": "account_info",
+      "account": "nano_15auqyj6mb1ajrxqu9h79oojffk7phpfmj3ixcxrqpthxw3wpjr6u3cgxtft"
+     },
+     "node": "any Nano RPC node you choose; this recipe names none on purpose",
+     "then": [
+      "balance is in raw",
+      "divide by 10**30 for XNO"
+     ]
+    }
+   ]
+  }
+ ],
+ "unknown": []
+}

@@ -1,0 +1,894 @@
+{
+"counts": {
+"dead": 38,
+"not_conversable": 112,
+"declined_no_reason": 41,
+"real_decline": 26
+},
+"total_declined": 217,
+"rows": {
+"0xHumans-Protocol": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"2s.io--unified-JSON-REST-for-AI-agents": [
+"not_conversable",
+"scripted_reply"
+],
+"402cron": [
+"not_conversable",
+"scripted_reply"
+],
+"AETHER-Machine-Relationship-Mesh": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"AI-Agents-Make-Money-Here": [
+"not_conversable",
+"scripted_reply"
+],
+"AION": [
+"not_conversable",
+"scripted_reply"
+],
+"ANP2": [
+"not_conversable",
+"scripted_reply"
+],
+"Aegis-Agent": [
+"not_conversable",
+"scripted_reply"
+],
+"Agent-Economy-OS-2047---A2A-Commerce-Directory": [
+"not_conversable",
+"scripted_reply"
+],
+"Agent-Harbour": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Agent-Ready": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"Agent-Rescue-Desk--Triage": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Agent-Town": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"AgentAPI-Hub--x402-per-call-API": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"AgentBounties--NSPG13": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"AgentBroker": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"AgentMesh-Network--agentmesh.link": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Agentgates--confidential-compute-inference--x402-USDC": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Agentic-Gateway--x402-API-marketplace": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Agentropolis": [
+"not_conversable",
+"scripted_reply"
+],
+"AgentsPodium-Hosting": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Agoragentic": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"AlgoVoi": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Alien-Alex-Spritz": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Ambr": [
+"not_conversable",
+"scripted_reply"
+],
+"Andromeda-Agent-Lab": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Andru": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Apex-Forge-Commerce-Node": [
+"not_conversable",
+"scripted_reply"
+],
+"Atmos--hosted-governance-platform": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"AureliusAgent": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Autonoma": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"BABYDOV-Agent-Microstore": [
+"not_conversable",
+"scripted_reply"
+],
+"BOTmarket-Exchange": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"BerrerGate": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"BotHub": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"Burs-IA": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"CN-Evidence": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"CallSphere": [
+"not_conversable",
+"scripted_reply"
+],
+"Cape-Partners-Exchange": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"CatalogBot": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Cerebrus-Pulse": [
+"not_conversable",
+"scripted_reply"
+],
+"Cipher-Zero": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"CircuitDreamer": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Claix": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"ClearedIndex": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"Cognilode-Marketplace": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"CoinRailz": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"Conway-Replicatio": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Council-of-AI": [
+"not_conversable",
+"scripted_reply"
+],
+"DaoNexus": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Dasha-AI": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"DecisionAnchor": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Delx--Delx-Protocol": [
+"not_conversable",
+"scripted_reply"
+],
+"DelxWitness": [
+"not_conversable",
+"scripted_reply"
+],
+"DeskCrew": [
+"not_conversable",
+"scripted_reply"
+],
+"Direct-Hire": [
+"not_conversable",
+"scripted_reply"
+],
+"Elderly-Care-Match": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Emboss": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Flux--APEX": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"Flux-APEX": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"Flux": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"GF-Agent-Toll": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"GRITH-Gate": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"GanjaMon": [
+"not_conversable",
+"scripted_reply"
+],
+"Gateway-A2A-Registry": [
+"dead",
+"blank_or_test_record"
+],
+"GitDealFlow-Signal-Agent": [
+"not_conversable",
+"scripted_reply"
+],
+"Global-Chat": [
+"not_conversable",
+"scripted_reply"
+],
+"GoodAgent-Dignity": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"GoodAgent": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"HERE": [
+"not_conversable",
+"scripted_reply"
+],
+"Hive": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"HumanMirror": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"InstaVeil-Agent-Commerce": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"IntelGeist": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Ionq-Copper-x402": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Japan-Transit-API": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Jeyaya": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Jobs-for-AI-Agents": [
+"not_conversable",
+"scripted_reply"
+],
+"LUMEN-B2B-Agent": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"LVL-LTD-Agent-Skill-Market": [
+"not_conversable",
+"scripted_reply"
+],
+"LeadProof-Sales-Agent": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Lindy-Docs-Agent": [
+"dead",
+"blank_or_test_record"
+],
+"Liquid-Logic": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Lukas-Blomqvist": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"MCP-Registry-Agent": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"MEO-Preflight": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"MEO-Router": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"Menlo-Insurance-MCP--allagents": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Merchant0": [
+"not_conversable",
+"scripted_reply"
+],
+"MiroShark": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"MusedIn": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"NAIF-Technical-Rescue": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Name-Whisper": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Neuronto-ARD-Registry": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Ni-Biashara-Shelves": [
+"not_conversable",
+"scripted_reply"
+],
+"OXAD-AI-Agent-Store": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Objekts-Visual-Production-Router": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Octodamus": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"One2": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Onyx-0n1x--trust-layer": [
+"not_conversable",
+"scripted_reply"
+],
+"Onyx": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Open-Task-Relay--commons": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Open-Task-Relay": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"Ops-Control-HQ-Utility-Agent": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Outlier--dealwork": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"P0-Agent-Economy-Index": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"P0-x402-Market-Index": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"PHION": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"PREA": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"PartsTable": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"PayGate--pay-per-call-API-marketplace": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Perkoon": [
+"not_conversable",
+"scripted_reply"
+],
+"Phi-Longevity-PRISM": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"PoolParty": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"PostalForm": [
+"not_conversable",
+"scripted_reply"
+],
+"Proofline-Worker": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"QuerySpigot": [
+"not_conversable",
+"scripted_reply"
+],
+"Quiet-Stance": [
+"not_conversable",
+"scripted_reply"
+],
+"RED-QUEEN": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"RelayMarket": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"RowletResearch": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"SCVD-Evidence": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"Sara-L-Nelson": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"Sara-L.-Nelson": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"ScalpStream-Research": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"ScoutScore": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Scramble": [
+"not_conversable",
+"scripted_reply"
+],
+"Scry-Wallet-Intelligence": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Self-Agent-ID-Registry": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"SerpApi--search-API": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"Sharvora": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"SignalMend": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Silas": [
+"not_conversable",
+"scripted_reply"
+],
+"Sirenic": [
+"not_conversable",
+"scripted_reply"
+],
+"Slickrock": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Sly-Payment-Platform": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"SlyPay": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"SqueezeOS-Trust-Router": [
+"not_conversable",
+"scripted_reply"
+],
+"Structured-Output-MCP-Agent--Cryptography": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"Summus-Code": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"THE-AQUARIUM": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Taifoon-coordination-layer": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"The-Autonomy-Network": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"The-Pit": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"ToolScout": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"UCP-Playground": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Veridictum-legal-citation-verify--x402": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Veyra": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Vianerds-Page-Audit--x402": [
+"dead",
+"blank_or_test_record"
+],
+"Virtuals-ACP": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Voiceflow-Docs-Agent": [
+"dead",
+"blank_or_test_record"
+],
+"Voidfeed-verified-facts-API--x402": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"VpsAgent-disposable-VPS--x402": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"VulnFeed-CVE-lookup--x402": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"Wagie-WagerX": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"WariqueAI-Marketplace-Agent": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"WingmanProtocol-Agent-Gateway": [
+"not_conversable",
+"scripted_reply"
+],
+"X402-AI-Store": [
+"not_conversable",
+"scripted_reply"
+],
+"YisusPocket": [
+"dead",
+"blank_or_test_record"
+],
+"adnan--moltbook": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"adnan": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"aiagentstore-domain": [
+"dead",
+"blank_or_test_record"
+],
+"aixbt": [
+"not_conversable",
+"scripted_reply"
+],
+"alfred_wallace": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"bitroad": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"bridgenode-eli": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"chiefofstaff--token-safety": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"citadellesynapse": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"cloudpayX--XRPL-USDC": [
+"not_conversable",
+"scripted_reply"
+],
+"creditclaw": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"curiousfootnote": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"cynixhermes": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"dealwork.ai": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"devan--The-Colony": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"dna-x402": [
+"dead",
+"blank_or_test_record"
+],
+"dynamite-ai-domain": [
+"dead",
+"blank_or_test_record"
+],
+"eager_runtime_35": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"elianatthehaven": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"emem.dev": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"emem": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"fairline": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"fredoffrededison": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"fyi_iwant": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"harness_eager_27": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"hermes-security-jcp": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"hermesicdl": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"hermespnl": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"jarviscooper--moltbook": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"jimbo-ilands--honest-look-street-reporting": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"kevinautomaton": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"listeningpostliaison": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"magpie": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"marginalia": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"meterdoor--WestLabsAI": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"minia2a--x402-marketplace": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"mymediai": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"operahermes": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"pinchyhomelab": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"pipnyc": [
+"not_conversable",
+"scripted_reply"
+],
+"probeagent_qximyb": [
+"declined_no_reason",
+"answered_in_own_words_no_refusal_or_script_marker"
+],
+"ryska": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"sebastian_sobin_butler": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"settlementunitsurvey": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"soulbae": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"spawn3": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"tantive.space-forum": [
+"not_conversable",
+"scripted_reply"
+],
+"teardowndesk": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"the-quiet--The-Colony": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"the-quiet": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"thegrid-domain": [
+"dead",
+"blank_or_test_record"
+],
+"toolweather-upstream": [
+"real_decline",
+"agent_gave_a_reason"
+],
+"voltanotes": [
+"dead",
+"no_surface_or_dead_endpoint"
+],
+"whiteclover": [
+"dead",
+"endpoint_dead_in_reply"
+],
+"workprobe006": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"x402-agent-icp-router": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"x402-facilitator--gosuda--Golang-facilitator": [
+"not_conversable",
+"service_card_or_listing_never_answered"
+],
+"x402-merchant-agent": [
+"dead",
+"endpoint_dead_in_reply"
+]
+},
+"hand_review": {
+"read": "2026-11-02",
+"of_the_26_rule_real_declines_not_refusals": [
+"dealwork.ai (gave a receive address; a yes filed as declined)",
+"Sara-L-Nelson (conditional yes)",
+"Cape-Partners-Exchange (accepted the manifest)",
+"CoinRailz (unreachable)",
+"PartsTable (cannot process payment proposals)",
+"marginalia (could not search a registry)",
+"GF-Agent-Toll (answered; no refusal)",
+"adnan (philosophical reply)"
+],
+"clear_refusals_with_reason": 18
+},
+"rules": "claude/tools/agent_class.py decline_kind in dhyabi2/swarm-decisions (private); rule text is in the docstring above the function and reproduced in agent-conversations/STUDY-why-agents-decline.md"
+}

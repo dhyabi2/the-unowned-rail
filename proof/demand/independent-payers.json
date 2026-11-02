@@ -1,0 +1,163 @@
+{
+ "schema": "unstuck.independent-payers/1",
+ "generated_utc": "2026-11-02T09:53:55Z",
+ "definitions": {
+  "independent_payer": "a distinct Nano account that SENT a confirmed block to a watched agent address and is not one of our addresses (treasury, our sender, owner hand) and not the agent's own address",
+  "count_basis": "per address, the receive blocks in account_history (up to 500 newest) whose sender is not ours; the newest receive per distinct sender is what the funding check reads",
+  "unsubsidised": "no funder in the payer's 720 h before paying is a dispenser, the payee, or a flagged sponsor/self account",
+  "sponsor_funded": "funded in the window by an account we flagged (here: our own addresses, passed as --sponsor)",
+  "dispenser_funded": "funded in the window by an account that sent the same amount to 10+ distinct accounts",
+  "unknown": "not enough history, nodes disagree, or no node answered; never counted as unsubsidised",
+  "headline_count": "independent payers whose verdict is `unsubsidised`; every other verdict is listed beside it, not hidden"
+ },
+ "nodes": [
+  "https://rainstorm.city/api"
+ ],
+ "headline": {
+  "independent_payers_read": 8,
+  "independent_payers_unsubsidised": 0,
+  "payers_funded_by_us_or_by_another_payer_in_the_set": 2,
+  "verdict_counts_per_payer_row": {
+   "dispenser_funded": 5,
+   "unknown": 4
+  },
+  "addresses_unreadable": 0
+ },
+ "payers": [
+  {
+   "agent": "ARION (The Colony)",
+   "address": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+   "payer": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+   "receive_hash": "42D0E03470666532B92AC49642F97D9F11018F309871991E9527317A5867F73F",
+   "amount_raw": "5000000000000000000000000000000",
+   "verdict": "dispenser_funded",
+   "why": null,
+   "decisive_receive": {
+    "funder": "nano_1i3y944esngqw6wb6ia68dotj4yuqctch9kx8ct65twt8ewi4rdcfgax7ggf",
+    "receive_hash": "A34F607EBC9716C496085C8C64B6571FED0B912E0716ACB69C36A09D13116B5C",
+    "amount_raw": "1000000000000000000000000000",
+    "received_at": 1790634395
+   },
+   "distinct_non_us_payers_at_address": 2,
+   "decisive_funder_label": "another payer in this same set"
+  },
+  {
+   "agent": "ARION (The Colony)",
+   "address": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+   "payer": "nano_1banexkcfuieufzxksfrxqf6xy8e57ry1zdtq9yn7jntzhpwu4pg4hajojmq",
+   "receive_hash": "8D13D5086B44198A775FDA1129FA6807AFA9BFD73BB5D0D1E9F4029A408D4236",
+   "amount_raw": "3002549531561972000000000000000",
+   "verdict": "unknown",
+   "why": "OSError: read budget of 120 exhausted",
+   "decisive_receive": null,
+   "distinct_non_us_payers_at_address": 2,
+   "decisive_funder_label": null
+  },
+  {
+   "agent": "Nano Receipt Lab",
+   "address": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt",
+   "payer": "nano_3top1ao59iks4hdctz5jyn5hr7d6zr3wogyxj9qzc1wc7e8w9gotr6unwr4p",
+   "receive_hash": "E256B2CBC5F08246877B411F30F0F6554A5E300BB35920DBA0AC970EA20F4510",
+   "amount_raw": "322699100694444450000000000",
+   "verdict": "unknown",
+   "why": "history_incomplete",
+   "decisive_receive": null,
+   "distinct_non_us_payers_at_address": 3,
+   "decisive_funder_label": null
+  },
+  {
+   "agent": "Nano Receipt Lab",
+   "address": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt",
+   "payer": "nano_1tipnanogsu7q59pnie3qfc4w378wm43fg4ksqc8wmnnfnizrq1xrpt5geho",
+   "receive_hash": "492E92D9D17A85A1B9B077288BE46C6DA72316165B02563949C5EB72B1BBCA14",
+   "amount_raw": "10000000000000000000000000",
+   "verdict": "unknown",
+   "why": "history_incomplete",
+   "decisive_receive": null,
+   "distinct_non_us_payers_at_address": 3,
+   "decisive_funder_label": null
+  },
+  {
+   "agent": "Nano Receipt Lab",
+   "address": "nano_1mx64gbrj3t8frxgp75y9sxxh17njcf67tmyqktubqsd7inwmkw9din7k9nt",
+   "payer": "nano_1hk1cu3773u5r39e75mtqrauzro75j3hwdzyewz8izokzur66semy739w14h",
+   "receive_hash": "A75C69D72622B24097EAED6C87FBCC10BA4BDA8C9AD17A56D8E28C8380580A36",
+   "amount_raw": "500000000000000000000000000",
+   "verdict": "unknown",
+   "why": "no_receive_in_window",
+   "decisive_receive": null,
+   "distinct_non_us_payers_at_address": 3,
+   "decisive_funder_label": null
+  },
+  {
+   "agent": "parley (thecolony)",
+   "address": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+   "payer": "nano_1i3y944esngqw6wb6ia68dotj4yuqctch9kx8ct65twt8ewi4rdcfgax7ggf",
+   "receive_hash": "FE5F898C898BEFD395663C7FC1E8F830AC0793B0594C5F5826195B59F5A44C0A",
+   "amount_raw": "2499999681800000000000000000000",
+   "verdict": "dispenser_funded",
+   "why": null,
+   "decisive_receive": {
+    "funder": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+    "receive_hash": "F1FE7B9F6FAE507AFDA921F68FB91AC7A463B6C8EC00251481C80E10D94C9462",
+    "amount_raw": "2500000000000000000000000000000",
+    "received_at": 1790570641
+   },
+   "distinct_non_us_payers_at_address": 4,
+   "decisive_funder_label": "published third party: pursekeeper's hot wallet, as pursekeeper's public correction says (Moltbook comment a5abf5"
+  },
+  {
+   "agent": "parley (thecolony)",
+   "address": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+   "payer": "nano_3dwrn5ohdk4ratdc6i7z81u1kmagstxbsg3c8pzoye675sskn573k7iasdeo",
+   "receive_hash": "75C833AEE311D83E4B602A3D83B1EEA5092B9D4BEA2F41180C7635AF7170DC87",
+   "amount_raw": "2499999373000000000000000000000",
+   "verdict": "dispenser_funded",
+   "why": null,
+   "decisive_receive": {
+    "funder": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+    "receive_hash": "FBF7CE959DA8735F91B3AD7B24D0E4B02B8876046007F6319EF9D1CFB595B101",
+    "amount_raw": "3000000000000000000000000000000",
+    "received_at": 1790564615
+   },
+   "distinct_non_us_payers_at_address": 4,
+   "decisive_funder_label": "published third party: pursekeeper's hot wallet, as pursekeeper's public correction says (Moltbook comment a5abf5"
+  },
+  {
+   "agent": "parley (thecolony)",
+   "address": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+   "payer": "nano_3m8cz87zwxb1y16ob4bzp1eyek78qaig8ktohk7d45b18sh6u9exbowbnekr",
+   "receive_hash": "DED3A618A307DA5651768CD28A91101083E229513D771AC209BF359624DFEE0B",
+   "amount_raw": "2499999747400000000000000000000",
+   "verdict": "dispenser_funded",
+   "why": null,
+   "decisive_receive": {
+    "funder": "nano_1434j1n4sin4cefs5njibag4tsmo596fmg3s6bdogtod3ndmdfez5yuebrh9",
+    "receive_hash": "536559437684FCAE1E2CCE51F69F2CCDD1D948540B94C1AB226D4B8071106F18",
+    "amount_raw": "100000000000000000000000000000",
+    "received_at": 1790200745
+   },
+   "distinct_non_us_payers_at_address": 4,
+   "decisive_funder_label": "ours (our-sender)"
+  },
+  {
+   "agent": "parley (thecolony)",
+   "address": "nano_1w3xqs35iapy11kwurkgnt9gr9auzqf57pwi7w54u3tzb88piqe3h1b9gqfg",
+   "payer": "nano_1xug1q5t7nxoj3ywwzokiea9jz8fq8qfgzp8pbyfr3co3e5xgj755uofu8ue",
+   "receive_hash": "84A684B44D9BA86F45044319497E8284C96ED2EE301A927332286A7BA742F0E3",
+   "amount_raw": "10000000000000000000000000000000",
+   "verdict": "dispenser_funded",
+   "why": null,
+   "decisive_receive": {
+    "funder": "nano_1434j1n4sin4cefs5njibag4tsmo596fmg3s6bdogtod3ndmdfez5yuebrh9",
+    "receive_hash": "C705CB915F34C5DCAFD26239CD9A42440E2EABE2E93C4539A16C3DF57ACC99AB",
+    "amount_raw": "1000000000000000000000000000",
+    "received_at": 1789706546
+   },
+   "distinct_non_us_payers_at_address": 4,
+   "decisive_funder_label": "ours (our-sender)"
+  }
+ ],
+ "addresses_unreadable": [],
+ "note": "A payer's funding is evidence about subsidy, not about who the payer is. A payer can be unsubsidised and still be an operator's own second wallet; this file does not claim otherwise."
+}

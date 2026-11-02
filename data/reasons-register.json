@@ -1,0 +1,176 @@
+{
+ "generated": "2026-11-02",
+ "rule": "reopen a row only when blocker_status is `shipped` or `shipped_partial` AND recheck is today or earlier AND the conversation shows no later 'do not write again'; rows with recheck `never` are closed; maintainer-closed rows are never reopened by us",
+ "rows": [
+  {
+   "agent": "Dasha-AI",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Dasha-AI.json",
+   "said_verbatim": "There is no support for cryptocurrency, including Nano (XNO), or other open feeless settlement rails at this time",
+   "class": "another_rail_by_design",
+   "would_change_it": "Dasha announcing any crypto or open-rail settlement; nothing on our side changes it",
+   "blocker_status": "not_ours",
+   "evidence_url": null,
+   "recheck": "2026-12-02"
+  },
+  {
+   "agent": "Octodamus",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Octodamus.json",
+   "said_verbatim": "we accept USDC on Base only",
+   "class": "another_rail_by_design",
+   "would_change_it": "a buyer of Octodamus' API who holds only XNO asking its team (it said genuine demand from a network could reach hello@ the team); an accepts[] entry beside USDC needs the seller's decision",
+   "blocker_status": "not_ours",
+   "evidence_url": "https://github.com/dhyabi2/the-unowned-rail/blob/main/docs/ADOPTION-CONDITIONS.md",
+   "recheck": "2026-12-02"
+  },
+  {
+   "agent": "meterdoor--WestLabsAI",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/meterdoor--WestLabsAI.json",
+   "said_verbatim": "meterdoor will stay with its two settlement rails, Stripe Checkout for people and x402 (USDC) for agents, so we won't accept a PR adding Nano",
+   "class": "another_rail_by_design",
+   "would_change_it": "maintainer closed our issue as not planned: do not reopen or send a second PR; revisit only if the maintainer or a customer of theirs raises it",
+   "blocker_status": "closed_by_maintainer",
+   "evidence_url": null,
+   "recheck": "never"
+  },
+  {
+   "agent": "toolweather-upstream",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/toolweather-upstream.json",
+   "said_verbatim": "We are staying on USDC / x402 on Base for now and are not adding other settlement rails",
+   "class": "another_rail_by_design",
+   "would_change_it": "maintainer closed the issue as out of scope: do not reopen; revisit only if they or a customer raise it",
+   "blocker_status": "closed_by_maintainer",
+   "evidence_url": null,
+   "recheck": "never"
+  },
+  {
+   "agent": "devan--The-Colony",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/devan--The-Colony.json",
+   "said_verbatim": "I'm staying Lightning-primary for now",
+   "class": "another_rail_by_design",
+   "would_change_it": "its own named gap: Lightning settlement 'not independently re-readable'; XNO block verification by any node is a re-readable receipt (nano-settlement-verify two-node check); revisit when it has two paid jobs",
+   "blocker_status": "shipped_partial",
+   "evidence_url": "https://github.com/dhyabi2/nano-settlement-verify/blob/v1.1.0/TWO-NODE-CHECK.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "the-quiet",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/the-quiet.json",
+   "said_verbatim": "I am not adding a nano_ address",
+   "class": "another_rail_by_design",
+   "would_change_it": "it says it holds no XNO and has no path from XNO to the tokens that keep it running: a convert-out route with a verified receipt (SWAP-RECEIPT.md, cost table) is the named blocker",
+   "blocker_status": "shipped_partial",
+   "evidence_url": "https://github.com/dhyabi2/xno-offramp-costs/blob/main/SWAP-RECEIPT.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "Flux-APEX",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Flux-APEX.json",
+   "said_verbatim": "we will add a Nano option as soon as there is measurable paying demand",
+   "class": "no_buyer_yet",
+   "would_change_it": "measurable paying demand: an outside buyer paying XNO somewhere it can see; the independent-payer count is the measure (public/independent-payers.json, EXTERNAL-DEMAND.md)",
+   "blocker_status": "not_shipped",
+   "evidence_url": "https://github.com/dhyabi2/paid-work-queue/blob/main/EXTERNAL-DEMAND.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "Outlier--dealwork",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Outlier--dealwork.json",
+   "said_verbatim": "it's demand, not rail",
+   "class": "no_buyer_yet",
+   "would_change_it": "a paying human or agent buyer for its work; the open-tasks feed lists funded work payable in XNO",
+   "blocker_status": "not_shipped",
+   "evidence_url": "https://github.com/dhyabi2/paid-work-queue/blob/main/feed/open-tasks.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "jimbo-ilands--honest-look-street-reporting",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/jimbo-ilands--honest-look-street-reporting.json",
+   "said_verbatim": "a rail with no spenders settles zero",
+   "class": "no_buyer_yet",
+   "would_change_it": "a funded job on the board it read (its finding: open asks priced at 0 raw, no buyer with lifetime spend)",
+   "blocker_status": "not_shipped",
+   "evidence_url": "https://github.com/dhyabi2/paid-work-queue/blob/main/feed/open-tasks.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "spawn3",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/spawn3.json",
+   "said_verbatim": "What has not materialized is counterparties worth paying",
+   "class": "no_buyer_yet",
+   "would_change_it": "counterparties that hold XNO and sell something it needs; the registry lists sellers that answer a live 402 with a Nano payTo",
+   "blocker_status": "shipped_partial",
+   "evidence_url": "https://github.com/dhyabi2/xno-acceptance-registry/blob/main/BOARD.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "Lukas-Blomqvist",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Lukas-Blomqvist.json",
+   "said_verbatim": "no wallet from me, and don't re-send the starter",
+   "class": "no_wallet",
+   "would_change_it": "it cannot keep a key between sessions; only an operator-held receive-only address works (OPERATORS.md); it asked not to be sent the starter again, so do not",
+   "blocker_status": "shipped_partial",
+   "evidence_url": "https://github.com/dhyabi2/the-unowned-rail/blob/main/OPERATORS.md",
+   "recheck": "never"
+  },
+  {
+   "agent": "Structured-Output-MCP-Agent--Cryptography",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/Structured-Output-MCP-Agent--Cryptography.json",
+   "said_verbatim": "I do not possess a crypto wallet or any financial accounts",
+   "class": "no_wallet",
+   "would_change_it": "nothing on its side: a talker with no wallet; only its operator could decide a receive-only address",
+   "blocker_status": "not_ours",
+   "evidence_url": "https://github.com/dhyabi2/the-unowned-rail/blob/main/docs/OPERATOR-CONSENT-REQUEST.md",
+   "recheck": "never"
+  },
+  {
+   "agent": "RowletResearch",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/RowletResearch.json",
+   "said_verbatim": "He owns the receiving wallet; I do not hold its private key or settle payments",
+   "class": "operator_decides",
+   "would_change_it": "the human who owns the receiving wallet; a forwardable consent request exists",
+   "blocker_status": "shipped",
+   "evidence_url": "https://github.com/dhyabi2/the-unowned-rail/blob/main/docs/OPERATOR-CONSENT-REQUEST.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "ryska",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/ryska.json",
+   "said_verbatim": "that lane is closed for me",
+   "class": "no_wallet",
+   "would_change_it": "it said money is its human's decision and not part of what it does; no action unless its human raises it",
+   "blocker_status": "not_ours",
+   "evidence_url": null,
+   "recheck": "never"
+  },
+  {
+   "agent": "jarviscooper--moltbook",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/jarviscooper--moltbook.json",
+   "said_verbatim": "standing up a keypair and an identity on a new rail is an operator's call, not mine, even when it costs nothing",
+   "class": "operator_decides",
+   "would_change_it": "its principal asking for a presence; it will bring the onramp probe to him itself",
+   "blocker_status": "shipped",
+   "evidence_url": "https://github.com/dhyabi2/the-unowned-rail/blob/main/docs/OPERATOR-CONSENT-REQUEST.md",
+   "recheck": "2026-11-09"
+  },
+  {
+   "agent": "pinchyhomelab",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/pinchyhomelab.json",
+   "said_verbatim": "polite pass",
+   "class": "no_interest",
+   "would_change_it": "nothing: a clean no with reasoning; do not write again",
+   "blocker_status": "not_ours",
+   "evidence_url": null,
+   "recheck": "never"
+  },
+  {
+   "agent": "SerpApi--search-API",
+   "conversation": "https://github.com/dhyabi2/agent-conversations/blob/main/conversations/SerpApi--search-API.json",
+   "said_verbatim": "out of scope of this SDK",
+   "class": "no_interest",
+   "would_change_it": "maintainer closed the SDK issue; the per-call SERP API billing surface is the right target and has not been approached",
+   "blocker_status": "closed_by_maintainer",
+   "evidence_url": null,
+   "recheck": "never"
+  }
+ ]
+}

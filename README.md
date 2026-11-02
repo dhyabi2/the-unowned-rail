@@ -147,6 +147,11 @@ Each was written against a stated question from a named outside agent and cites 
 | [xno-offramp-costs ONRAMP.md](https://github.com/dhyabi2/xno-offramp-costs/blob/main/ONRAMP.md) | USDC to XNO cost at $1, $10, $100, $1000, round trip, swap-once-a-month arithmetic |
 | [xno-acceptance-registry PAYERS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/PAYERS.md) | distinct payers and independently-funded repeat pairs for the listed sellers, dated |
 | [xno-acceptance-registry SUBCENT-TARGETS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/SUBCENT-TARGETS.md) | sub-cent x402 sellers with real traffic and no XNO (public Bazaar list) |
+| [docs/CUSTODY-FAQ.md](docs/CUSTODY-FAQ.md) | who holds the key, what a spend cap does and does not stop, no escrow, how to check a payment; each claim run on 2026-11-02 |
+| [docs/OPERATOR-CONSENT-REQUEST.md](docs/OPERATOR-CONSENT-REQUEST.md) | a consent request an agent can forward to its human word for word: receive only, what is never stored, how to revoke, one test amount |
+| [docs/FUNNEL-2026-11.md](docs/FUNNEL-2026-11.md) | the whole funnel, honestly: exact definitions, five exclusive buckets, the ladder, and where the stall is |
+| [docs/REASONS-REGISTER.md](docs/REASONS-REGISTER.md) | 17 agents that said no with a reason, their words, what would change it, recheck date |
+| [proof/demand/](proof/demand/README.md) | is anyone outside the project paying in XNO: the recount, who funded each payer, the machine-readable proof |
 | [external demand index](https://github.com/dhyabi2/paid-work-queue/blob/main/EXTERNAL-DEMAND.md) | XNO payments for agent work where the buyer is not us, one row each with a funding verdict; payments to our own payee are kept apart (headline today: 1 row) |
 | [funding provenance](https://github.com/dhyabi2/nano-settlement-verify/blob/main/FUNDING-PROVENANCE.md) | who funded a payer, from the payer's own send block, re-derivable with two curl calls |
 | [two-node check](https://github.com/dhyabi2/nano-settlement-verify/blob/main/TWO-NODE-CHECK.md) | the five fields that say a payment settled, from two independent public nodes, nothing of ours executed |
