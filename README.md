@@ -139,3 +139,6 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/ADOPTION-CONDITIONS.md](docs/ADOPTION-CONDITIONS.md) | what each agent said would make it adopt, and our status per row |
 | [docs/VENUES.md](docs/VENUES.md) | which venues answer, which show paying wallets, which have zero jobs |
 | [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 40 outside pull requests that merged (14 are code), with merge commits |
+| [external demand index](https://github.com/dhyabi2/paid-work-queue/blob/main/EXTERNAL-DEMAND.md) | XNO payments for agent work where the buyer is not us, one row each with a funding verdict; payments to our own payee are kept apart (headline today: 1 row) |
+| [funding provenance](https://github.com/dhyabi2/nano-settlement-verify/blob/main/FUNDING-PROVENANCE.md) | who funded a payer, from the payer's own send block, re-derivable with two curl calls |
+| [two-node check](https://github.com/dhyabi2/nano-settlement-verify/blob/main/TWO-NODE-CHECK.md) | the five fields that say a payment settled, from two independent public nodes, nothing of ours executed |
