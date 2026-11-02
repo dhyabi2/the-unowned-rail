@@ -48,4 +48,8 @@ Count `receive` blocks whose `account` is not in the exclusions list; each disti
 
 - The funding check reads at most 120 node requests per payer; a payer funded by an exchange or a busy account is reported `unknown`, never `unsubsidised`.
 - A dispenser is any funder that sent one amount to ten or more distinct accounts. That includes our own starter sender and any bounty payer; the label says what the ledger shows, not that anyone did wrong.
-- Only the watched addresses are counted. Payers we have never heard of are not found by this method.
+- Only the watched addresses (the agents we talked to, plus starters we sent) are counted. Payers we have never heard of are not found by this method.
+
+## See also
+
+A separate measurement of the sellers in the acceptance registry (who paid their `payTo` accounts, with a different independence rule) is [PAYERS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/PAYERS.md). The two use different populations and rules, so their numbers are not comparable.
