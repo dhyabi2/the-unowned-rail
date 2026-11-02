@@ -1,0 +1,427 @@
+{
+ "since": "2026-09-15",
+ "author": "dhyabi2",
+ "total": 243,
+ "by_state": {
+  "merged": 40,
+  "open": 122,
+  "closed_unmerged": 81
+ },
+ "by_class": {
+  "code_or_docs_repo": {
+   "merged": 13,
+   "open": 53,
+   "closed_unmerged": 25,
+   "total": 91,
+   "merge_share_of_decided": 0.342,
+   "merge_share_of_all": 0.143
+  },
+  "list_or_directory": {
+   "merged": 27,
+   "open": 69,
+   "closed_unmerged": 56,
+   "total": 152,
+   "merge_share_of_decided": 0.325,
+   "merge_share_of_all": 0.178
+  }
+ },
+ "by_class_stars": {
+  "('code_or_docs_repo', '<3k')": {
+   "merged": 13,
+   "open": 48,
+   "closed_unmerged": 20,
+   "total": 81,
+   "merge_share_of_decided": 0.394,
+   "merge_share_of_all": 0.16
+  },
+  "('list_or_directory', '<3k')": {
+   "merged": 26,
+   "open": 67,
+   "closed_unmerged": 52,
+   "total": 145,
+   "merge_share_of_decided": 0.333,
+   "merge_share_of_all": 0.179
+  },
+  "('list_or_directory', '>=3k')": {
+   "merged": 1,
+   "open": 2,
+   "closed_unmerged": 4,
+   "total": 7,
+   "merge_share_of_decided": 0.2,
+   "merge_share_of_all": 0.143
+  },
+  "('code_or_docs_repo', None)": {
+   "merged": 0,
+   "open": 1,
+   "closed_unmerged": 0,
+   "total": 1,
+   "merge_share_of_decided": null,
+   "merge_share_of_all": 0.0
+  },
+  "('code_or_docs_repo', '>=3k')": {
+   "merged": 0,
+   "open": 4,
+   "closed_unmerged": 5,
+   "total": 9,
+   "merge_share_of_decided": 0.0,
+   "merge_share_of_all": 0.0
+  }
+ },
+ "by_class_stars_active": {
+  "('code_or_docs_repo', '<3k', True)": {
+   "merged": 10,
+   "open": 16,
+   "closed_unmerged": 15,
+   "total": 41,
+   "merge_share_of_decided": 0.4,
+   "merge_share_of_all": 0.244
+  },
+  "('list_or_directory', '<3k', True)": {
+   "merged": 25,
+   "open": 12,
+   "closed_unmerged": 14,
+   "total": 51,
+   "merge_share_of_decided": 0.641,
+   "merge_share_of_all": 0.49
+  },
+  "('code_or_docs_repo', '<3k', False)": {
+   "merged": 3,
+   "open": 32,
+   "closed_unmerged": 5,
+   "total": 40,
+   "merge_share_of_decided": 0.375,
+   "merge_share_of_all": 0.075
+  },
+  "('list_or_directory', '<3k', False)": {
+   "merged": 1,
+   "open": 55,
+   "closed_unmerged": 38,
+   "total": 94,
+   "merge_share_of_decided": 0.026,
+   "merge_share_of_all": 0.011
+  },
+  "('list_or_directory', '>=3k', True)": {
+   "merged": 1,
+   "open": 1,
+   "closed_unmerged": 3,
+   "total": 5,
+   "merge_share_of_decided": 0.25,
+   "merge_share_of_all": 0.2
+  },
+  "('list_or_directory', '>=3k', False)": {
+   "merged": 0,
+   "open": 1,
+   "closed_unmerged": 1,
+   "total": 2,
+   "merge_share_of_decided": 0.0,
+   "merge_share_of_all": 0.0
+  },
+  "('code_or_docs_repo', None, None)": {
+   "merged": 0,
+   "open": 1,
+   "closed_unmerged": 0,
+   "total": 1,
+   "merge_share_of_decided": null,
+   "merge_share_of_all": 0.0
+  },
+  "('code_or_docs_repo', '>=3k', True)": {
+   "merged": 0,
+   "open": 4,
+   "closed_unmerged": 5,
+   "total": 9,
+   "merge_share_of_decided": 0.0,
+   "merge_share_of_all": 0.0
+  }
+ },
+ "merge_days": {
+  "n": 40,
+  "median": 0.0,
+  "min": 0,
+  "max": 20
+ },
+ "merged_with_zero_comments": 19,
+ "open_with_zero_comments": 84,
+ "open_older_than_10d": 115,
+ "merged_list": [
+  [
+   "AIAnytime/Awesome-MCP-Servers",
+   114,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "ArcedeDev/open-402",
+   30,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "ArcedeDev/open-402",
+   33,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "Corican/nanodir",
+   5,
+   "list_or_directory",
+   "<3k",
+   2
+  ],
+  [
+   "Corican/nanodir",
+   7,
+   "list_or_directory",
+   "<3k",
+   3
+  ],
+  [
+   "Feeless402/feeless402",
+   4,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "Haustorium12/gold-402",
+   247,
+   "list_or_directory",
+   "<3k",
+   3
+  ],
+  [
+   "Haustorium12/gold-402",
+   256,
+   "list_or_directory",
+   "<3k",
+   2
+  ],
+  [
+   "Haustorium12/gold-402",
+   284,
+   "list_or_directory",
+   "<3k",
+   11
+  ],
+  [
+   "Haustorium12/gold-402",
+   324,
+   "list_or_directory",
+   "<3k",
+   2
+  ],
+  [
+   "TensorBlock/awesome-mcp-servers",
+   2644,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "TensorBlock/awesome-mcp-servers",
+   2756,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "TensorBlock/awesome-mcp-servers",
+   3932,
+   "list_or_directory",
+   "<3k",
+   2
+  ],
+  [
+   "agentskillexchange/skills",
+   78,
+   "list_or_directory",
+   "<3k",
+   2
+  ],
+  [
+   "aiagenta2z/ai-agent-marketplace",
+   45,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "alexander-schneider/saxi.ai",
+   34,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "basementstudio/xmcp",
+   734,
+   "code_or_docs_repo",
+   "<3k",
+   1
+  ],
+  [
+   "frankxai/awesome-payment-agent-skills",
+   24,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "go-taas/go-taas",
+   13,
+   "code_or_docs_repo",
+   "<3k",
+   12
+  ],
+  [
+   "go-taas/go-taas",
+   14,
+   "code_or_docs_repo",
+   "<3k",
+   5
+  ],
+  [
+   "gosuda/portal-tunnel",
+   688,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "gosuda/x402-facilitator",
+   64,
+   "code_or_docs_repo",
+   "<3k",
+   2
+  ],
+  [
+   "hanishrao/collective-ai-tools",
+   369,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "llf007/public-apis-cn",
+   25,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "marcelscruz/public-apis",
+   1269,
+   "list_or_directory",
+   ">=3k",
+   1
+  ],
+  [
+   "mcpHQ/awesome-mcp-servers",
+   283,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dev",
+   104,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dev",
+   108,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dev",
+   115,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dev",
+   123,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dev",
+   124,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "michielpost/x402-dotnet",
+   20,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "ninemindai/agentback",
+   77,
+   "code_or_docs_repo",
+   "<3k",
+   5
+  ],
+  [
+   "nymrel/open-ucp",
+   14,
+   "code_or_docs_repo",
+   "<3k",
+   4
+  ],
+  [
+   "pab1it0/awesome-a2a",
+   98,
+   "list_or_directory",
+   "<3k",
+   0
+  ],
+  [
+   "profullstack/coinpayportal",
+   429,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "profullstack/x402-gateway",
+   22,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "requestway/laravel-x402",
+   1,
+   "code_or_docs_repo",
+   "<3k",
+   0
+  ],
+  [
+   "soxoj/awesome-osint-mcp-servers",
+   83,
+   "list_or_directory",
+   "<3k",
+   1
+  ],
+  [
+   "vadimen/awesome_llm_api_with_web_search",
+   5,
+   "list_or_directory",
+   "<3k",
+   0
+  ]
+ ]
+}
