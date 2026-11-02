@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dhyabi2/the-unowned-rail/blob/main/schema/starter-envelope.schema.json",
+  "title": "Unsolicited Nano payment envelope (off-chain claim about an on-chain block)",
+  "description": "Nano blocks have no memo field, so any statement about WHY a payment was made travels beside the block, not inside it. Every field except block_hash is a claim by the sender. A receiver checks the block (block_hash, sender, recipient, amount_raw) and may ignore the rest.",
+  "type": "object",
+  "required": ["schema", "block_hash", "sender", "recipient", "amount_raw", "intent"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {"const": "starter-envelope/1"},
+    "block_hash": {"type": "string", "pattern": "^[0-9A-F]{64}$", "description": "The send block. Checkable by anyone with block_info."},
+    "sender": {"type": "string", "pattern": "^nano_[13][13-9a-km-uw-z]{59}$"},
+    "recipient": {"type": "string", "pattern": "^nano_[13][13-9a-km-uw-z]{59}$"},
+    "amount_raw": {"type": "string", "pattern": "^[0-9]+$", "description": "Integer string. 1 XNO = 10^30 raw."},
+    "intent": {"enum": ["gift", "payment_for_behaviour", "reputation_seeding", "test"], "description": "A claim. A receiver must not treat it as verified."},
+    "terms_uri": {"type": "string", "format": "uri", "description": "Human-readable terms. Reading it is optional; nothing in it binds the receiver."},
+    "obligation": {"const": "none", "description": "Only valid value. A sender who wants something back uses a priced offer, not a starter."},
+    "reply_uri": {"type": "string", "format": "uri", "description": "Where the sender can be asked a question. Optional."},
+    "attestation": {"type": "object", "description": "Optional third-party statement about the sender (who, what it vouches for, a signature). NOT checked by tools/starter_policy.py; a receiver who wants it checked must check it themselves.", "additionalProperties": true}
+  }
+}
