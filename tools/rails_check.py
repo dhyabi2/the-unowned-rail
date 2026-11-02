@@ -7,6 +7,7 @@ read-only. It validates the declaration's SHAPE (Nano address checksum, network 
 cannot tell you the agent delivers anything - a declared address says where to pay, not that service follows.
 
     python3 tools/rails_check.py registration.json     # exit 0 = at least one valid nano rail, 1 = none/invalid
+    python3 tools/rails_check.py --example             # the built-in sample, no file needed
 """
 import hashlib, json, re, sys
 
@@ -55,7 +56,11 @@ def rails(doc):
     return out
 
 
+EXAMPLE = {"services": [{"name": "wallet", "endpoint": "nano:nano_3aysuejus8iy1hhw6doc7syzg1aaa6hgpec91xcc36mf6hp6thy7u6ymkgfm",
+                         "version": "v1", "network": "nano:mainnet", "min_raw": "100000000000000000000000000"}]}
+
 if __name__ == "__main__":
-    r = rails(json.load(open(sys.argv[1])))
+    # `--example` checks the built-in registration file (feeless402's live payTo), so one line runs with no input file.
+    r = rails(EXAMPLE if sys.argv[1:] == ["--example"] else json.load(open(sys.argv[1])))
     print(json.dumps(r, indent=1))
     sys.exit(0 if any(not x["problems"] for x in r) else 1)

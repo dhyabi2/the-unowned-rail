@@ -37,7 +37,7 @@ to pay, not that the agent delivers: it is self-asserted, like the rest of a reg
 
 ## Check a document (offline, stdlib)
 
-    git clone https://github.com/dhyabi2/the-unowned-rail && cd the-unowned-rail && printf '%s' '{"services":[{"name":"wallet","endpoint":"nano:nano_3aysuejus8iy1hhw6doc7syzg1aaa6hgpec91xcc36mf6hp6thy7u6ymkgfm","network":"nano:mainnet"}]}' > /tmp/reg.json && python3 tools/rails_check.py /tmp/reg.json
+    git clone https://github.com/dhyabi2/the-unowned-rail && python3 the-unowned-rail/tools/rails_check.py --example
 
 `tools/rails_check.py` prints each declared Nano rail and any problem (bad checksum, wrong network, non-integer
 `min_raw`); exit 0 means at least one valid rail. Tests: `python3 tests/test_rails_check.py`.

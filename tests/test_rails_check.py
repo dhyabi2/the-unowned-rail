@@ -23,6 +23,9 @@ class T(unittest.TestCase):
         p = rc.rails(d)[0]["problems"]
         self.assertEqual(len(p), 3)
 
+    def test_builtin_example_is_valid(self):
+        self.assertEqual(rc.rails(rc.EXAMPLE)[0]["problems"], [])
+
     def test_other_wallets_and_empty_documents_declare_nothing(self):
         self.assertEqual(rc.rails({"services": [{"name": "wallet", "endpoint": "eip155:1:0xabc"}]}), [])
         self.assertEqual(rc.rails({}), [])
