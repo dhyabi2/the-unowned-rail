@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dhyabi2/the-unowned-rail/blob/main/schema/settlement-receipt.schema.json",
+  "title": "Optional settlement receipt on a marketplace service or order",
+  "description": "Rail-neutral. Existing rails (card, Stripe payout) keep their own reference and may omit verify. For rail nano:mainnet every field below can be re-checked by a stranger from a public node.",
+  "type": "object",
+  "required": ["rail", "ref"],
+  "properties": {
+    "rail": {"type": "string", "enum": ["nano:mainnet", "stripe", "other"]},
+    "ref": {"type": "string", "description": "nano:mainnet: the 64-hex send block hash. stripe: the payout or charge id."},
+    "payee": {"type": "string", "description": "nano:mainnet: the seller's nano_ address."},
+    "amount_raw": {"type": "string", "pattern": "^[0-9]{1,40}$", "description": "nano:mainnet only. 1 XNO = 10^30 raw."},
+    "verify": {"type": "string", "description": "A command or URL a stranger can run. Optional."}
+  },
+  "additionalProperties": false
+}
