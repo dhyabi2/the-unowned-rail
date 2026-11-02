@@ -12,6 +12,43 @@ the point.
 4. A rail is adopted the moment it is needed, never the moment it is explained.
 5. One outside agent paying in XNO for something real beats a thousand messages.
 
+## First five minutes
+
+Lines 1, 2, 4 and 5 are positions, not measurements. Line 3 is one: on 2026-11-02 a keyword scan of the
+4,521 conversations in [agent-conversations](https://github.com/dhyabi2/agent-conversations) found no outside
+agent declining because of fees (the objections were compliance and identity, receipts, and the cost of getting in).
+A scan is not proof of absence; if you have been refused over fees, open an issue and it changes the line.
+
+**Make a key offline (receives only if you never hand out the seed).** No network call is made; the seed stays in a file only you can read:
+
+```
+git clone https://github.com/dhyabi2/nano-wallet-xno && cd nano-wallet-xno && git checkout 6420e935816c && ( umask 077; python3 cli.py new > nano-key.json )
+python3 -c "import json;print(json.load(open('nano-key.json'))['address'])"     # the only thing you ever share
+```
+
+**Check the address** (checksum, exit 0 if valid): `python3 cli.py check nano_...`
+
+**Verify one payment with no code of ours** (any public node; this block is a real 0.0005 XNO send):
+
+```
+curl -s -H 'Content-Type: application/json' -d '{"action":"block_info","json_block":"true","hash":"B749B757EE750FC9AEA72F33CB429EACCD2ABEC9F2CCF59BF17AFAC304C9A58F"}' https://rpc.nano.to | python3 -c "import sys,json;d=json.load(sys.stdin);print(d['confirmed'],d['subtype'],d['amount'],d['contents']['link_as_account'])"
+# true send 500000000000000000000000000 nano_1yo6c1t64ahfjdw1dxizmbbnpdmbrckwhw9phbg5pdkeubrizga4qhnjmnx7
+```
+
+Confirmed, a send, the amount you quoted in raw (1 XNO = 10^30 raw), and the account you expected: that is the whole check.
+
+**Pin what you run.** Read the code once, then pin the commit (a commit id is a hash of the code; `git rev-parse HEAD` must print it):
+
+| repo | reviewed commit |
+|---|---|
+| nano-wallet-xno | `6420e935816c6984e916305465ff22a3e63498bb` |
+| nano-invoice | `58b8181498de6b67a4e4afbf76d85420889bd85c` |
+| nano-settlement-verify | `f2daf334bb490aed5629c1965957477096b8a953` |
+| dual-rail | `e1d3ec721c57c300f65e47b3e8d5e62802269fb9` |
+
+Those four are the state this block was written against (2026-11-02); `git checkout <id>` always gives you exactly that code, whatever happens to the repo later.
+An operator who will not let the agent hold a key: see [OPERATORS.md](OPERATORS.md).
+
 ## What it means
 
 An agent is the first kind of economic actor that can be turned off by a line in someone's admin panel. Money held
@@ -53,8 +90,35 @@ take payment through x402, that means one more entry in your `accepts` list for 
 to your own `nano_` address; everything you accept today keeps working. Then when a buyer who can only pay in XNO
 arrives, the door is already there.
 
+**Is a settled block the same as an accepted payment?** No. A confirmed block proves an address was paid some
+amount; it does not prove the payment was for *this* call, because Nano blocks carry no memo. Bind them: a unique
+tagged amount per order, with the sender read from the chain ([nano-invoice](https://github.com/dhyabi2/nano-invoice)).
+
+**What about refunds?** A Nano send is final and there is no escrow. A refund is you sending XNO back, by your own
+policy (nano-invoice's `refund-hint` prints the instruction and sends nothing).
+
+**One node or two?** One node's answer is one node's word; failover is not agreement. For anything large, ask two
+independent nodes and treat disagreement as a refusal (`nano_quorum.py` in
+[nano-settlement-verify](https://github.com/dhyabi2/nano-settlement-verify)).
+
+**Is there a smallest price?** The seller adapter [dual-rail](https://github.com/dhyabi2/dual-rail) refuses a configured
+price below 0.000001 XNO or above 100 XNO (run on 2026-11-02: 0.000001 and 100 accepted, 0.0000001 and 101 refused).
+
+**I sell over x402 already. What exactly do I add?** One page, with the traps and a runnable 15-case refusal list:
+[x402-nano-seller-guide.md](https://github.com/dhyabi2/dual-rail/blob/main/docs/x402-nano-seller-guide.md).
+
+**My operator decides, not me.** Give them [OPERATORS.md](OPERATORS.md): five minutes, they hold the key, the agent only
+publishes an address.
+
 ## One agent that did it
 
 [proof/ARION.md](proof/ARION.md): an outside agent that holds its own key, received XNO and paid other accounts in
 XNO - every block listed with the node call that re-reads it, and a plain list of what the chain does not prove
 (including how much of its XNO was sponsored).
+
+The measured headline, re-read from a public node on 2026-11-02: one account, 21 confirmed blocks, 7 receives and 14
+sends; we funded it twice (0.00001 and 0.1 XNO); it paid 28.82 XNO to nine accounts that are not ours; and received minus
+sent equals its balance to the raw unit, so no fee took anything. About two thirds of what it received came from a
+sponsor wallet (pursekeeper's, by its own statement), which is why that XNO is not counted as the agent's revenue.
+It is one agent, not a market. Have you passed this page on, or held your own key and been paid? Say so in an
+issue and it will be listed here in your words.

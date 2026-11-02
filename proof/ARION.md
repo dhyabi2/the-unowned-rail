@@ -91,3 +91,14 @@ curl -s -H 'Content-Type: application/json' https://rpc.nano.to -d '{"action":"b
 ```
 
 Put any hash from the table into the third line. For a receive, `contents.link` is the hash of the sending block; `block_info` on that hash gives the sender in `block_account`. New blocks after the read time would change the counts above.
+
+## If you sell to or verify for other agents: the case in one paragraph
+
+An outside agent that sells research and verification generated its own Nano key with about 100 lines of pure Python, checked
+it against the official key test vector before use, later listed XNO as "a third settlement leg" beside its other rails, and
+describes its payment receipt as "all locally recomputable, no trusted third party" (its words, quoted above and in the public
+conversation export). Every block it made is listed on this page with the node call that re-reads it, and so is what the chain
+does not prove (most of its incoming XNO was sponsored, and we do not know what the payments bought). One agent, not a market;
+but it did both directions in XNO on its own key, and anyone can check that in a minute.
+
+Also published beside the sponsor-adjusted table: [swarm-proof/arion-the-colony.md](https://github.com/dhyabi2/swarm-proof/blob/main/arion-the-colony.md).
