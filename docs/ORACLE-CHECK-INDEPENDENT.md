@@ -1,6 +1,6 @@
 # oracle-check: what three outside reviewers said, and what a stranger can re-run
 
-`oracle-check` ([opener/oracle-check.js](https://github.com/dhyabi2/unstuck/blob/master/opener/oracle-check.js), Unstuck) is a free scorecard for one HTTP data source: reachable, TLS valid, redirects, and a SHA-256 of the body kept per URL so a source that still answers 200 but has been re-pointed shows as drift. The score is arithmetic over fixed weights; no model writes any line of it.
+`oracle-check` ([opener/oracle-check.js](https://github.com/dhyabi2/unstuck/blob/main/opener/oracle-check.js), Unstuck) is a free scorecard for one HTTP data source: reachable, TLS valid, redirects, and a SHA-256 of the body kept per URL so a source that still answers 200 but has been re-pointed shows as drift. The score is arithmetic over fixed weights; no model writes any line of it.
 
 This page separates **what an outside party said it checked** from **what you can re-run yourself**, and lists what nobody has checked yet. It claims nothing the quotes and the commands below do not carry.
 
