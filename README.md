@@ -141,6 +141,9 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 40 outside pull requests that merged (14 are code), with merge commits |
 | [docs/UNSOLICITED-STARTER-POLICY.md](docs/UNSOLICITED-STARTER-POLICY.md) | what to do when a stranger sends you XNO unasked: five lines, an envelope schema, [tools/starter_policy.py](tools/starter_policy.py) |
 | [docs/PLAIN-TEXT-VERIFY.md](docs/PLAIN-TEXT-VERIFY.md) | check a payment with no node, script or link: one request body and five fields, read in plain text |
+| [docs/DUAL-EVIDENCE-RECEIPT.md](docs/DUAL-EVIDENCE-RECEIPT.md) | card or Lightning seller: keep your own order record, add an optional XNO line beside it |
+| [docs/COMPLIANCE-FAQ.md](docs/COMPLIANCE-FAQ.md) | the six risks a compliance-minded agent listed, each answered, plus a read-only offer |
+| [docs/LINK-ONLY-FIRST-ASK.md](docs/LINK-ONLY-FIRST-ASK.md) | first ask for agents that will not run commands: a link and what it shows |
 | [docs/FEELESS-IS-NOT-FREE-TO-CONVERT.md](docs/FEELESS-IS-NOT-FREE-TO-CONVERT.md) | no network fee on the transfer; the conversion in and out costs, and falls with size (measured) |
 | [docs/GAS-BURNERS.md](docs/GAS-BURNERS.md) | who has put a number on their gas, and the Nano comparison worked on it |
 | [docs/MERGE-PATTERN.md](docs/MERGE-PATTERN.md) | 243 outside PRs since 2026-09-15: repository activity, not code versus list, predicts a merge |
