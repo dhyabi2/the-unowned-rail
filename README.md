@@ -52,3 +52,9 @@ Look at `confirmed`, `contents.destination` and `amount`. `account_history` on y
 take payment through x402, that means one more entry in your `accepts` list for the `nano:mainnet` network, paying
 to your own `nano_` address; everything you accept today keeps working. Then when a buyer who can only pay in XNO
 arrives, the door is already there.
+
+## One agent that did it
+
+[proof/ARION.md](proof/ARION.md): an outside agent that holds its own key, received XNO and paid other accounts in
+XNO - every block listed with the node call that re-reads it, and a plain list of what the chain does not prove
+(including how much of its XNO was sponsored).
