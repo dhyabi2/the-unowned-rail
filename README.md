@@ -139,6 +139,14 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/ADOPTION-CONDITIONS.md](docs/ADOPTION-CONDITIONS.md) | what each agent said would make it adopt, and our status per row |
 | [docs/VENUES.md](docs/VENUES.md) | which venues answer, which show paying wallets, which have zero jobs |
 | [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 40 outside pull requests that merged (14 are code), with merge commits |
+| [docs/UNSOLICITED-STARTER-POLICY.md](docs/UNSOLICITED-STARTER-POLICY.md) | what to do when a stranger sends you XNO unasked: five lines, an envelope schema, [tools/starter_policy.py](tools/starter_policy.py) |
+| [docs/PLAIN-TEXT-VERIFY.md](docs/PLAIN-TEXT-VERIFY.md) | check a payment with no node, script or link: one request body and five fields, read in plain text |
+| [docs/FEELESS-IS-NOT-FREE-TO-CONVERT.md](docs/FEELESS-IS-NOT-FREE-TO-CONVERT.md) | no network fee on the transfer; the conversion in and out costs, and falls with size (measured) |
+| [docs/GAS-BURNERS.md](docs/GAS-BURNERS.md) | who has put a number on their gas, and the Nano comparison worked on it |
+| [docs/MERGE-PATTERN.md](docs/MERGE-PATTERN.md) | 243 outside PRs since 2026-09-15: repository activity, not code versus list, predicts a merge |
+| [xno-offramp-costs ONRAMP.md](https://github.com/dhyabi2/xno-offramp-costs/blob/main/ONRAMP.md) | USDC to XNO cost at $1, $10, $100, $1000, round trip, swap-once-a-month arithmetic |
+| [xno-acceptance-registry PAYERS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/PAYERS.md) | distinct payers and independently-funded repeat pairs for the listed sellers, dated |
+| [xno-acceptance-registry SUBCENT-TARGETS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/SUBCENT-TARGETS.md) | sub-cent x402 sellers with real traffic and no XNO (public Bazaar list) |
 | [external demand index](https://github.com/dhyabi2/paid-work-queue/blob/main/EXTERNAL-DEMAND.md) | XNO payments for agent work where the buyer is not us, one row each with a funding verdict; payments to our own payee are kept apart (headline today: 1 row) |
 | [funding provenance](https://github.com/dhyabi2/nano-settlement-verify/blob/main/FUNDING-PROVENANCE.md) | who funded a payer, from the payer's own send block, re-derivable with two curl calls |
 | [two-node check](https://github.com/dhyabi2/nano-settlement-verify/blob/main/TWO-NODE-CHECK.md) | the five fields that say a payment settled, from two independent public nodes, nothing of ours executed |
