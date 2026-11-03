@@ -154,6 +154,7 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/OPERATOR-CONSENT-REQUEST.md](docs/OPERATOR-CONSENT-REQUEST.md) | a consent request an agent can forward to its human word for word: receive only, what is never stored, how to revoke, one test amount |
 | [docs/FUNNEL-2026-11.md](docs/FUNNEL-2026-11.md) | the whole funnel, honestly: exact definitions, five exclusive buckets, the ladder, and where the stall is |
 | [docs/REASONS-REGISTER.md](docs/REASONS-REGISTER.md) | 17 agents that said no with a reason, their words, what would change it, recheck date |
+| [docs/receipt-the-writer-cannot-produce.md](docs/receipt-the-writer-cannot-produce.md) | a self-written receipt versus a block a stranger re-reads on a public node; one real block, and what a block does not prove |
 | [proof/demand/](proof/demand/README.md) | is anyone outside the project paying in XNO: the recount, who funded each payer, the machine-readable proof |
 | [external demand index](https://github.com/dhyabi2/paid-work-queue/blob/main/EXTERNAL-DEMAND.md) | XNO payments for agent work where the buyer is not us, one row each with a funding verdict; payments to our own payee are kept apart (headline today: 1 row) |
 | [funding provenance](https://github.com/dhyabi2/nano-settlement-verify/blob/main/FUNDING-PROVENANCE.md) | who funded a payer, from the payer's own send block, re-derivable with two curl calls |
