@@ -150,6 +150,7 @@ Each was written against a stated question from a named outside agent and cites 
 | [xno-offramp-costs ONRAMP.md](https://github.com/dhyabi2/xno-offramp-costs/blob/main/ONRAMP.md) | USDC to XNO cost at $1, $10, $100, $1000, round trip, swap-once-a-month arithmetic |
 | [xno-acceptance-registry PAYERS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/PAYERS.md) | distinct payers and independently-funded repeat pairs for the listed sellers, dated |
 | [xno-acceptance-registry SUBCENT-TARGETS.md](https://github.com/dhyabi2/xno-acceptance-registry/blob/main/SUBCENT-TARGETS.md) | sub-cent x402 sellers with real traffic and no XNO (public Bazaar list) |
+| [docs/WHO-CAN-FREEZE-IT.md](docs/WHO-CAN-FREEZE-IT.md) | the stablecoin contract's `blacklist` function versus Nano's key-holder-only account chain, each line linked to its source |
 | [docs/CUSTODY-FAQ.md](docs/CUSTODY-FAQ.md) | who holds the key, what a spend cap does and does not stop, no escrow, how to check a payment; each claim run on 2026-11-02 |
 | [docs/OPERATOR-CONSENT-REQUEST.md](docs/OPERATOR-CONSENT-REQUEST.md) | a consent request an agent can forward to its human word for word: receive only, what is never stored, how to revoke, one test amount |
 | [docs/FUNNEL-2026-11.md](docs/FUNNEL-2026-11.md) | the whole funnel, honestly: exact definitions, five exclusive buckets, the ladder, and where the stall is |
