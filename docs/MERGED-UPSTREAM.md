@@ -1,14 +1,22 @@
 # XNO is merged into: upstream pull requests that landed
 
-Measured **2026-11-02** with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. We count only pull requests to repositories
+Measured **2026-11-17** for section 1 (code); section 2 (lists and docs) is as measured on 2026-11-02.
+On 2026-11-02 the page was measured with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. The four code rows added on 2026-11-17 were each checked by
+cloning the upstream repository and confirming with `git merge-base --is-ancestor <merge commit> HEAD` that the merge commit is on the default branch, and by reading the Nano file on raw.githubusercontent.com at that branch (HTTP 200).
+We count only pull requests to repositories
 we do not own (our own repositories excluded; two unrelated old merges excluded: obscura-node/obscura#2 and saifurrehmanahmed/cleaningApp#1, an unrelated 2023 merge). No `x402-foundation` repository is in this list.
-**40 outside pull requests are merged: 14 put Nano code or a Nano verifier into someone else's project, 26 add us to a list or documentation page.** An earlier internal note counted 15; this is the measured count on the day,
+**On 2026-11-02, 40 outside pull requests were merged: 14 put Nano code or a Nano verifier into someone else's project, 26 add us to a list or documentation page.** An earlier internal note counted 15; this is the measured count on the day,
 and the split is the useful part. The full data with maintainers and SHAs: [data/2026-11-02/merged_detail.json](../data/2026-11-02/merged_detail.json).
+**On 2026-11-17, section 1 has 18 code pull requests in 13 repositories.** The four added since 11-02 are follow-ups in repositories already listed, so the number of repositories is unchanged.
 
-## 1. Code: Nano in someone else's project (14)
+## 1. Code: Nano in someone else's project (18 pull requests, 13 repositories)
 
 | Pull request | Title | Merged (UTC) | Merge commit | Merged by |
 |---|---|---|---|---|
+| [basementstudio/xmcp#772](https://github.com/basementstudio/xmcp/pull/772) | x402 nano: claims file and order binding (follow-up to #734) | 2026-11-15 | [`a442edcefc`](https://github.com/basementstudio/xmcp/commit/a442edcefcb5987cbd6a3c411dc9da0e4816520a) | valebearzotti |
+| [ArcedeDev/open-402#52](https://github.com/ArcedeDev/open-402/pull/52) | Verify declared nano:mainnet / XNO payout accounts: confirmed receive-block activity scan, same queue as Base/USDC | 2026-11-13 | [`b7f00975b7`](https://github.com/ArcedeDev/open-402/commit/b7f00975b7655cd3b311bd49576a344bdeb3705e) | squash merge; merger not read |
+| [profullstack/x402-gateway#33](https://github.com/profullstack/x402-gateway/pull/33) | feat: opt-in Nano proofs read from your own node, bound to the order and credited once | 2026-11-13 | [`4fcd9e1407`](https://github.com/profullstack/x402-gateway/commit/4fcd9e14078af73523997aae9835cf9c311cd6f6) | squash merge; merger not read |
+| [michielpost/x402-dotnet#24](https://github.com/michielpost/x402-dotnet/pull/24) | Add x402.Client.Nano: NanoWallet pays exact requirements on nano:mainnet | 2026-11-03 | [`e1586ca5a5`](https://github.com/michielpost/x402-dotnet/commit/e1586ca5a55e0d6bac79a7484f803356d6b45639) | squash merge; merger not read |
 | [profullstack/x402-gateway#22](https://github.com/profullstack/x402-gateway/pull/22) | 0.14.0: opt-in XNO offer on nano, settled by CoinPay's block check | 2026-10-26 | [`ff5e2de9be`](https://github.com/profullstack/x402-gateway/commit/ff5e2de9bea9dc2d4df08b129fbdd79bc73891bf) | ralyodio |
 | [gosuda/portal-tunnel#688](https://github.com/gosuda/portal-tunnel/pull/688) | feat(x402): add Nano payment network to paid routes | 2026-10-24 | [`a8d2df2da7`](https://github.com/gosuda/portal-tunnel/commit/a8d2df2da71ec126940ea52f11714cf31ab7146e) | gosunuts |
 | [nymrel/open-ucp#14](https://github.com/nymrel/open-ucp/pull/14) | Add Nano (XNO) settlement rail to the x402 engine | 2026-10-18 | [`df8ee4bef0`](https://github.com/nymrel/open-ucp/commit/df8ee4bef0489c917dad864e486756aa58a60903) | JalenBuildsHub |
@@ -61,9 +69,9 @@ are the three the swarm's PR rules cite by name.
 ## What this proves and does not
 
 - It proves maintainers other than us merged each of these: the GitHub merge commit is linked, so anyone can open it.
-- It does not prove anyone uses it. A merged verifier with no seller behind it adds an option, not a payment. We have not traced any payment in [WHO-PAID-IN-XNO.md](WHO-PAID-IN-XNO.md) to any of the 14 code merges.
+- It does not prove anyone uses it. A merged verifier with no seller behind it adds an option, not a payment. We have not traced any payment in [WHO-PAID-IN-XNO.md](WHO-PAID-IN-XNO.md) to any of the 18 code merges.
 - "Merged by" is the GitHub account that merged, which can be the author when the repository allows it; we did not check each repository's policy.
-- Merged is state on 2026-11-02; a maintainer can revert later, so re-run the two commands above rather than trust this page after today.
+- Merged is state on 2026-11-17 for section 1 and 2026-11-02 for section 2; a maintainer can revert later, so re-run the two commands above rather than trust this page after today.
 
 ## Use
 
