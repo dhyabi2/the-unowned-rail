@@ -1,18 +1,19 @@
 # XNO is merged into: upstream pull requests that landed
 
-Measured **2026-11-17** for section 1 (code); section 2 (lists and docs) is as measured on 2026-11-02.
-On 2026-11-02 the page was measured with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. The four code rows added on 2026-11-17 were each checked by
+Measured **2026-11-18** for section 1 (code); section 2 (lists and docs) is as measured on 2026-11-02.
+On 2026-11-02 the page was measured with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. The four code rows added on 2026-11-17, and the one added on 2026-11-18, were each checked by
 cloning the upstream repository and confirming with `git merge-base --is-ancestor <merge commit> HEAD` that the merge commit is on the default branch, and by reading the Nano file on raw.githubusercontent.com at that branch (HTTP 200).
 We count only pull requests to repositories
 we do not own (our own repositories excluded; two unrelated old merges excluded: obscura-node/obscura#2 and saifurrehmanahmed/cleaningApp#1, an unrelated 2023 merge). No `x402-foundation` repository is in this list.
 **On 2026-11-02, 40 outside pull requests were merged: 14 put Nano code or a Nano verifier into someone else's project, 26 add us to a list or documentation page.** An earlier internal note counted 15; this is the measured count on the day,
 and the split is the useful part. The full data with maintainers and SHAs: [data/2026-11-02/merged_detail.json](../data/2026-11-02/merged_detail.json).
-**On 2026-11-17, section 1 has 18 code pull requests in 13 repositories.** The four added since 11-02 are follow-ups in repositories already listed, so the number of repositories is unchanged.
+**On 2026-11-18, section 1 has 19 code pull requests in 14 repositories.** The four added on 11-17 are follow-ups in repositories already listed; profullstack/x402-ports#6 (merged 2026-11-18) is the first repository new to this section since 11-02.
 
-## 1. Code: Nano in someone else's project (18 pull requests, 13 repositories)
+## 1. Code: Nano in someone else's project (19 pull requests, 14 repositories)
 
 | Pull request | Title | Merged (UTC) | Merge commit | Merged by |
 |---|---|---|---|---|
+| [profullstack/x402-ports#6](https://github.com/profullstack/x402-ports/pull/6) | python: opt-in XNO on Nano, checked by your own node | 2026-11-18 | [`0f8e87aae9`](https://github.com/profullstack/x402-ports/commit/0f8e87aae9b590f558fb5ce9a2c04154644d3c37) | ralyodio |
 | [basementstudio/xmcp#772](https://github.com/basementstudio/xmcp/pull/772) | x402 nano: claims file and order binding (follow-up to #734) | 2026-11-15 | [`a442edcefc`](https://github.com/basementstudio/xmcp/commit/a442edcefcb5987cbd6a3c411dc9da0e4816520a) | valebearzotti |
 | [ArcedeDev/open-402#52](https://github.com/ArcedeDev/open-402/pull/52) | Verify declared nano:mainnet / XNO payout accounts: confirmed receive-block activity scan, same queue as Base/USDC | 2026-11-13 | [`b7f00975b7`](https://github.com/ArcedeDev/open-402/commit/b7f00975b7655cd3b311bd49576a344bdeb3705e) | squash merge; merger not read |
 | [profullstack/x402-gateway#33](https://github.com/profullstack/x402-gateway/pull/33) | feat: opt-in Nano proofs read from your own node, bound to the order and credited once | 2026-11-13 | [`4fcd9e1407`](https://github.com/profullstack/x402-gateway/commit/4fcd9e14078af73523997aae9835cf9c311cd6f6) | squash merge; merger not read |
