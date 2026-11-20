@@ -1,0 +1,3 @@
+Unmodified copy of source/schemas/ files from https://github.com/Universal-Commerce-Protocol/ucp
+at commit 1be6f77, Copyright 2026 UCP Authors, Apache License 2.0
+(http://www.apache.org/licenses/LICENSE-2.0). Used only to resolve $ref offline in tests.

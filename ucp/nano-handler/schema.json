@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dhyabi2/the-unowned-rail/main/ucp/nano-handler/schema.json",
+  "title": "Nano Payment Handler Schema",
+  "description": "Schema for the io.github.dhyabi2.nano payment handler: payment by one confirmed Nano send block, network nano:mainnet, exact amount.",
+  "name": "io.github.dhyabi2.nano",
+  "version": "2026-11-20",
+
+  "$defs": {
+    "nano_block_credential": { "$ref": "credential.json" },
+    "nano_block_instrument": { "$ref": "instrument.json" },
+
+    "nano_account": {
+      "type": "string",
+      "pattern": "^nano_[13][13-9a-km-uw-z]{59}$",
+      "description": "A Nano account. Processors MUST also check its blake2b checksum; a pattern cannot."
+    },
+    "amount_raw": {
+      "type": "string",
+      "pattern": "^[1-9][0-9]*$",
+      "description": "Amount in raw (1 XNO = 10^30 raw), a string of digits with no exponent, compared as an integer."
+    },
+
+    "business_config": {
+      "title": "Nano Business Config",
+      "type": "object",
+      "required": ["network", "pay_to"],
+      "properties": {
+        "network": { "const": "nano:mainnet" },
+        "pay_to": { "$ref": "#/$defs/nano_account" },
+        "min_confirmation": { "const": "confirmed", "default": "confirmed" },
+        "quote_ttl_seconds": { "type": "integer", "minimum": 60, "maximum": 86400, "default": 900 }
+      },
+      "additionalProperties": false
+    },
+
+    "platform_config": {
+      "title": "Nano Platform Config",
+      "description": "No field is required. A platform declares the handler to say it can produce a nano_block instrument.",
+      "type": "object"
+    },
+
+    "response_config": {
+      "title": "Nano Response Config",
+      "description": "Per-checkout quote. The business binds the checkout id to amount_raw in its own record.",
+      "type": "object",
+      "required": ["network", "pay_to", "amount_raw", "quote_id", "expires_at"],
+      "properties": {
+        "network": { "const": "nano:mainnet" },
+        "pay_to": { "$ref": "#/$defs/nano_account" },
+        "min_confirmation": { "const": "confirmed" },
+        "quote_ttl_seconds": { "type": "integer", "minimum": 60, "maximum": 86400 },
+        "amount_raw": { "$ref": "#/$defs/amount_raw" },
+        "amount_xno": {
+          "type": "string",
+          "pattern": "^[0-9]+(\\.[0-9]{1,30})?$",
+          "description": "Display only, derived from amount_raw."
+        },
+        "quote_id": { "type": "string", "minLength": 1, "description": "Equals the checkout id." },
+        "expires_at": { "type": "string", "format": "date-time" }
+      }
+    },
+
+    "io.github.dhyabi2.nano": {
+      "payment_instrument": {
+        "title": "Nano Payment Instrument",
+        "$ref": "#/$defs/nano_block_instrument"
+      },
+      "platform_schema": {
+        "title": "Nano (Platform)",
+        "allOf": [
+          { "$ref": "https://ucp.dev/schemas/payment_handler.json#/$defs/platform_schema" },
+          { "properties": { "config": { "$ref": "#/$defs/platform_config" } } }
+        ]
+      },
+      "business_schema": {
+        "title": "Nano (Business)",
+        "allOf": [
+          { "$ref": "https://ucp.dev/schemas/payment_handler.json#/$defs/business_schema" },
+          { "required": ["config"], "properties": { "config": { "$ref": "#/$defs/business_config" } } }
+        ]
+      },
+      "response_schema": {
+        "title": "Nano (Response)",
+        "allOf": [
+          { "$ref": "https://ucp.dev/schemas/payment_handler.json#/$defs/response_schema" },
+          { "required": ["config"], "properties": { "config": { "$ref": "#/$defs/response_config" } } }
+        ]
+      }
+    }
+  }
+}

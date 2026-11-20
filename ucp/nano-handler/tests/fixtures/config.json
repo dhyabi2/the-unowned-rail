@@ -1,0 +1,10 @@
+{
+  "pay_to": "nano_16aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46ajbtsyew7c",
+  "payer": "nano_1aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj4ykus34mi",
+  "other": "nano_1esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esmwiixh3uh",
+  "hash_send": "A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1",
+  "hash_receive": "B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2",
+  "hash_missing": "C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3C3",
+  "amount_raw": "3000000000000000000000000000",
+  "local_timestamp": "1795000000"
+}

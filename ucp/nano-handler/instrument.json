@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/dhyabi2/the-unowned-rail/main/ucp/nano-handler/instrument.json",
+  "title": "Nano Block Payment Instrument",
+  "description": "A payment instrument that names one Nano send block paying a checkout's quote.",
+  "allOf": [
+    { "$ref": "https://ucp.dev/schemas/common/types/payment_instrument.json" },
+    {
+      "type": "object",
+      "required": ["type", "credential"],
+      "properties": {
+        "type": { "const": "nano_block" },
+        "credential": { "$ref": "credential.json" },
+        "display": {
+          "type": "object",
+          "properties": {
+            "network": { "const": "nano:mainnet" },
+            "amount_xno": {
+              "type": "string",
+              "pattern": "^[0-9]+(\\.[0-9]{1,30})?$",
+              "description": "Display only, derived from amount_raw. Never used for checking."
+            }
+          }
+        }
+      }
+    }
+  ]
+}

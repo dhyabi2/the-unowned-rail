@@ -1,0 +1,25 @@
+{
+  "blocks": {
+    "B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2B2": {
+      "block_account": "nano_1aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj4ykus34mi",
+      "amount": "3000000000000000000000000000",
+      "balance": "7000000000000000000000000000",
+      "height": "42",
+      "local_timestamp": "1795000000",
+      "successor": "0000000000000000000000000000000000000000000000000000000000000000",
+      "confirmed": "true",
+      "contents": {
+        "type": "state",
+        "account": "nano_1aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj4ykus34mi",
+        "previous": "D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4D4",
+        "representative": "nano_1esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esm8esmwiixh3uh",
+        "balance": "7000000000000000000000000000",
+        "link": "4444444444444444444444444444444444444444444444444444444444444444",
+        "link_as_account": "nano_1j46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46aj46ud3rtx9d",
+        "signature": "E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5E5",
+        "work": "0000000000000000"
+      },
+      "subtype": "receive"
+    }
+  }
+}
