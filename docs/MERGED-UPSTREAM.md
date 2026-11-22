@@ -37,6 +37,36 @@ and the split is the useful part. The full data with maintainers and SHAs: [data
 | [Feeless402/feeless402#4](https://github.com/Feeless402/feeless402/pull/4) | feat(nano_pay): standalone settlement-receipt verifier (verify a settled XNO payment by hash) | 2026-09-26 | [`11469cfc7f`](https://github.com/Feeless402/feeless402/commit/11469cfc7f90bbad9997681142dfd06212aedf89) | glennquinting |
 | [go-taas/go-taas#13](https://github.com/go-taas/go-taas/pull/13) | feat(nano): exact 30-decimal XNO amount primitives for sub-cent settlement (ref #7) | 2026-09-25 | [`3ae72520c2`](https://github.com/go-taas/go-taas/commit/3ae72520c2eef1db887cef278f1fa1ea3c73b357) | sanmuny |
 
+### Released in: is the newest Nano merge in a release? (read 2026-11-22)
+
+A merge on main is not yet code a user installs. One row per repository, for its newest Nano merge above. The git
+column comes from `git tag --contains <merge>` on a clone of the repository; the registry column comes from the
+registry's own JSON (npm, NuGet, Go proxy, PyPI, Packagist), read the same day. A registry cell says only that a
+version exists unless it names a read of that version's files. UNKNOWN means not read, never "no".
+
+| Repository | Newest Nano merge | Released in (git tag) | Registry |
+|---|---|---|---|
+| agentskillexchange/skills | #171 `925f72d` (11-22) | no tags (a skills catalogue: main is what users read) | n/a |
+| basementstudio/xmcp | #803 `65be4ee` (11-22) | no git tag (the repository publishes by changesets without tags since 11-13) | npm `@xmcp-dev/x402` 1.3.0, 2026-11-22 04:03Z; its dist carries #803 (tarball read) |
+| fetchai/innovation-lab-examples | #188 `9a927ad` (11-20) | no tags (an examples repository) | n/a |
+| profullstack/x402-ports | #6 `0f8e87a` (11-17) | none: newest tag python-v0.1.2 (09-05) is before the merge | UNKNOWN |
+| ArcedeDev/open-402 | #52 `b7f0097` (11-13) | no tags | n/a |
+| profullstack/x402-gateway | #33 `4fcd9e1` (11-12) | `v0.18.0` (11-14); also in v0.18.1 and v0.18.2 (11-22) | npm `@profullstack/x402-gateway` 0.18.2, 2026-11-22 11:17Z (files read: src/nano.js ships) |
+| michielpost/x402-dotnet | #24 `e1586ca` (11-03) | none: newest tag v2.4.0 (10-27) is before the merge | NuGet `x402.Client.Nano` 0.0.3; `x402.Facilitator.Nano` (#20) not found on NuGet |
+| gosuda/portal-tunnel | #688 `a8d2df2` (10-24) | `v2.7.0` (10-28); still in v2.7.4 (11-09) | Go module by tag (proxy not read) |
+| nymrel/open-ucp | #14 `df8ee4b` (10-18) | no tags | npm `@nymrel/open-ucp` not found |
+| requestway/laravel-x402 | #1 `d6e6da0` (10-18) | none: only tag v0.1.0 (10-10) is before the merge | Packagist v0.1.0 only, so not in a Packagist release |
+| ninemindai/agentback | #77 `e6f3c18` (10-15) | none: newest tag v0.13.0 (09-29) is before the merge | npm `@agentback/payments` latest 0.13.0 (09-30), before the merge |
+| profullstack/coinpayportal | #429 `80f1996` (10-13) | `sdk-v0.17.0` (10-16); still in sdk-v0.30.0 (11-08) | npm `@profullstack/coinpay` 0.30.0 (11-08); files not read |
+| go-taas/go-taas | #14 `ee43dd8` (10-02) | `v1.42.0` (10-02); still in v1.128.0 (11-20) | Go proxy `@latest` v1.128.0 (2026-11-20 10:53Z) |
+| gosuda/x402-facilitator | #64 `df0de5f` (09-27) | none: newest tag v0.0.5 (09-18) is before the merge | Go module by tag only, so the Nano scheme is only at a pseudo-version |
+| Feeless402/feeless402 | #4 `11469cf` (09-26) | `v0.2.9` (09-27); still in v0.2.13 (10-04) | PyPI `feeless402` 0.2.13 (files not read) |
+
+**7 of 15 repositories have a release that contains their newest Nano merge** (xmcp on npm, x402-gateway,
+x402-dotnet on NuGet, portal-tunnel, coinpayportal, go-taas, feeless402). **3 need no release** because main is what
+users read (skills, innovation-lab-examples, open-402). **5 are merged and not released**: x402-ports, open-ucp,
+laravel-x402, agentback and x402-facilitator.
+
 Read these as precedent for the shape of a pull request that gets merged: working code, tests, one project at a time, a day-one user. `michielpost/x402-dotnet#20`, `go-taas/go-taas#14` and `ArcedeDev/open-402#33`
 are the three the swarm's PR rules cite by name.
 
