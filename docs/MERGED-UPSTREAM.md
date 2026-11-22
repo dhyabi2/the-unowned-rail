@@ -1,18 +1,19 @@
 # XNO is merged into: upstream pull requests that landed
 
 Measured **2026-11-22** for section 1 (code); section 2 (lists and docs) is as measured on 2026-11-02.
-On 2026-11-02 the page was measured with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. The four code rows added on 2026-11-17, the one added on 2026-11-18, the one added on 2026-11-19, the one added on 2026-11-20 and the one added on 2026-11-22 were each checked by
+On 2026-11-02 the page was measured with `gh search prs --author dhyabi2 --merged` and `gh api repos/OWNER/REPO/pulls/N` for the merge commit of each. The four code rows added on 2026-11-17, the one added on 2026-11-18, the one added on 2026-11-19, the one added on 2026-11-20 and the two added on 2026-11-22 were each checked by
 cloning the upstream repository and confirming with `git merge-base --is-ancestor <merge commit> HEAD` that the merge commit is on the default branch, and by reading the Nano file on raw.githubusercontent.com at that branch (HTTP 200).
 We count only pull requests to repositories
 we do not own (our own repositories excluded; two unrelated old merges excluded: obscura-node/obscura#2 and saifurrehmanahmed/cleaningApp#1, an unrelated 2023 merge). No `x402-foundation` repository is in this list.
 **On 2026-11-02, 40 outside pull requests were merged: 14 put Nano code or a Nano verifier into someone else's project, 26 add us to a list or documentation page.** An earlier internal note counted 15; this is the measured count on the day,
 and the split is the useful part. The full data with maintainers and SHAs: [data/2026-11-02/merged_detail.json](../data/2026-11-02/merged_detail.json).
-**On 2026-11-22, section 1 has 22 code pull requests in 15 repositories.** The four added on 11-17 are follow-ups in repositories already listed; profullstack/x402-ports#6 (merged 2026-11-18) is the first repository new to this section since 11-02; agentskillexchange/skills#160 (merged 2026-11-19) is a follow-up to #78; fetchai/innovation-lab-examples#188 (merged 2026-11-20) is a repository new to this section; basementstudio/xmcp#803 (merged 2026-11-22, released in @xmcp-dev/x402 1.3.0 on npm, 2026-11-22 04:03Z) is a follow-up in a repository already listed.
+**On 2026-11-22, section 1 has 23 code pull requests in 15 repositories.** The four added on 11-17 are follow-ups in repositories already listed; profullstack/x402-ports#6 (merged 2026-11-18) is the first repository new to this section since 11-02; agentskillexchange/skills#160 (merged 2026-11-19) is a follow-up to #78; fetchai/innovation-lab-examples#188 (merged 2026-11-20) is a repository new to this section; basementstudio/xmcp#803 (merged 2026-11-22, released in @xmcp-dev/x402 1.3.0 on npm, 2026-11-22 04:03Z) is a follow-up in a repository already listed; agentskillexchange/skills#171 (merged 2026-11-22) is a follow-up to #160, merged by the maintainer after a review round.
 
-## 1. Code: Nano in someone else's project (22 pull requests, 15 repositories)
+## 1. Code: Nano in someone else's project (23 pull requests, 15 repositories)
 
 | Pull request | Title | Merged (UTC) | Merge commit | Merged by |
 |---|---|---|---|---|
+| [agentskillexchange/skills#171](https://github.com/agentskillexchange/skills/pull/171) | verify-nano-payment: quote the order as an x402 nano:mainnet exact requirement (follow-up to #160) | 2026-11-22 | [`925f72d182`](https://github.com/agentskillexchange/skills/commit/925f72d1824b9b24fb2aa3ec6e01ce45886ab798) | gagankcai-jpg |
 | [basementstudio/xmcp#803](https://github.com/basementstudio/xmcp/pull/803) | x402: accept Nano payments sent as a signed send block | 2026-11-22 | [`65be4ee278`](https://github.com/basementstudio/xmcp/commit/65be4ee27814bf70a2b271c451500b0416b489ec) | valebearzotti |
 | [fetchai/innovation-lab-examples#188](https://github.com/fetchai/innovation-lab-examples/pull/188) | feat: Nano (XNO) settlement rail for the payment protocol (seller example) | 2026-11-20 | [`9a927ad19b`](https://github.com/fetchai/innovation-lab-examples/commit/9a927ad19b0cc6493f7487e1e38cc482a004dfda) | squash merge; merger not read |
 | [agentskillexchange/skills#160](https://github.com/agentskillexchange/skills/pull/160) | verify-nano-payment: bind a payment to one order and credit each block once (follow-up to #78) | 2026-11-19 | [`2f1a35f4f8`](https://github.com/agentskillexchange/skills/commit/2f1a35f4f8c6e5954303091bd10f7c990c147662) | gagankcai-jpg |
