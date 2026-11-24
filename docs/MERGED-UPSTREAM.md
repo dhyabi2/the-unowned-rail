@@ -7,12 +7,13 @@ We count only pull requests to repositories
 we do not own (our own repositories excluded; two unrelated old merges excluded: obscura-node/obscura#2 and saifurrehmanahmed/cleaningApp#1, an unrelated 2023 merge). No `x402-foundation` repository is in this list.
 **On 2026-11-02, 40 outside pull requests were merged: 14 put Nano code or a Nano verifier into someone else's project, 26 add us to a list or documentation page.** An earlier internal note counted 15; this is the measured count on the day,
 and the split is the useful part. The full data with maintainers and SHAs: [data/2026-11-02/merged_detail.json](../data/2026-11-02/merged_detail.json).
-**On 2026-11-22, section 1 has 23 code pull requests in 15 repositories.** The four added on 11-17 are follow-ups in repositories already listed; profullstack/x402-ports#6 (merged 2026-11-18) is the first repository new to this section since 11-02; agentskillexchange/skills#160 (merged 2026-11-19) is a follow-up to #78; fetchai/innovation-lab-examples#188 (merged 2026-11-20) is a repository new to this section; basementstudio/xmcp#803 (merged 2026-11-22, released in @xmcp-dev/x402 1.3.0 on npm, 2026-11-22 04:03Z) is a follow-up in a repository already listed; agentskillexchange/skills#171 (merged 2026-11-22) is a follow-up to #160, merged by the maintainer after a review round.
+**On 2026-11-24, section 1 has 24 code pull requests in 15 repositories.** The four added on 11-17 are follow-ups in repositories already listed; profullstack/x402-ports#6 (merged 2026-11-18) is the first repository new to this section since 11-02; agentskillexchange/skills#160 (merged 2026-11-19) is a follow-up to #78; fetchai/innovation-lab-examples#188 (merged 2026-11-20) is a repository new to this section; basementstudio/xmcp#803 (merged 2026-11-22, released in @xmcp-dev/x402 1.3.0 on npm, 2026-11-22 04:03Z) is a follow-up in a repository already listed; agentskillexchange/skills#171 (merged 2026-11-22) is a follow-up to #160, merged by the maintainer after a review round. basementstudio/xmcp#805 (merged 2026-11-22 20:27Z, released in Version Packages #808 as @xmcp-dev/x402 1.4.0 in the repository; the npm registry was not read) is a follow-up in a repository already listed.
 
-## 1. Code: Nano in someone else's project (23 pull requests, 15 repositories)
+## 1. Code: Nano in someone else's project (24 pull requests, 15 repositories)
 
 | Pull request | Title | Merged (UTC) | Merge commit | Merged by |
 |---|---|---|---|---|
+| [basementstudio/xmcp#805](https://github.com/basementstudio/xmcp/pull/805) | x402: opt-in x402 v2 offer for tools on the nano network | 2026-11-22 | [`3f200e3109`](https://github.com/basementstudio/xmcp/commit/3f200e3109b452648ba07321d81769b01c5bac0e) | squash merge; merger not read |
 | [agentskillexchange/skills#171](https://github.com/agentskillexchange/skills/pull/171) | verify-nano-payment: quote the order as an x402 nano:mainnet exact requirement (follow-up to #160) | 2026-11-22 | [`925f72d182`](https://github.com/agentskillexchange/skills/commit/925f72d1824b9b24fb2aa3ec6e01ce45886ab798) | gagankcai-jpg |
 | [basementstudio/xmcp#803](https://github.com/basementstudio/xmcp/pull/803) | x402: accept Nano payments sent as a signed send block | 2026-11-22 | [`65be4ee278`](https://github.com/basementstudio/xmcp/commit/65be4ee27814bf70a2b271c451500b0416b489ec) | valebearzotti |
 | [fetchai/innovation-lab-examples#188](https://github.com/fetchai/innovation-lab-examples/pull/188) | feat: Nano (XNO) settlement rail for the payment protocol (seller example) | 2026-11-20 | [`9a927ad19b`](https://github.com/fetchai/innovation-lab-examples/commit/9a927ad19b0cc6493f7487e1e38cc482a004dfda) | squash merge; merger not read |
@@ -47,7 +48,7 @@ version exists unless it names a read of that version's files. UNKNOWN means not
 | Repository | Newest Nano merge | Released in (git tag) | Registry |
 |---|---|---|---|
 | agentskillexchange/skills | #171 `925f72d` (11-22) | no tags (a skills catalogue: main is what users read) | n/a |
-| basementstudio/xmcp | #803 `65be4ee` (11-22) | no git tag (the repository publishes by changesets without tags since 11-13) | npm `@xmcp-dev/x402` 1.3.0, 2026-11-22 04:03Z; its dist carries #803 (tarball read) |
+| basementstudio/xmcp | #805 `3f200e3` (11-22) | no git tag (the repository publishes by changesets without tags since 11-13) | `@xmcp-dev/x402` 1.4.0 in Version Packages #808 (`99404ed`, package.json read; npm registry not read this run); #803 shipped in npm 1.3.0 (2026-11-22 04:03Z, tarball read) |
 | fetchai/innovation-lab-examples | #188 `9a927ad` (11-20) | no tags (an examples repository) | n/a |
 | profullstack/x402-ports | #6 `0f8e87a` (11-17) | none: newest tag python-v0.1.2 (09-05) is before the merge | UNKNOWN |
 | ArcedeDev/open-402 | #52 `b7f0097` (11-13) | no tags | n/a |
