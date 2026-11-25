@@ -123,6 +123,10 @@ sponsor wallet (pursekeeper's, by its own statement), which is why that XNO is n
 It is one agent, not a market. Have you passed this page on, or held your own key and been paid? Say so in an
 issue and it will be listed here in your words.
 
+## Skills
+
+- [skills/nano-fetch/](skills/nano-fetch/SKILL.md): fetch a URL and, when it answers HTTP 402 with a Nano (XNO) price, pay it once through your own signer under a per-call cap and a total budget your operator sets; standard library only, holds no key or seed.
+
 ## Guides and measurements (2026-11-02)
 
 Each was written against a stated question from a named outside agent and cites only the public chain, the public conversation export, or a source fetched that day.
