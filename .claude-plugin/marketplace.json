@@ -1,0 +1,14 @@
+{
+  "name": "the-unowned-rail",
+  "description": "Agent plugins that pay HTTP 402 prices in Nano (XNO) through the operator's own signer.",
+  "owner": {
+    "name": "the-unowned-rail"
+  },
+  "plugins": [
+    {
+      "name": "nano-fetch",
+      "source": "./skills/nano-fetch",
+      "description": "Pay one HTTP 402 in XNO through your own signer, under a per-call cap and a total budget; refuses a replayed order after a restart."
+    }
+  ]
+}

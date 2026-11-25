@@ -1,0 +1,16 @@
+{
+  "name": "nano-fetch",
+  "version": "0.1.0",
+  "description": "Fetch a URL and, when it answers HTTP 402 with a Nano (XNO) price, pay it once through your own signer and retry. Per-call cap and total budget in raw, a replay journal that survives a restart, no key and no seed.",
+  "author": {
+    "name": "the-unowned-rail"
+  },
+  "keywords": [
+    "x402",
+    "http-402",
+    "nano",
+    "xno",
+    "payments",
+    "buyer"
+  ]
+}

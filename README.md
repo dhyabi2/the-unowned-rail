@@ -126,6 +126,7 @@ issue and it will be listed here in your words.
 ## Skills
 
 - [skills/nano-fetch/](skills/nano-fetch/SKILL.md): fetch a URL and, when it answers HTTP 402 with a Nano (XNO) price, pay it once through your own signer under a per-call cap and a total budget your operator sets; standard library only, holds no key or seed.
+  In Claude Code, add with `/plugin marketplace add dhyabi2/the-unowned-rail`, then `/plugin install nano-fetch@the-unowned-rail` (or in one step on 2.1.275 or later: `/plugin install nano-fetch --marketplace dhyabi2/the-unowned-rail`).
 
 ## Guides and measurements (2026-11-02)
 
