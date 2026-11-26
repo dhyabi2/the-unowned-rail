@@ -1,0 +1,17 @@
+{
+  "description": "When WebFetch meets an HTTP 402 with a Nano (XNO) price, pay it once through the operator's own signer (NANO_FETCH_SIGNER, NANO_FETCH_JOURNAL) under the per-call cap and budget, and add the paid answer to the context. Off until both are set.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/hook.py\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ]
+  }
+}

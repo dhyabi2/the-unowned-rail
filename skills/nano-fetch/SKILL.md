@@ -80,3 +80,14 @@ One JSON object a line, fsynced: an `intent` line (`key`, `amount_raw`, `orderId
 signer is called, and a `paid` line (`key`, `amount_raw`, `orderId`, `blockHash`) after. To know what
 you spent, add `amount_raw` over the `paid` lines. Never edit or delete the file: it is what stops a
 second payment for one order.
+
+## As a WebFetch hook (installed as a plugin)
+
+Installed as the `nano-fetch` plugin, `hooks/hooks.json` runs `hook.py` after every WebFetch call. When
+WebFetch reports HTTP 402, the hook asks the same URL once more itself (WebFetch's result has no headers to
+read the quote from), pays a bound order through the same settle step, journal, cap and budget as
+`fetch.py`, and adds the paid answer next to WebFetch's result. A send-hash quote is never paid from the
+hook. It is off until the operator sets, in the environment (for example the `env` block of settings):
+`NANO_FETCH_SIGNER` (module.attr), `NANO_FETCH_JOURNAL` (file), and optionally `NANO_FETCH_CAP_RAW`,
+`NANO_FETCH_BUDGET_RAW` and `NANO_FETCH_MAX_CHARS`. Unset, a 402 is reported in one line and nothing is
+requested or paid. The hook always exits 0, so it never blocks a session.
