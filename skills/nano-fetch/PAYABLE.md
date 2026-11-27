@@ -24,7 +24,7 @@ A plain `exact` accept carries no order of its own. With `--block-signer`, `fetc
 signed send block, does NOT publish it, and sends it once in `payload.block` (x402nano/exact shape); the seller
 publishes it, so the block pays this one request. Each row below was read for how the seller takes the payment
 (`fixtures/settle-106h.json` and `fixtures/settle-106h2.json` in the source repository hold the lines): all
-seven read `payload.block` from `PAYMENT-SIGNATURE` or `X-PAYMENT`. `fetch.py` refuses to send a block without `"type": "state"` and 16-hex
+twelve read `payload.block` from `PAYMENT-SIGNATURE` or `X-PAYMENT`. `fetch.py` refuses to send a block without `"type": "state"` and 16-hex
 `work`, because these sellers refuse it and a refused block would still be in their hands.
 
 | seller | public source | dialect | price as published (raw) | fetch.py |
@@ -36,6 +36,11 @@ seven read `payload.block` from `PAYMENT-SIGNATURE` or `X-PAYMENT`. `fetch.py` r
 | pyfile-search | pursekeeper/api @ 21d187f, examples/purchases/pyfile-search-2026-10-05 payload-1.json (paid 2026-10-05; seller code not public) | exact | 8628000000000000000000000000 | yes, with --block-signer |
 | copperglass-offer-proof | dtdnetizen/earncheck @ 9d9e381, offer-proof/nano-payment.mjs requirements, sameRequirements | exact | 10000000000000000000000000000 | yes, with --block-signer |
 | opscontrol-npm-risk | pursekeeper/api @ 21d187f, examples/purchases ochq-page-extract-2026-10-18 source-page-extract-live.ts | exact | 1000000000000000000000000000 | yes, with --block-signer |
+| nanswap-nodes | pursekeeper/api @ 21d187f, examples/purchases nanswap-nodes-2026-10-16 client.js (paid 2026-10-16, x402 v1 X-PAYMENT; seller code not public) | exact | 2568493150684931506849315075 | yes, with --block-signer |
+| lab0-x402 | xno-acceptance-registry @ feba233, pursekeeper-sellers-2026-11-02.json pay and verified (paid 2026-10-27 with pursekeeper/api client-x402.js; seller code not public) | exact | 1000000000000000000000000000 | yes, with --block-signer |
+| nanoto-rpc | xno-acceptance-registry @ feba233, pursekeeper-sellers-2026-11-02.json pay and verified (paid 2026-09-21 with pursekeeper/api client-x402.js; seller code not public) | exact | 1000000000000000000000000000 | yes, with --block-signer |
+| claimcheck | xno-acceptance-registry @ feba233 pay and verified (paid 2026-09-28, settled by facilitator.pursekeeper.dev), pursekeeper/api @ 21d187f facilitator.js; seller code on its own host only | exact | 1000000000000000000000000000 | yes, with --block-signer |
+| uknwplayer-json-lens | pursekeeper/api @ 21d187f, examples/purchases ochq-page-extract-2026-10-18 sellers-page capture: retry with PAYMENT-SIGNATURE, client-x402.js unmodified (paid 2026-09-27, block BB290B0B40… confirmed; seller code not public). The retry must carry the same body: the quote is bound to it | exact | 10000000000000000000000000000 | yes, with --block-signer |
 
 ## Paid by fetch.py with `--invoice-body`
 
@@ -54,14 +59,10 @@ and presents the hash with the token. The price below is the base; the invoice a
 
 | seller | public source | dialect | price as published (raw) | fetch.py |
 |---|---|---|---|---|
-| nanswap-nodes | xno-acceptance-registry, network seen `nano-mainnet` (no public seller code) | exact | 2568493150684931506849315075 | no: settle unread |
 | pyfile-courier | pyfile-toolkit/nano-llm-api @ cbca76c, courier.mjs (the job, not a payment gate) | exact | 28760000000000000000000000000 | no: settle unread |
-| uknwplayer-json-lens | xno-acceptance-registry 402 only (gate not in a public repository) | exact | 10000000000000000000000000000 | no: settle unread |
-| lab0-x402 | xno-acceptance-registry 402 only (no public source) | exact | 1000000000000000000000000000 | no: settle unread |
-| nanoto-rpc | nano-to/nano-to @ 517e77e (public, holds no x402 gate) | exact | 1000000000000000000000000000 | no: settle unread |
-| claimcheck | xno-acceptance-registry 402 only (source only on the seller's own host, not fetched) | exact | 1000000000000000000000000000 | no: settle unread |
 
-These six: how each takes a payment is not public, so no `fetch.py` mode is claimed for them.
+This one: how it takes a payment is not public (its repository holds the courier job, not the gate, and the
+one paid call on record names no header), so no `fetch.py` mode is claimed for it.
 
 1 XNO is 10^30 raw, so 10^27 raw is 0.001 XNO. Prices are as the source wrote them; a live seller may
 quote another amount, and the per-call cap you set is checked before anything is signed.

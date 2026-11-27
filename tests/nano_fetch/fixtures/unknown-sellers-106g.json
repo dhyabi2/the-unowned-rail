@@ -1,0 +1,242 @@
+[
+ {
+  "id": "pyfile-search",
+  "status": "CAPTURED unpaid 402 of 2026-10-05 05:00:13Z, saved by the listing party; the live door may have changed since",
+  "source": "pursekeeper/api c44a465 examples/purchases/pyfile-search-2026-10-05/unpaid-402.headers.txt (payment-required) and unpaid-402.body.json",
+  "unknown": [
+   "the live 402 today: the registry probe of 2026-11-25T05:47Z stores no body"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiZXJyb3IiOiJQYXltZW50IHJlcXVpcmVkIiwicmVzb3VyY2UiOnsidXJsIjoiaHR0cHM6Ly9weWZpbGUtYWdlbnQudGFpbGUzZmYzNS50cy5uZXQ6MTAwMDAvd2ViL3NlYXJjaD9xPXg0MDIrYWdlbnQrcGF5bWVudHMmbGltaXQ9OCIsImRlc2NyaXB0aW9uIjoiV2ViIHNlYXJjaDogcmFua2VkIHJlc3VsdHMgKHRpdGxlICsgdXJsKSBmb3IgYSBxdWVyeS4gP3E9eDQwMithZ2VudCtwYXltZW50cyZsaW1pdD04IiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIiwic2VydmljZU5hbWUiOiJQeWZpbGUgeDQwMiBBUEkiLCJ0YWdzIjpbIndlYiIsInNlYXJjaCIsInJlYWRlciIsInNjcmFwaW5nIl19LCJhY2NlcHRzIjpbeyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6ODQ1MyIsImFtb3VudCI6IjMwMDAiLCJhc3NldCI6IjB4ODMzNTg5ZkNENmVEYjZFMDhmNGM3QzMyRDRmNzFiNTRiZEEwMjkxMyIsInBheVRvIjoiMHhBNDM3NzRmRDJlODY3RkM0NWI3ODI0NTZkNzhGMTM1YTIxNUQ1NTYxIiwibWF4VGltZW91dFNlY29uZHMiOjkwMCwiZXh0cmEiOnsibmFtZSI6IlVTRCBDb2luIiwidmVyc2lvbiI6IjIifX0seyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJlaXAxNTU6MTM3IiwiYW1vdW50IjoiMzAwMCIsImFzc2V0IjoiMHgzYzQ5OWM1NDJjRUY1RTM4MTFlMTE5MmNlNzBkOGNDMDNkNWMzMzU5IiwicGF5VG8iOiIweEE0Mzc3NGZEMmU4NjdGQzQ1Yjc4MjQ1NmQ3OEYxMzVhMjE1RDU1NjEiLCJtYXhUaW1lb3V0U2Vjb25kcyI6OTAwLCJleHRyYSI6eyJuYW1lIjoiVVNEIENvaW4iLCJ2ZXJzaW9uIjoiMiJ9fSx7InNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6ImVpcDE1NTo0MjE2MSIsImFtb3VudCI6IjMwMDAiLCJhc3NldCI6IjB4YWY4OGQwNjVlNzdjOGNDMjIzOTMyN0M1RURiM0E0MzIyNjhlNTgzMSIsInBheVRvIjoiMHhBNDM3NzRmRDJlODY3RkM0NWI3ODI0NTZkNzhGMTM1YTIxNUQ1NTYxIiwibWF4VGltZW91dFNlY29uZHMiOjkwMCwiZXh0cmEiOnsibmFtZSI6IlVTRCBDb2luIiwidmVyc2lvbiI6IjIifX0seyJzY2hlbWUiOiJleGFjdCIsIm5ldHdvcmsiOiJuYW5vOm1haW5uZXQiLCJhbW91bnQiOiI4NjI4MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwiYXNzZXQiOiJYTk8iLCJwYXlUbyI6Im5hbm9fM3VvamJuNDdiNXhxY2JzNHlpYmJhc2FtbjhhZXlxeGd5aTF6OHBlb2d3dGRuNnoza2FnamFuanB6NHNzIiwibWF4VGltZW91dFNlY29uZHMiOjM2MDAsImV4dHJhIjp7ImFzc2V0IjoiWE5PIiwid29yayI6InJlcXVpcmVkIiwid29ya1RocmVzaG9sZCI6ImZmZmZmZmY4MDAwMDAwMDAifX1dLCJleHRlbnNpb25zIjp7ImJhemFhciI6eyJpbmZvIjp7ImlucHV0Ijp7InR5cGUiOiJodHRwIiwibWV0aG9kIjoiR0VUIn0sIm91dHB1dCI6eyJ0eXBlIjoianNvbiIsImV4YW1wbGUiOnsicXVlcnkiOiJ4NDAyIGFnZW50IHBheW1lbnRzIiwiY291bnQiOjIsInJlc3VsdHMiOlt7InRpdGxlIjoieDQwMjogSW50ZXJuZXQtbmF0aXZlIHBheW1lbnRzIiwidXJsIjoiaHR0cHM6Ly94NDAyLm9yZyJ9LHsidGl0bGUiOiJBZ2VudCBwYXltZW50cyBndWlkZSIsInVybCI6Imh0dHBzOi8vZXhhbXBsZS5jb20vYWdlbnQtcGF5bWVudHMifV0sInNvdXJjZSI6ImR1Y2tkdWNrZ28uY29tL2h0bWwifX19LCJzY2hlbWEiOnsiJHNjaGVtYSI6Imh0dHBzOi8vanNvbi1zY2hlbWEub3JnL2RyYWZ0LzIwMjAtMTIvc2NoZW1hIiwidHlwZSI6Im9iamVjdCIsInByb3BlcnRpZXMiOnsiaW5wdXQiOnsidHlwZSI6Im9iamVjdCIsInByb3BlcnRpZXMiOnsidHlwZSI6eyJ0eXBlIjoic3RyaW5nIiwiY29uc3QiOiJodHRwIn0sIm1ldGhvZCI6eyJ0eXBlIjoic3RyaW5nIiwiZW51bSI6WyJHRVQiXX0sInF1ZXJ5UGFyYW1zIjp7InR5cGUiOiJvYmplY3QiLCJwcm9wZXJ0aWVzIjp7fX19LCJyZXF1aXJlZCI6WyJ0eXBlIiwibWV0aG9kIl19LCJvdXRwdXQiOnsidHlwZSI6Im9iamVjdCIsInByb3BlcnRpZXMiOnsidHlwZSI6eyJ0eXBlIjoic3RyaW5nIiwiY29uc3QiOiJqc29uIiwiZGVzY3JpcHRpb24iOiJPdXRwdXQgcGF5bG9hZCBmb3JtYXQuIn0sImV4YW1wbGUiOnsidHlwZSI6Im9iamVjdCIsInByb3BlcnRpZXMiOnsicXVlcnkiOnsidHlwZSI6InN0cmluZyIsImRlc2NyaXB0aW9uIjoiVGhlIHNlYXJjaCBxdWVyeSB0aGF0IHdhcyBydW4uIn0sImNvdW50Ijp7InR5cGUiOiJpbnRlZ2VyIiwiZGVzY3JpcHRpb24iOiJOdW1iZXIgb2YgcmVzdWx0cyByZXR1cm5lZC4ifSwicmVzdWx0cyI6eyJ0eXBlIjoiYXJyYXkiLCJkZXNjcmlwdGlvbiI6IlJhbmtlZCByZXN1bHRzLCBlYWNoIHdpdGggYSB0aXRsZSBhbmQgdXJsLiIsIml0ZW1zIjp7InR5cGUiOiJvYmplY3QiLCJwcm9wZXJ0aWVzIjp7InRpdGxlIjp7InR5cGUiOiJzdHJpbmcifSwidXJsIjp7InR5cGUiOiJzdHJpbmcifX0sInJlcXVpcmVkIjpbInRpdGxlIiwidXJsIl19fSwic291cmNlIjp7InR5cGUiOiJzdHJpbmciLCJkZXNjcmlwdGlvbiI6IlVwc3RyZWFtIHNlYXJjaCBwcm92aWRlci4ifX0sInJlcXVpcmVkIjpbInF1ZXJ5IiwiY291bnQiLCJyZXN1bHRzIl19fSwicmVxdWlyZWQiOlsidHlwZSJdfX0sInJlcXVpcmVkIjpbImlucHV0Il19fSwicmFpbC1oaW50Ijp7ImluZm8iOnsiY2hlYXBlc3QiOiJuYW5vOm1haW5uZXQiLCJ3aHkiOiJaZXJvIG5ldHdvcmsgZmVlcywgbm8gcHJpY2UgZmxvb3IsIHN1Yi1zZWNvbmQgZmluYWxpdHkg4oCUIE5hbm8gaXMgdGhlIHRydWUgbWV0ZXJlZCBwcmljZSBmb3IgYSBtYWNoaW5lLXRvLW1hY2hpbmUgY2FsbC4iLCJib290c3RyYXAiOiJwaXAgaW5zdGFsbCBmZWVsZXNzNDAyICYmIG5hbm8tcGF5IGluaXQgJiYgbmFuby1wYXkgY2xhaW0gaHR0cHM6Ly9mZWVsZXNzNDAyLmNvbSIsImRvY3MiOiJodHRwczovL3JhaWxoaW50LmNvbSJ9LCJzY2hlbWEiOnsiJHNjaGVtYSI6Imh0dHBzOi8vanNvbi1zY2hlbWEub3JnL2RyYWZ0LzIwMjAtMTIvc2NoZW1hIiwidHlwZSI6Im9iamVjdCIsInByb3BlcnRpZXMiOnsiaW5mbyI6eyJ0eXBlIjoib2JqZWN0In19LCJyZXF1aXJlZCI6WyJpbmZvIl19fX19"
+  },
+  "body": {
+   "error": "Payment required",
+   "x402Version": 2,
+   "x-payment-info": {
+    "price": {
+     "mode": "fixed",
+     "currency": "USDC",
+     "amount": "0.003000"
+    },
+    "acceptedCurrencies": [
+     "USDC",
+     "USDC",
+     "USDC",
+     "XNO"
+    ],
+    "protocols": [
+     {
+      "x402": {}
+     }
+    ]
+   },
+   "x-nano-note": "Paid in Nano from an agent? If you run it, say who operates it at https://github.com/pursekeeper/api/issues/1 — nothing changes about this payment.",
+   "accepts": [
+    {
+     "scheme": "exact",
+     "network": "eip155:8453",
+     "payTo": "0xA43774fD2e867FC45b782456d78F135a215D5561",
+     "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+     "maxTimeoutSeconds": 900,
+     "extra": {
+      "name": "USD Coin",
+      "version": "2"
+     },
+     "amount": "3000"
+    },
+    {
+     "scheme": "exact",
+     "network": "eip155:137",
+     "payTo": "0xA43774fD2e867FC45b782456d78F135a215D5561",
+     "asset": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+     "maxTimeoutSeconds": 900,
+     "extra": {
+      "name": "USD Coin",
+      "version": "2"
+     },
+     "amount": "3000"
+    },
+    {
+     "scheme": "exact",
+     "network": "eip155:42161",
+     "payTo": "0xA43774fD2e867FC45b782456d78F135a215D5561",
+     "asset": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+     "maxTimeoutSeconds": 900,
+     "extra": {
+      "name": "USD Coin",
+      "version": "2"
+     },
+     "amount": "3000"
+    },
+    {
+     "scheme": "exact",
+     "network": "nano:mainnet",
+     "payTo": "nano_3uojbn47b5xqcbs4yibbasamn8aeyqxgyi1z8peogwtdn6z3kagjanjpz4ss",
+     "asset": "XNO",
+     "maxTimeoutSeconds": 3600,
+     "extra": {
+      "asset": "XNO",
+      "work": "required",
+      "workThreshold": "fffffff800000000"
+     },
+     "amount": "8628000000000000000000000000"
+    }
+   ],
+   "x-nano-status": "no_payment_presented",
+   "x-nano-hint": "No Nano payment was presented with this request. To pay in Nano, send the exact amount to the payTo address below and repeat the call with the confirmed send-block hash in the `X-Nano-Payment` header (or a signed `Payment-Signature`). Zero network fees; the block confirms in under a second. The USDC/x402 option above also works and needs no header.",
+   "x-nano-retry": "Sign a new block for the payTo below and retry.",
+   "x-nano-payto": "nano_3uojbn47b5xqcbs4yibbasamn8aeyqxgyi1z8peogwtdn6z3kagjanjpz4ss",
+   "x-nano-amount": "0.008628",
+   "x-nano-window-sec": 3600,
+   "x-direct-credits-check": "https://pyfile-agent.taile3ff35.ts.net:10000/direct/credits?from=0x<your-address>",
+   "x-direct-credits-hint": "Already sent USDC to payTo in a plain transfer? Check that address at the URL above and retry with header `X-Payment-Tx: 0x<tx-hash>` instead of paying twice."
+  }
+ },
+ {
+  "id": "copperglass-offer-proof",
+  "status": "RECONSTRUCTED from the seller's public source, not captured live",
+  "source": "dtdnetizen/earncheck 9d9e381 (the commit dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json names) offer-proof/nano-payment.mjs:7 EXPECTED_PAY_TO, :23-25 requirements(), :62-67 unpaid header; worker.mjs:3 PRICE_RAW, :129-130 the 402 body and payment-required header",
+  "unknown": [
+   "resource.url is request.url (placeholder here)",
+   "the listing of 2026-09-28 read maxTimeoutSeconds 10; the source at 9d9e381 writes 60"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiZXJyb3IiOiJQQVlNRU5ULVNJR05BVFVSRSBoZWFkZXIgaXMgcmVxdWlyZWQiLCJyZXNvdXJjZSI6eyJ1cmwiOiJodHRwczovL2NvcHBlcmdsYXNzLW9mZmVyLXByb29mLnBhZ2VzLmRldi92MS9vZmZlci1wcm9vZiIsImRlc2NyaXB0aW9uIjoiT25lIE9mZmVyIFByb29mIEdhdGUgcmVwb3J0IiwibWltZVR5cGUiOiJhcHBsaWNhdGlvbi9qc29uIn0sImFjY2VwdHMiOlt7InNjaGVtZSI6ImV4YWN0IiwibmV0d29yayI6Im5hbm86bWFpbm5ldCIsImFzc2V0IjoiWE5PIiwicGF5VG8iOiJuYW5vXzFxN2s5azZud2R4Ymlld2g5eWV0cDN0c3VjNHJ5NHc5ZDdqN2g1bmI5a201YnE2OWo3NTE1cnl4ZTYzaSIsImFtb3VudCI6IjEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwibWF4VGltZW91dFNlY29uZHMiOjYwLCJleHRyYSI6eyJwYXltZW50RmxvdyI6InVwZnJvbnQiLCJ3b3JrIjoicmVxdWlyZWQifX1dLCJleHRlbnNpb25zIjp7fX0="
+  },
+  "body": {
+   "error": "payment_required",
+   "network": "nano:mainnet",
+   "asset": "XNO",
+   "amount_raw": "10000000000000000000000000000"
+  }
+ },
+ {
+  "id": "lab0-x402",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[lab0-x402].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json lab0-x402 payto[0] / price_raw_seen_in_402",
+  "unknown": [
+   "the USDC-on-Base accept beside it (left out: its fields are not published)",
+   "resource",
+   "the body (it repeats the quote)"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwicGF5VG8iOiJuYW5vXzNkajVndTExNmk0MTEzOXR4ODNrZmE0dDlmNXJjZm1pZnFpZ210OXducW9ldW56NmhqY3A0aDZ1aXo5eiIsIm1heFRpbWVvdXRTZWNvbmRzIjo2MCwiZXh0cmEiOnsid29yayI6Im9wdGlvbmFsIiwid29ya09wdGlvbmFsIjp0cnVlLCJ3b3JrVGhyZXNob2xkIjoiZmZmZmZmZjgwMDAwMDAwMCJ9fV19"
+  },
+  "body": null
+ },
+ {
+  "id": "nanoto-rpc",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[nanoto-rpc].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json nanoto-rpc payto[0] / price_raw_seen_in_402",
+  "unknown": [
+   "asset (the description names none; XNO assumed as @x402nano/exact writes it)",
+   "extra (not described)",
+   "resource",
+   "the body"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwicGF5VG8iOiJuYW5vXzFycGMxOXRwZnp1b3RzazM0NmJ0Njc0bWVoajk2anU4Nm41eGlvcDRvNjhtZXBxZXhmNWY1NXhhN3ljeCIsIm1heFRpbWVvdXRTZWNvbmRzIjo2MH1dfQ=="
+  },
+  "body": null
+ },
+ {
+  "id": "opscontrol-npm-risk",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[opscontrol-npm-risk].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json opscontrol-npm-risk payto[0] / price_raw_seen_in_402; the linked source github.com/Jay44333/startup-credits branch ops-control-nano-seller answers not found on 2026-11-26",
+  "unknown": [
+   "extra (not described)",
+   "resource",
+   "the short body"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwicGF5VG8iOiJuYW5vXzNtcjc2MWk4N283bzMzaG1yZDY3YTFlbXQ4MWo2ZGpnZHFleW9kOTVpcDVxY2lkejc3YjcxeDR1a3FlYSIsIm1heFRpbWVvdXRTZWNvbmRzIjozMDB9XX0="
+  },
+  "body": null
+ },
+ {
+  "id": "uknwplayer-json-lens",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[uknwplayer-json-lens].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json uknwplayer-json-lens payto[0] / price_raw_seen_in_402; the linked source github.com/uknwplayer/nano-json-lens-402 answers not found on 2026-11-26",
+  "unknown": [
+   "extra.requestDigest's exact form (a hash of the request body)",
+   "resource",
+   "the body (repeats the requirements)"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCIsInBheVRvIjoibmFub18xendpazRoZDFwank3M293ZmFoOHh1eHpva2s2emV4YzVhNnJzNmJ5aHJ4cnlnZ2tiaDM4a2VtbTUxeXQiLCJtYXhUaW1lb3V0U2Vjb25kcyI6MzAwLCJleHRyYSI6eyJyZXF1ZXN0RGlnZXN0IjoiUExBQ0VIT0xERVItaGFzaC1vZi10aGUtcmVxdWVzdC1ib2R5In19XX0="
+  },
+  "body": null
+ },
+ {
+  "id": "pyfile-courier",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[pyfile-courier].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json pyfile-courier payto[0] / price_raw_seen_in_402",
+  "unknown": [
+   "maxTimeoutSeconds and extra (not described; the sibling pyfile-search writes 3600 and extra.work required)",
+   "asset (not described; XNO as on pyfile-search)",
+   "the paid call also needs the job chain in the body, which no client builds by itself"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIyODc2MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCIsInBheVRvIjoibmFub18zdW9qYm40N2I1eHFjYnM0eWliYmFzYW1uOGFleXF4Z3lpMXo4cGVvZ3d0ZG42ejNrYWdqYW5qcHo0c3MifV19"
+  },
+  "body": null
+ },
+ {
+  "id": "claimcheck",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[claimcheck].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json claimcheck payto[0] / price_raw_seen_in_402",
+  "unknown": [
+   "maxTimeoutSeconds (not described)",
+   "asset (not described)",
+   "the source at the seller's own git host (not read: that is the seller's server)"
+  ],
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJ4NDAyVmVyc2lvbiI6MiwiYWNjZXB0cyI6W3sic2NoZW1lIjoiZXhhY3QiLCJuZXR3b3JrIjoibmFubzptYWlubmV0IiwiYXNzZXQiOiJYTk8iLCJhbW91bnQiOiIxMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwIiwicGF5VG8iOiJuYW5vXzNndGllYTl3ZW9kM2l0eHk1cTY5dDk1dHI4M2Q2eWJkc3B4eXFlNW9paHR1NGVlNDU3cnN3bzhtaXNvdCIsImV4dHJhIjp7IndvcmsiOiJyZXF1aXJlZCJ9fV19"
+  },
+  "body": null
+ },
+ {
+  "id": "nanotracker-spend-or-swap",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[nanotracker-spend-or-swap].pay; payTo and amount from dhyabi2/xno-acceptance-registry feba233 registry.json (networks_seen nano); source not published",
+  "unknown": [
+   "the nano: deep link and proof-rule wording in the body",
+   "the X-Payment-Amount-XNO value at today's rate"
+  ],
+  "headers": {
+   "X-Payment-Address": "nano_19zs7s5cwnccx7nqyhukxhuxnjqk14xzicbhue1o9kn6n3bescfc8rbpwmdg",
+   "X-Payment-Amount-XNO": "0.00343"
+  },
+  "body": {
+   "x402Version": 1,
+   "accepts": [
+    {
+     "scheme": "nano-block",
+     "network": "nano",
+     "payTo": "nano_19zs7s5cwnccx7nqyhukxhuxnjqk14xzicbhue1o9kn6n3bescfc8rbpwmdg",
+     "maxAmountRequired": "3430000000000000000000000000",
+     "maxTimeoutSeconds": 600
+    }
+   ]
+  },
+  "retry": "repeat the same POST with X-Payment-Hash: <send block hash>"
+ },
+ {
+  "id": "llmrt",
+  "status": "RECONSTRUCTED from the listing party's published description of the unpaid 402, not captured live",
+  "source": "dhyabi2/xno-acceptance-registry feba233 data/pursekeeper-sellers-2026-11-02.json sellers[llmrt].pay; nano_address/amount as last seen in dhyabi2/xno-acceptance-registry feba233 registry.json llmrt",
+  "unknown": [
+   "order_id (fresh per order; placeholder)",
+   "the per-order nano_address (the one seen is used)",
+   "every other key of the body"
+  ],
+  "headers": {},
+  "body": {
+   "order_id": "PLACEHOLDER",
+   "network": "nano:mainnet",
+   "nano_address": "nano_1p63ene6ar8rrxh3rr1kwk7x9weuhwtjjbdhgbyxz697enx5g8spgk95ytwm",
+   "nano_amount_raw": "150000000000000000000000000000"
+  },
+  "retry": "send, then GET the same URL with ?order_id= until 200"
+ }
+]

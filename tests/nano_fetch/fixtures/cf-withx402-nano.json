@@ -1,0 +1,50 @@
+{
+  "about": "FRONTIER 111 (c), rail run 275, 2026-11-27: does basementstudio/xmcp#821's payer output reach a Cloudflare Agents withX402 seller set to network nano:mainnet through a Nano facilitator? Read as data only (blobless git clones at the pinned commits, and npm registry tarballs unpacked, never installed or run). Nothing was deployed, no seller or facilitator was called, nobody was contacted. test_cf_withx402_nano.py is a Python reading of the lines named here plus a stub facilitator and a stub node on 127.0.0.1, no key, no seed; its Table class keeps this file equal to what the tests show.",
+  "pins": {
+    "cloudflare/agents": "1900d09",
+    "basementstudio/xmcp": "1a0409a3ae851b2c8d5e6b0e7d598471f3cc165b",
+    "@x402/core": "2.17.0 (cloudflare/agents pnpm-lock.yaml:9822; tarball sha1 faac3871cdd5ed735eaa930f3b70f5d2d95800ad)",
+    "@x402/evm": "2.17.0",
+    "@x402nano/exact": "1.1.0 (npm latest; tarball sha1 613bf279608ac4d4b060918100c60a11df082151)"
+  },
+  "facilitator_calls": {
+    "source": "@x402/core 2.17.0 dist/esm/chunk-YEYZQZNL.mjs:856-990 (HTTPFacilitatorClient), schemas :774-805; default URL https://x402.org/facilitator (x402.ts:195-197), set by cfg.facilitator.url",
+    "supported": "GET {url}/supported, read once per process on the first paid call (x402.ts:204-214, server/index.mjs:458-504); response {kinds: [{x402Version, scheme, network, extra?}], extensions: [], signers: {}}; retries on 429",
+    "verify": "POST {url}/verify, body {x402Version, paymentPayload, paymentRequirements}; reads {isValid (required boolean), invalidReason?, invalidMessage?, payer?, extensions?, extra?}; a non-200 with isValid becomes a VerifyError, which withX402 maps to INVALID_PAYMENT (x402.ts:324-326)",
+    "settle": "POST {url}/settle, same body, called only after the tool body succeeded (x402.ts:351-372); reads {success (required), transaction (required string), network (required string), errorReason?, errorMessage?, payer?, amount?}; the tool result then carries _meta['x402/payment-response'] = {success, transaction, network, payer}",
+    "auth": "optional createAuthHeaders per path (verify, settle, supported); none by default"
+  },
+  "meta_keys": {
+    "withX402_reads": "request _meta['x402/payment'] first, then header PAYMENT-SIGNATURE, then X-PAYMENT (x402.ts:164-173); the value must be a string, base64 of the JSON payment (x402.ts:294, :299 atob)",
+    "withX402_offer": "an unpaid call returns isError with _meta['x402/error'] = {x402Version: 2, error, resource: {url: 'x402://<tool>', description, mimeType}, accepts} and the same JSON as content[0].text (x402.ts:276-292)",
+    "xmcp_821_writes": "_meta['x402/payment'] = an OBJECT {x402Version: 2, resource?, accepted, payload: {blockHash, orderId?}} (nano-payer.ts:9, :163-191); no base64 step anywhere in nano-payer.ts",
+    "xmcp_821_reads_offer": "the offer object, its JSON text, or a tools/call result's structuredContent or first text content (nano-payer.ts:73-95)"
+  },
+  "cells": [
+    {"id": "C1", "question": "Is the _meta key withX402 reads the one #821 writes?", "answer": "yes",
+     "source": "x402.ts:169 meta?.['x402/payment']; nano-payer.ts:9 and :163 '_meta[\"x402/payment\"]'"},
+    {"id": "C2", "question": "Is #821's value in the form withX402 accepts?", "answer": "no",
+     "source": "x402.ts:294 `if (!token || typeof token !== \"string\") return paymentRequired()` and :299 JSON.parse(atob(token)); nano-payer.ts:166-191 returns a Record, not a string. Result: the paid retry is answered PAYMENT_REQUIRED again"},
+    {"id": "C3", "question": "Would #821's planner take a withX402 offer that lists nano:mainnet exact?", "answer": "yes",
+     "source": "x402.ts:287-291 puts the offer JSON in content[0].text; nano-payer.ts:80-87 reads the first text content, :111-118 takes scheme exact on 'nano:mainnet' (constants.ts:17); test_c3"},
+    {"id": "C4", "question": "Does a stock withX402 seller set to network nano:mainnet offer a Nano accept?", "answer": "no",
+     "source": "x402.ts:202 registers only registerServerEvmScheme, which registers 'eip155:*' (@x402/evm exact/server/index.mjs:145); @x402/core server/index.mjs:542-555 returns [] with a console warning when no server matches the network, so accepts is [] and nano-payer.ts:118 throws 'The offer has no exact payment on nano'"},
+    {"id": "C5", "question": "Is the price unit right for Nano?", "answer": "no",
+     "source": "paidTool takes priceUSD (x402.ts:118, :250 price: priceUSD); @x402nano/exact 1.1.0 parsePrice (chunk-NUO6S6HD.mjs:46-80) reads a decimal as XNO and a whole number as raw, so priceUSD 0.01 asks 0.01 XNO and priceUSD 1 asks 1 raw"},
+    {"id": "C6", "question": "Does #821's payload reach a payload.block facilitator (pursekeeper, x402nano shape)?", "answer": "no",
+     "source": "nano-payer.ts:173-176 sends payload {blockHash, orderId?} of a send the payer already published; pursekeeper and x402nano/facilitator read payload.block (extend/LOG 2026-11-27 12:3xZ, 12:4xZ); gosuda/x402-facilitator takes payload.blockHash (LOG 12:1xZ) but names no public Nano deployment; test_c6"},
+    {"id": "C7", "question": "Does a facilitator in @x402/core's HTTP shape settle a Nano exact payload.block for a withX402 seller (once a Nano scheme server is registered)?", "answer": "yes",
+     "source": "test_c7 and test_replay_refused_and_survives_facilitator_restart: stub /supported /verify /settle on 127.0.0.1; amount = previous balance - new balance from the loopback node, destination = signed link, spent blocks in a file; the stub does not check the signature"},
+    {"id": "C8", "question": "Can a seller add a Nano scheme to withX402 with configuration only?", "answer": "no",
+     "source": "X402Config is {network, recipient: `0x${string}`, facilitator?, version?} (x402.ts:84-96); the x402ResourceServer is created inside withX402 (x402.ts:200-202) and never returned, so no option registers another scheme; recipient's type refuses a nano_ address without a cast"},
+    {"id": "C9", "question": "Is there a public Nano facilitator a withX402 seller could point at today that checks amount and destination?", "answer": "UNKNOWN",
+     "source": "facilitator.pursekeeper.dev lists exact nano:mainnet in source (LOG 12:3xZ) but is egress-blocked from the cloud; x402nano/facilitator names no deployment and @x402nano/exact 0.1.1 verify skips the amount (LOG 12:4xZ); gosuda names none (LOG 12:1xZ)"}
+  ],
+  "overall": {
+    "question": "Does #821's output reach a withX402 seller set to network nano:mainnet?",
+    "answer": "no",
+    "why": "Two code gaps, neither closable by configuration: withX402 registers only the EVM scheme and exposes no way to add one (C4, C8), and #821 sends an object where withX402 needs a base64 string (C2). Behind them, the price is named in USD (C5) and #821 sends a blockHash where the two block-taking facilitators want payload.block (C6). The facilitator side itself is fine on paper (C7).",
+    "what_would_close_it": "cloudflare/agents: an option to register extra scheme servers (for example @x402nano/exact's ExactNanoScheme) and a price that is not only USD; xmcp: base64-encode the payment when the seller is withX402, or withX402 accepting an object. Each is a code change in someone else's repository, so 111 needs a pull request after all, not configuration alone.",
+    "binding_note": "withX402 binds a payment to the tool's requirements only (scheme, network, amount, asset, payTo; x402.ts:247-253, server/index.mjs:1323-1333): there is no per-call order id, so two tools at one price accept the same block until the facilitator marks it spent."
+  }
+}

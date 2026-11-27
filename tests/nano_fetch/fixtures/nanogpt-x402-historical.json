@@ -1,0 +1,97 @@
+[
+ {
+  "id": "nanogpt-x402",
+  "status": "HISTORICAL: withdrawn by the seller on 2026-11-20",
+  "source": "A real NanoGPT 402 for POST /api/v1/chat/completions (expiresAt 2026-07-12), captured by a third party as nanoodlecom/nanoodle-js tests/fixtures/x402/402.json (raw.githubusercontent.com HEAD, read 2026-11-26 rail run 232); trimmed to the two Nano entries of `accepts` and `payment.accepted` (Base, Solana and Lightning entries removed), every kept field byte-for-byte. Flow of scheme `nano` (send to the per-payment payTo, then POST the same body to completeUrl with x-x402-payment-id) from pursekeeper/api examples/buy-from-nanogpt.md (paid calls 2026-09-07 to 11-17). docs.nano-gpt.com is not reachable from this session (agent proxy 403, WebFetch ENOTFOUND), so the doc itself was not read here.",
+  "withdrawn": "pursekeeper/api examples/research/2026-11-21-nanogpt-no-nano/README.md: 11 unpaid quotes on 2026-11-21 19:44-19:45Z on both hosts offered only lightning-l402 with the text \"Pay-per-request x402 payments have been removed\"; it reports a NanoGPT co-founder confirming on 2026-11-22 that XNO per-request payments were removed on 20 November on purpose, and that the doc page now reads \"x402 was removed entirely on 2026-11-20, including XNO/Nano (nano, nano-exact)\". Read from that report, not reproduced here.",
+  "unknown": [
+   "the X-PAYMENT payload field names NanoGPT expected for nano-exact (not in the 402 or in any source read)",
+   "whether X-PAYMENT-RESPONSE carried the block hash for nano-exact"
+  ],
+  "headers": {},
+  "body": {
+   "error": {
+    "message": "Insufficient balance. Multiple payment options available. Payment required: $0.0001 USD (0.00018392 XNO). For Lightning L402: pay the invoice and retry this endpoint with Authorization: L402 <token>:<preimage>. For x402 clients: retry this endpoint with X-PAYMENT header. For manual payments: send to nano_3ninmijhojotpxymdkhunrw65ggq6djtydjktxzed88rapzpg5bc7jderub1 then call /api/x402/complete/pay_66304af72ff034ab673234150b5997ec",
+    "type": "insufficient_quota",
+    "code": "insufficient_quota"
+   },
+   "payment": {
+    "version": 1,
+    "paymentId": "pay_66304af72ff034ab673234150b5997ec",
+    "requestHash": "sha256:6e018d847c60cf33b7c7a88412a0412d1acfa95bb09b8e40e477f89ba1b0e380",
+    "expiresAt": "2026-07-12T03:38:38.000Z",
+    "amountUsd": "0.0000605",
+    "statusUrl": "https://nano-gpt.com/api/x402/status/pay_66304af72ff034ab673234150b5997ec",
+    "completeUrl": "https://nano-gpt.com/api/x402/complete/pay_66304af72ff034ab673234150b5997ec",
+    "accepted": [
+     {
+      "scheme": "nano",
+      "protocolScheme": "nano",
+      "network": "nano-mainnet",
+      "amount": "183920000000000000000000000",
+      "amountFormatted": "0.00018392 XNO",
+      "amountUsd": "0.0000605",
+      "payTo": "nano_3ninmijhojotpxymdkhunrw65ggq6djtydjktxzed88rapzpg5bc7jderub1",
+      "paymentId": "pay_66304af72ff034ab673234150b5997ec",
+      "expiresAt": "2026-07-12T03:38:38.000Z",
+      "statusUrl": "https://nano-gpt.com/api/x402/status/pay_66304af72ff034ab673234150b5997ec",
+      "completeUrl": "https://nano-gpt.com/api/x402/complete/pay_66304af72ff034ab673234150b5997ec"
+     },
+     {
+      "scheme": "nano-exact",
+      "protocolScheme": "exact",
+      "network": "nano:mainnet",
+      "amount": "183920000000000000000000000",
+      "amountFormatted": "0.00018392 XNO",
+      "amountUsd": "0.0000605",
+      "payTo": "nano_3njeurfzgpwpnqjxoytfnqa7ezbgkordga8e8jg74ey77kww5d5emjjyzrhp",
+      "asset": "XNO",
+      "paymentId": "pay_56b03179d6cdf9f6295d07d7d25f88f5",
+      "expiresAt": "2026-07-12T03:38:38.000Z",
+      "statusUrl": "https://nano-gpt.com/api/x402/status/pay_56b03179d6cdf9f6295d07d7d25f88f5"
+     }
+    ]
+   },
+   "x402Version": 1,
+   "accepts": [
+    {
+     "scheme": "nano",
+     "network": "nano-mainnet",
+     "maxAmountRequired": "183920000000000000000000000",
+     "maxAmountRequiredFormatted": "0.00018392 XNO",
+     "maxAmountRequiredUSD": 6.050000000000001e-05,
+     "resource": "/api/v1/chat/completions",
+     "description": "Payment required - $0.0001 USD",
+     "payTo": "nano_3ninmijhojotpxymdkhunrw65ggq6djtydjktxzed88rapzpg5bc7jderub1",
+     "paymentId": "pay_66304af72ff034ab673234150b5997ec",
+     "expiresAt": 1783827518,
+     "callbackUrl": "/api/x402/status/pay_66304af72ff034ab673234150b5997ec",
+     "completeUrl": "/api/x402/complete/pay_66304af72ff034ab673234150b5997ec",
+     "extra": {
+      "explorerUrl": "https://nanolooker.com/account/nano_3ninmijhojotpxymdkhunrw65ggq6djtydjktxzed88rapzpg5bc7jderub1"
+     }
+    },
+    {
+     "scheme": "exact",
+     "network": "nano:mainnet",
+     "asset": "XNO",
+     "maxAmountRequired": "183920000000000000000000000",
+     "maxAmountRequiredFormatted": "0.00018392 XNO",
+     "maxAmountRequiredUSD": 6.050000000000001e-05,
+     "resource": "/api/v1/chat/completions",
+     "description": "Payment required - $0.0001 USD",
+     "mimeType": "application/json",
+     "payTo": "nano_3njeurfzgpwpnqjxoytfnqa7ezbgkordga8e8jg74ey77kww5d5emjjyzrhp",
+     "paymentId": "pay_56b03179d6cdf9f6295d07d7d25f88f5",
+     "expiresAt": 1783827518,
+     "callbackUrl": "/api/x402/status/pay_56b03179d6cdf9f6295d07d7d25f88f5",
+     "extra": {
+      "paymentId": "pay_56b03179d6cdf9f6295d07d7d25f88f5",
+      "explorerUrl": "https://nanolooker.com/account/nano_3njeurfzgpwpnqjxoytfnqa7ezbgkordga8e8jg74ey77kww5d5emjjyzrhp"
+     }
+    }
+   ],
+   "requestHash": "6e018d847c60cf33b7c7a88412a0412d1acfa95bb09b8e40e477f89ba1b0e380"
+  }
+ }
+]

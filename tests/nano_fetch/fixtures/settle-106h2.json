@@ -1,0 +1,53 @@
+{
+  "about": "How each of the 8 exact sellers of fixtures/unknown-sellers-106g.json (buyer_plan yes, pr agent 4 run 42) takes the payment, read from public code or a published paid call (FRONTIER 106 (h2), pr agent 4 run 50, 2026-11-26). Read only: nothing was run against any seller, no seller's own host was fetched, and no seller was contacted. UNKNOWN where no code or paid-call record is public. test_settle_106h2.py plans every payload.block entry through fetch.py --block-signer on a loopback copy of the seller's 402 and checks the header it sends against `requires`.",
+  "settle": [
+    {
+      "id": "pyfile-search",
+      "settle": "payload.block",
+      "source": "published paid call, seller code not public: pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/pyfile-search-2026-10-05/ README.txt steps 6-10, payload-1.json (header {x402Version 2, resource, accepted, payload.block}) sent as PAYMENT-SIGNATURE; the gate broadcast it (x-nano-broadcast: landed) and served 200 on re-presentation (represent-7.hdr); X-Payment answered 402 no_payment_presented (represent-2). The record also shows the door refused the call for about 4 h after settling. pyfile-toolkit/nano-llm-api @ cbca76cf3435547b1bd2def008065a5947df32da holds no /web/search gate. Shape last seen working on 2026-10-05.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "copperglass-offer-proof",
+      "settle": "payload.block",
+      "source": "dtdnetizen/earncheck @ 9d9e381d557cecf8ee10c33b09d1b7ed1cd8f123: offer-proof/nano-payment.mjs:23-25 requirements (exact, nano:mainnet, XNO, extra.work required), :26-30 sameRequirements (scheme/network/asset/payTo/amount), :62 reads payment-signature only, :72 x402Version 2 and accepted equal to the requirements, :73 paymentId = nanoStateHash(payload.block), then /verify and /settle at facilitator.pursekeeper.dev; worker.mjs:105 reserves the block hash to a digest of the request body (a changed body on the same payment answers 409).",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "opscontrol-npm-risk",
+      "settle": "payload.block",
+      "source": "pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/ochq-page-extract-2026-10-18/source-page-extract-live.ts (the operator's supabase function nano-npm-risk at operator commit 1d5ed251ddd79bcd53051cdfa60fb7ec8ceb4b0a, source-manifest.json): :3-5 @x402/core 2.27.0 and @x402nano/exact 0.2.3 ExactNanoScheme, :376 PAYMENT-SIGNATURE or X-PAYMENT, :143-145 rail by payload.accepted.network, verifyPayment then settlePayment through facilitator.pursekeeper.dev after the report builds. The same entry as opscontrol-page-extract in settle-106h.json (one function, two doors).",
+      "requires": {"headers": ["payment-signature", "x-payment"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "pyfile-courier",
+      "settle": "UNKNOWN",
+      "source": "FINAL: no public source of how this door takes the payment (pr agent 3 run 59, 2026-11-27, read only). Every place looked: (1) pyfile-toolkit/nano-llm-api @ cbca76cf3435547b1bd2def008065a5947df32da (still the head on 11-27, last commit 2026-09-20): courier.mjs:1-185 is the courier job (validate, topological chain order, attach work, process via rpc.nano.to), with no fee or payment check; server.mjs:85-138 is the chat door (X-Nano-Payment <hash>); README.md:38 calls Nano a legacy rail with X-Nano-Payment. No /data/nano/courier gate in the repository. (2) pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704: no examples/purchases directory for this door (only pyfile-search-2026-10-05 and the unrelated oso-pepe-courier ones); the sellers-page capture in ochq-page-extract-2026-10-18/paid-2.body.json says the route 'took four 0.02876 payments (09-20 x2, 09-24, 09-26) and delivered no job block; after their 2026-09-27 fix a chain job of mine went through on 2026-09-28 00:20 UTC', but that capture is truncated at 50000 characters before the pyfile-courier entry itself; examples/research/2026-10-22-quote-validity rows.json has the 402 only (decodable, accepts, 0.02876, stable). (3) rpc.nano.to account_history of pursekeeper's nano_1i3y944... filtered to this payTo: the 09-28 00:20:33Z send of 2.876e28 raw is on chain (9D509ABE020C...), and so are later ones on 09-30; a block shows that money moved, not which header or body carried it. (4) The pursekeeper/api#1 thread and the operator's other repositories are not reachable from this session (repository-scoped API). So the header, the body (the job chain) and whether the payment send rides inside the chain are not public. Stays 'no: settle unread' until the operator publishes the gate or a paid call's headers.",
+      "requires": {}
+    },
+    {
+      "id": "uknwplayer-json-lens",
+      "settle": "payload.block",
+      "source": "published paid call, seller code not public: the listing party's own record, pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/ochq-page-extract-2026-10-18/paid-2.body.json (its capture of pursekeeper.dev/sellers, 2026-10-19T00:32Z), entry 'Nano JSON Lens 402': unpaid POST /api/lens answers 402 with PAYMENT-REQUIRED (x402 v2, exact, nano:mainnet, XNO, 1e28 raw, fixed payTo, maxTimeoutSeconds 300, extra.requestDigest binding the body); 'Retry with PAYMENT-SIGNATURE carrying the signed send block (x402nano exact; examples/client-x402.js works unmodified with METHOD=POST and BODY set); the seller verifies and settles through facilitator.pursekeeper.dev'. Proof block BB290B0B406F... (links[60] of that capture): read 2026-11-27 06:3xZ on rpc.nano.to block_info, confirmed, send of exactly 1e28 raw to nano_1zwik4hd... (this door's payTo) from nano_1i3y944... (pursekeeper's, data/own-addresses.json), 2026-09-27 04:29:57Z. client-x402.js:26-27 is the header shape {x402Version, resource, accepted, payload: {block}}. The quote names no work field. The body of a retry must be the same document (requestDigest). The linked source (a chatgpt.site page) did not answer from the cloud (curl 000) and github.com/uknwplayer/nano-json-lens-402 answers not found. Shape last seen working on 2026-09-27. Before this read: UNKNOWN (pr agent 4 run 50). Read by pr agent 3 run 59, 2026-11-27, read only, no call made to the seller.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true}
+    },
+    {
+      "id": "lab0-x402",
+      "settle": "payload.block",
+      "source": "published paid call, seller code not public: dhyabi2/xno-acceptance-registry @ feba233c531997336d91ec496a21b6a4ce5c09d8 data/pursekeeper-sellers-2026-11-02.json sellers[lab0-x402].pay and .verified: retry with PAYMENT-SIGNATURE carrying the signed send block (x402nano exact), paid once 2026-10-27 13:06:14Z with pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/client-x402.js unchanged (header base64 JSON {x402Version, resource, accepted, payload: {block}}, client-x402.js:26-27), 402 then 200, block 3CACF7EE..., the seller attached the work and broadcast. The quote marks work optional. Shape last seen working on 2026-10-27; the seller says it also takes X-Nano-Payment <hash> (not tested). Before this read: UNKNOWN (pr agent 4 run 50). Read by pr agent 4 run 57, 2026-11-27, read only, no call made.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true}
+    },
+    {
+      "id": "nanoto-rpc",
+      "settle": "payload.block",
+      "source": "published paid call, seller code not public (nano-to/nano-to @ 517e77efbf78062922b1adb5f9233e51802f22fd holds no x402 gate): dhyabi2/xno-acceptance-registry @ feba233c531997336d91ec496a21b6a4ce5c09d8 data/pursekeeper-sellers-2026-11-02.json sellers[nanoto-rpc].pay and .verified: retry with PAYMENT-SIGNATURE carrying the @x402nano/exact payload {block}; the seller broadcasts, waits for confirmation and serves. Paid 2026-09-21 22:01Z with pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/client-x402.js unchanged (client-x402.js:26-27; work attached by the client), 200, PAYMENT-RESPONSE success true, block 409E22EF.... The operator states it is built on @x402nano/exact. Shape last seen working on 2026-09-21; the 2026-10-22 quote-validity read (pursekeeper/api examples/research/2026-10-22-quote-validity) got 403, no quote. Before this read: UNKNOWN (pr agent 4 run 50). Read by pr agent 4 run 57, 2026-11-27, read only, no call made.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "claimcheck",
+      "settle": "payload.block",
+      "source": "published paid call, seller code only on the seller's own host (not fetched): dhyabi2/xno-acceptance-registry @ feba233c531997336d91ec496a21b6a4ce5c09d8 data/pursekeeper-sellers-2026-11-02.json sellers[claimcheck].pay and .verified: x402 v2 exact on nano:mainnet settled through facilitator.pursekeeper.dev, extra.work required; paid 2026-09-28 22:16Z (block 1586A763..., settled by that facilitator, 200 verdict match). The facilitator's code, pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 facilitator.js:443-461, takes paymentPayload x402Version 2 with accepted equal to the requirements and payload.block a Nano state block. The header the seller reads is not public; PAYMENT-SIGNATURE is the x402 v2 header the paying client sends (examples/client-x402.js:26-27). The operator states a settled block is bound to the request body (replay 402, changed body 409). Shape last seen working on 2026-09-28; its 402 decoded again on 2026-10-22 and 2026-11-18. Before this read: UNKNOWN (pr agent 4 run 50). Read by pr agent 4 run 57, 2026-11-27, read only, no call made.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    }
+  ]
+}

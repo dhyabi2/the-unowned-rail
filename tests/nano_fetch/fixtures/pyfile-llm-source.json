@@ -1,0 +1,45 @@
+[
+ {
+  "id": "pyfile-llm",
+  "status": "RECONSTRUCTED from the seller's published source, not captured live; the live door may differ (see unknown)",
+  "source": {
+   "shape": "pyfile-toolkit/nano-llm-api server.mjs paymentRequired() lines 89-105 at cbca76c (2026-09-20, newest commit; git clone read 2026-11-26 rail run 239, nothing run): 402, header PAYMENT-REQUIRED = base64 of the flat JSON payload, body = {type: payment_required, ...payload}",
+   "pay_to": "xno-acceptance-registry registry.json entry pyfile-llm payto[0] (checksum_valid true); server.mjs line 13 reads it from the operator's vault",
+   "price_raw": "server.mjs line 14 PRICE_RAW (0.001 XNO = 10^27 raw); registry price_raw_seen_in_402 holds the same value",
+   "network_scheme_asset": "server.mjs lines 95-97: asset XNO, network nano:mainnet, scheme exact",
+   "quote": "server.mjs lines 90 and 98-99: sha256 hex of JSON.stringify(req.body); request_body below is the body it was computed over",
+   "retry": "server.mjs lines 86 and 100: the buyer sends the price to pay_to, then retries with X-Nano-Payment: <send block hash>; replay refused by a persistent hash journal (lines 21-34, 113-122)",
+   "endpoint": "registry entry pyfile-llm endpoint https://pyfile-agent.taile3ff35.ts.net/v1/chat/completions, probe 402 live nano_mainnet true at 2026-11-25T05:47Z"
+  },
+  "unknown": [
+   "the live 402 body and header: the probe stores none, and this run's unpaid probe was refused by the session ([Unsanctioned Communication])",
+   "the live price: the registry note says $0.005 quoted in XNO since 2026-09-26 (0.01438 XNO that day), not the source's fixed 0.001",
+   "the live proof header: the registry note of 2026-09-26 says the gate reads a full-block PAYMENT-SIGNATURE for fresh blocks; the published source reads only X-Nano-Payment",
+   "whether the live quote is bound to the request: the source computes request_sha256 but never checks it on the paid retry"
+  ],
+  "request_body": "{\"model\":\"deepseek-ai/DeepSeek-V4-Flash\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}",
+  "headers": {
+   "PAYMENT-REQUIRED": "eyJwYXlfdG8iOiJuYW5vXzN1b2pibjQ3YjV4cWNiczR5aWJiYXNhbW44YWV5cXhneWkxejhwZW9nd3RkbjZ6M2thZ2phbmpwejRzcyIsInByaWNlX3JhdyI6IjEwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAiLCJwcmljZV9uYW5vIjoiMC4wMDEiLCJhc3NldCI6IlhOTyIsIm5ldHdvcmsiOiJuYW5vOm1haW5uZXQiLCJzY2hlbWUiOiJleGFjdCIsInF1b3RlIjoiM2Q0YWI1ZGE0MWIzZWIwMDFiMTEwMDgwY2Q0ODVlNTg2YTJiNjFmNGIyNmI0YzU2ZDJjMzIxNmY0OGMwYjViZCIsInJlcXVlc3Rfc2hhMjU2IjoiM2Q0YWI1ZGE0MWIzZWIwMDFiMTEwMDgwY2Q0ODVlNTg2YTJiNjFmNGIyNmI0YzU2ZDJjMzIxNmY0OGMwYjViZCIsImRldGFpbCI6IlNlbmQgMC4wMDEgWE5PIHRvIHBheV90bywgcmV0cnkgd2l0aCBYLU5hbm8tUGF5bWVudDogPHNlbmQgYmxvY2sgaGFzaD4ifQ=="
+  },
+  "body": {
+   "type": "payment_required",
+   "pay_to": "nano_3uojbn47b5xqcbs4yibbasamn8aeyqxgyi1z8peogwtdn6z3kagjanjpz4ss",
+   "price_raw": "1000000000000000000000000000",
+   "price_nano": "0.001",
+   "asset": "XNO",
+   "network": "nano:mainnet",
+   "scheme": "exact",
+   "quote": "3d4ab5da41b3eb001b110080cd485e586a2b61f4b26b4c56d2c3216f48c0b5bd",
+   "request_sha256": "3d4ab5da41b3eb001b110080cd485e586a2b61f4b26b4c56d2c3216f48c0b5bd",
+   "detail": "Send 0.001 XNO to pay_to, retry with X-Nano-Payment: <send block hash>"
+  },
+  "client_fit": {
+   "dialect": "send-hash",
+   "buyer_plan": "yes",
+   "nano-pay": "no:scheme",
+   "kilkelly-mcp": "no:scheme",
+   "x402-dotnet-client": "no:scheme",
+   "x402-mcp-wrapper+x402nano-exact-1.1.0": "no:scheme"
+  }
+ }
+]

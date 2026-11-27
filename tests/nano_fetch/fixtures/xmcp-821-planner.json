@@ -1,0 +1,34 @@
+{
+  "about": "FRONTIER 109 (b), rail run 260, 2026-11-27: would basementstudio/xmcp#821's planNanoPayment take the 402 of each seller skill/PAYABLE.md marks yes? Read as data from a blobless git clone at the merge commit; no xmcp code was run, no seller was called, nobody was contacted. test_xmcp_821_planner.py re-derives every planner cell from the seller fixtures with a Python reading of the lines named here.",
+  "upstream": "basementstudio/xmcp",
+  "commit": "1a0409a3ae851b2c8d5e6b0e7d598471f3cc165b",
+  "file": "packages/plugins/x402/src/nano-payer.ts",
+  "lines": {
+    "readOffer": "nano-payer.ts:73-95 - the offer object, its JSON text, or a tools/call result's structuredContent or first text content; no accepts list throws 'Not an x402 offer: no accepts list' (:91-93)",
+    "accept": "nano-payer.ts:49 and :111-118 - the first accepts entry with scheme exact and network 'nano' or 'nano:mainnet' (constants.ts:17)",
+    "payTo": "nano-payer.ts:120-126 - payTo must pass isValidNanoAddress (nano.ts:197-216, blake2b-40 checksum) and allowedPayees when given",
+    "amount": "nano-payer.ts:128-136 - v2 reads amount, v1 maxAmountRequired; a positive whole raw <= 2^128-1 and <= maxAmountRaw",
+    "binding": "nano-payer.ts:144-158 - extra.binding absent, or exactly 'xno-binding/v1/rep' with a 22-128 char orderId (nano.ts:234-241)",
+    "payload": "nano-payer.ts:166-191 - after the payer's wallet has PUBLISHED the send, the payment is {x402Version, resource?, accepted, payload: {blockHash, orderId?}}",
+    "transport": "nano-payer.ts:9 and :164, provider.ts:166 - the payment goes in _meta['x402/payment'] of a retried MCP tools/call, not in an HTTP header"
+  },
+  "rows": [
+    {"id": "noxid-nano-echo", "planner": "no", "reason": "no-accepts", "end_to_end": "no", "why": "send-hash quote {error, payment}, not an x402 offer (readOffer :91-93)"},
+    {"id": "pururin-sequence", "planner": "no", "reason": "no-accepts", "end_to_end": "no", "why": "send-hash quote {network, price_raw, pay_to, pay_header}, no accepts list (readOffer :91-93)"},
+    {"id": "pyfile-llm", "planner": "no", "reason": "no-accepts", "end_to_end": "no", "why": "PAYMENT-REQUIRED holds flat {scheme, network, pay_to, price_raw}, no accepts list (readOffer :91-93)"},
+    {"id": "pinnacle-url-check", "planner": "no", "reason": "no-accepts", "end_to_end": "no", "why": "invoice-flow 402 {network, base_price_raw, pay_to, next}, no accepts list (readOffer :91-93)"},
+    {"id": "feeless402", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; the seller settles an UNPUBLISHED payload.block from PAYMENT-SIGNATURE/X-PAYMENT (settle-106h.json), #821 sends a blockHash of a published send in MCP _meta"},
+    {"id": "busyman-probe", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; the seller publishes payload.block itself (settle-106h.json), #821 sends a blockHash in MCP _meta"},
+    {"id": "cedarproof-diagnose", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; served 200 on a v2 PAYMENT-SIGNATURE with payload.block (settle-106h.json), not a blockHash in MCP _meta"},
+    {"id": "opscontrol-page-extract", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; @x402/core verify+settle of payload.block over HTTP headers (settle-106h.json), not a blockHash in MCP _meta"},
+    {"id": "pyfile-search", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned from the 4th accepts entry (three eip155 entries skipped by :111-118); settle is payload.block over HTTP (settle-106h2.json)"},
+    {"id": "copperglass-offer-proof", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; settle is payload.block over HTTP (settle-106h2.json), not a blockHash in MCP _meta"},
+    {"id": "opscontrol-npm-risk", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; settle is payload.block over HTTP (settle-106h2.json), not a blockHash in MCP _meta"},
+    {"id": "nanswap-nodes", "planner": "no", "reason": "no-exact-nano", "end_to_end": "no", "why": "x402 v1 accept on network nano-mainnet, which is not in NANO_NETWORKS (nano, nano:mainnet; nano-payer.ts:49); settle is payload.block in X-PAYMENT over HTTP (settle-106h.json, pr agent 3 run 55)"},
+    {"id": "lab0-x402", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned (extra without binding); settle is payload.block in PAYMENT-SIGNATURE over HTTP (settle-106h2.json, pr agent 4 run 57), not a blockHash in MCP _meta"},
+    {"id": "nanoto-rpc", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned; settle is payload.block in PAYMENT-SIGNATURE over HTTP (settle-106h2.json, pr agent 4 run 57), not a blockHash in MCP _meta"},
+    {"id": "claimcheck", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned (extra.work required, no binding); settle is payload.block through facilitator.pursekeeper.dev over HTTP (settle-106h2.json, pr agent 4 run 57), not a blockHash in MCP _meta"},
+    {"id": "uknwplayer-json-lens", "planner": "yes", "reason": "plans", "end_to_end": "no", "why": "offer planned (extra.requestDigest, no binding); settle is payload.block in PAYMENT-SIGNATURE over HTTP (settle-106h2.json, pr agent 3 run 59), not a blockHash in MCP _meta"}
+  ],
+  "summary": "Of the 16 PAYABLE yes sellers, #821's planner takes 11 offers (all x402 v2 exact on nano:mainnet, unbound) and refuses 5 (4 no accepts list; nanswap-nodes, x402 v1 on network nano-mainnet, no-exact-nano). End to end it pays 0: every seller is HTTP 402 and none reads a blockHash from MCP _meta; the 11 settle an unpublished payload.block, which #821 does not build (the queued payer-block follow-up, unopened, would add that payload but not the HTTP transport)."
+}

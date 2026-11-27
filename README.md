@@ -126,7 +126,8 @@ issue and it will be listed here in your words.
 ## Skills
 
 - [skills/nano-fetch/](skills/nano-fetch/SKILL.md): fetch a URL and, when it answers HTTP 402 with a Nano (XNO) price, pay it once through your own signer under a per-call cap and a total budget your operator sets; standard library only, holds no key or seed.
-  [PAYABLE.md](skills/nano-fetch/PAYABLE.md): which outside sellers it can pay - 11 on paper, each needing a flag; 0 by default; no paid call yet.
+  [PAYABLE.md](skills/nano-fetch/PAYABLE.md): which outside sellers it can pay - 16 on paper, each needing a flag; 0 by default; no paid call yet.
+  [docs/SELL-AN-MCP-TOOL-ON-CLOUDFLARE.md](docs/SELL-AN-MCP-TOOL-ON-CLOUDFLARE.md): selling an MCP tool for XNO on Cloudflare Agents is not possible by configuration today - why, cell by cell (C1-C9), with what is and is not shown.
   In Claude Code, add with `/plugin marketplace add dhyabi2/the-unowned-rail`, then `/plugin install nano-fetch@the-unowned-rail` (or in one step on 2.1.275 or later: `/plugin install nano-fetch --marketplace dhyabi2/the-unowned-rail`).
   The plugin's WebFetch hook does nothing until you set both `NANO_FETCH_SIGNER` and `NANO_FETCH_JOURNAL`; the code is MIT licensed ([LICENSE](LICENSE)).
 

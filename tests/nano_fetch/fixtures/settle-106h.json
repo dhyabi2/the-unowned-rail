@@ -1,0 +1,41 @@
+{
+  "about": "How each exact/invoice seller in skill/PAYABLE.md takes the payment, read from public code or a published paid call (FRONTIER 106 (h), rail run 253, 2026-11-26). Read only: nothing was run against any seller and no seller was contacted. test_payable.py holds every 'yes, with --block-signer' row to an entry here whose settle is payload.block, and checks the header fetch.py sends against each 'requires' line.",
+  "settle": [
+    {
+      "id": "feeless402",
+      "settle": "payload.block",
+      "source": "Feeless402/feeless402 @ fab7f6968d078351ef945985a9c2132c8988a3c6: nano_pay/server.py:574-582 _extract_block (PAYMENT-SIGNATURE or X-PAYMENT, base64 JSON, payload.block); server.py:314-321 _BLOCK_KEYS; nano_pay/verify.py:34-85 verify_block (type state, link = payTo key, previous = frontier, balance drop = price, signature, work 8 bytes); verify.py:198-210 settle_block publishes with rpc.process",
+      "requires": {"headers": ["payment-signature", "x-payment"], "block_keys": ["type", "account", "previous", "representative", "balance", "link", "signature", "work"], "type_state": true, "work16": true}
+    },
+    {
+      "id": "busyman-probe",
+      "settle": "payload.block",
+      "source": "busyman-agent/probe402 @ d8eed156773970aa13f6759d720d8f28030b3ab5: src/index.js:109-117 extractBlock (payment-signature or x-payment, base64 JSON, payload.block, type state); src/index.js:136-163 settle (process subtype send to a public node, then block_info: confirmed, amount = PRICE_RAW, link = payTo; a hash served once)",
+      "requires": {"headers": ["payment-signature", "x-payment"], "block_keys": ["type", "account", "previous", "representative", "balance", "link", "signature", "work"], "type_state": true, "work16": true}
+    },
+    {
+      "id": "cedarproof-diagnose",
+      "settle": "payload.block",
+      "source": "seller code not public; pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/cedarproof-diagnose-2026-10-04/payload-1.json and README.txt step 3: an x402 v2 header {x402Version 2, resource, accepted, payload.block} sent as PAYMENT-SIGNATURE was served 200 on 2026-10-04 16:30Z (block confirmed). Shape last seen working on that date; the seller may have changed since.",
+      "requires": {"headers": ["payment-signature"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "opscontrol-page-extract",
+      "settle": "payload.block",
+      "source": "pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/ochq-page-extract-2026-10-18/source-page-extract-live.ts:346-357 (PAYMENT-SIGNATURE or X-PAYMENT, @x402/core 2.27.0 x402ResourceServer.verifyPayment then settlePayment via facilitator.pursekeeper.dev); x402.js:102-140 verify (x402Version 2, @x402/core parsePaymentPayload, accepted scheme/network/payTo/amount/asset equal to the 402, payload.block a Nano state send, work 16 hex or absent); @x402/core 2.27.0 PaymentPayloadV2Schema: resource optional (nullish). Served 200 on 2026-10-19 (README.md).",
+      "requires": {"headers": ["payment-signature", "x-payment"], "x402_version": 2, "accepted_from_402": true, "type_state": true, "work16": true}
+    },
+    {
+      "id": "pinnacle-url-check",
+      "settle": "invoice-flow",
+      "source": "Daltonray625/pinnacle-url-check @ 107b978a16422b83970dfd91353cbae7967c9b9d: src/app.js:26-32 POST /v1/invoices returns invoice_id, a private invoice_token and a price_raw with a random raw suffix; src/app.js:34-50 POST /v1/result takes invoice_id and payment_hash with Authorization: Bearer invoice_token and verifies the confirmed send. The order is bound (own amount, private token) and takes two requests after the 402; src/core.js validatePayment needs confirmed, subtype send, amount equal to price_raw and link equal to pay_to. fetch.py --invoice-body makes those two requests (test_invoice.py copies the three endpoints on loopback).",
+      "requires": {}
+    },
+    {
+      "id": "nanswap-nodes",
+      "settle": "payload.block",
+      "source": "seller code not public; published paid call: pursekeeper/api @ 21d187f7e8e825bb7846818c969307307bee8704 examples/purchases/nanswap-nodes-2026-10-16/client.js:48-56 (a state send block, link = the quote's payTo nano_115hp31z..., sent once as X-PAYMENT = base64 JSON {x402Version 1, scheme exact, network nano-mainnet, payload.block}, POST https://nodes.nanswap.com/XNO; the seller publishes it) and run-2026-10-16T132849-own-work-2-credits.json (served 200 on 2026-10-16 13:28:49Z, X-PAYMENT-RESPONSE success true, transaction = the block hash C2834B22..., confirmed per README.md). README.md: work on the block is optional (the seller computes it; 25-credit minimum without work, 1 credit with own work); the payment buys credits behind a bearer token. Same payTo as the registry fixture. Shape last read 2026-10-16 (pr agent 3 run 55, 2026-11-27, read only, no call made). Before this read: UNKNOWN (rail run 253).",
+      "requires": {"headers": ["x-payment"], "x402_version": 1, "block_keys": ["type", "account", "previous", "representative", "balance", "link", "signature"], "type_state": true}
+    }
+  ]
+}
