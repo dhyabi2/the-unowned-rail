@@ -24,6 +24,7 @@ What it does with a 402 (and nothing else; every other status passes through unt
 Amounts are raw (1 XNO = 10**30 raw), parsed from the quote as integers, never floats.
 """
 import base64
+import calendar
 import importlib
 import json
 import os
@@ -33,6 +34,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 TOOLS = os.path.dirname(HERE)
 from xno_buyer_plan.plan import DEFAULT_CAP_RAW, plan_402  # the package next to this file
+from xno_buyer_plan.wallets import key_from_account, state_block_hash
 
 try:
     from scrapy.exceptions import NotConfigured
@@ -179,14 +181,91 @@ def payment_header(plan, accepted, block_hash):
     return name, base64.b64encode(json.dumps(doc, separators=(",", ":")).encode("utf-8")).decode("ascii")
 
 
-def settle_402(headers, body, url, signer, journal, cap_raw, budget_raw, allow_unbound=False):
+_SIG128 = re.compile(r"[0-9A-Fa-f]{128}")
+_WORK16 = re.compile(r"[0-9A-Fa-f]{16}")
+
+
+def exact_accepted(doc, plan):
+    """The raw accepts entry a plain exact plan was made from: scheme exact, same payTo and amount."""
+    if not isinstance(doc, dict) or not isinstance(doc.get("accepts"), list):
+        return None
+    for a in doc["accepts"]:
+        if not isinstance(a, dict) or a.get("scheme") != "exact":
+            continue
+        amount = a.get("amount", a.get("maxAmountRequired"))
+        if a.get("payTo") == plan["payTo"] and str(amount) == plan["amount_raw"]:
+            return a
+    return None
+
+
+def check_send_block(block, pay_to):
+    """A block signer's answer -> (64-hex hash, None) or (None, words). The block must be a signed state
+    block whose link is payTo's public key (link_as_account, when given, equal to payTo); its hash is
+    computed here from the fields, never taken from the signer. The amount is not visible in one block
+    (balance is the payer's new balance): the seller's facilitator checks it against the previous block."""
+    if not isinstance(block, dict):
+        return None, "block signer returned %r, not a block object" % (type(block).__name__,)
+    # type is required, not defaulted: feeless402 (nano_pay/server.py _BLOCK_KEYS) and probe402 (src/index.js
+    # extractBlock) refuse a block without "type": "state", and a refused block has still left this process
+    if block.get("type") != "state" or block.get("subtype", "send") != "send":
+        return None, "not a state send block (type %r, subtype %r)" % (block.get("type"), block.get("subtype"))
+    # work is required here although a facilitator with a work source accepts none (pursekeeper x402.js): the
+    # sellers that publish through a public node (feeless402 verify.py step 5, probe402 process) cannot add it
+    if not isinstance(block.get("work"), str) or not _WORK16.fullmatch(block["work"]):
+        return None, "block carries no 16-hex work"
+    want = key_from_account(pay_to)
+    link = block.get("link")
+    if want is None or not isinstance(link, str) or not _HEX64.fullmatch(link) or bytes.fromhex(link) != want:
+        return None, "block link is not payTo %s" % pay_to
+    if "link_as_account" in block and block["link_as_account"] != pay_to:
+        return None, "block link_as_account %r is not payTo" % (block["link_as_account"],)
+    sig = block.get("signature")
+    if not isinstance(sig, str) or not _SIG128.fullmatch(sig):
+        return None, "block carries no 128-hex signature"
+    try:
+        return state_block_hash(block), None
+    except (ValueError, KeyError, TypeError) as e:
+        return None, "block fields do not encode: %s" % e
+
+
+def _settle_exact(plan, headers, body, url, block_signer, journal):
+    """A plain exact accept (x402nano/exact): the payer signs a send block and does NOT publish it; the
+    block goes to the seller inside this one request and the seller's facilitator publishes it (it refuses a
+    block that is already confirmed), so the block is spent on this request only."""
+    accepted = exact_accepted(_quote_doc(headers, body), plan)
+    if accepted is None:
+        return {"ok": False, "error": "no_accepted", "detail": "the planned accept was not found again"}
+    key = plan["journal_key"]
+    journal.write({"key": key, "state": "intent", "amount_raw": plan["amount_raw"], "orderId": None,
+                   "url": url})
+    order = {"network": plan["network"], "payTo": plan["payTo"], "amount_raw": plan["amount_raw"],
+             "work_threshold": plan.get("work_threshold")}
+    block = block_signer(dict(order))
+    block_hash, why = check_send_block(block, plan["payTo"])
+    if block_hash is None:
+        # the intent stays journalled: a block that may exist is never signed again for this quote
+        return {"ok": False, "error": "signer_bad_block", "detail": why}
+    journal.write({"key": key, "state": "signed", "amount_raw": plan["amount_raw"], "orderId": None,
+                   "blockHash": block_hash})
+    version = plan.get("x402Version") or 2
+    doc = {"x402Version": version, "accepted": accepted, "payload": {"block": block}}
+    if version == 1:
+        doc = {"x402Version": 1, "scheme": accepted.get("scheme"), "network": accepted.get("network"),
+               "payload": doc["payload"]}
+    name = "X-PAYMENT" if version == 1 else "PAYMENT-SIGNATURE"
+    value = base64.b64encode(json.dumps(doc, separators=(",", ":")).encode("utf-8")).decode("ascii")
+    return {"ok": True, "header": (name, value), "plan": plan, "blockHash": block_hash}
+
+
+def settle_402(headers, body, url, signer, journal, cap_raw, budget_raw, allow_unbound=False, block_signer=None):
     """One 402 -> a paid proof header, or a named refusal. Shared by this middleware and nano_fetch.
 
     headers: {str: str}; journal: a Journal. Returns {"ok": True, "header": (name, value), "plan": plan,
     "blockHash": hash} or {"ok": False, "error": code, "detail": words}. Order: plan (shape, network,
     checksum, amount, per-call cap, binding, replay), bound-or-allowed, budget, intent journalled (fsynced),
     signer, hash check, paid journalled. A send-hash quote (no binding) is paid only with allow_unbound;
-    its signer gets representative None (keep the wallet's own)."""
+    its signer gets representative None (keep the wallet's own). A plain exact accept is paid only with a
+    block_signer ({network, payTo, amount_raw, work_threshold} -> signed, unpublished state send block)."""
     plan = plan_402(headers, body, cap_raw=cap_raw, seller_url=url, journal=journal)
     if not plan.get("ok") and plan.get("error") == "wrong_network":
         # plan_402 names the FIRST accept's refusal (a USDC entry on a mixed quote); name the Nano one
@@ -196,15 +275,27 @@ def settle_402(headers, body, url, signer, journal, cap_raw, budget_raw, allow_u
     if not plan.get("ok"):
         return {"ok": False, "error": plan.get("error"), "detail": plan.get("detail")}
     dialect = plan.get("dialect")
-    if not (dialect == "rep-binding" or (dialect == "send-hash" and allow_unbound)):
+    if dialect == "invoice":
+        # bound by the invoice's own amount and private token, but paid in two more requests (create the
+        # invoice, then present the hash), which one retry of the 402 cannot make: see settle_invoice
+        return {"ok": False, "error": "invoice_flow", "plan": plan,
+                "detail": "an invoice quote needs its invoice created first (nano_fetch --invoice-body)"}
+    exact = dialect == "exact" and block_signer is not None
+    if not (dialect == "rep-binding" or exact or (dialect == "send-hash" and allow_unbound)):
+        hint = {"send-hash": " (a send-hash quote needs allow_unbound)",
+                "exact": " (a plain exact accept needs a block signer)"}.get(dialect, "")
         return {"ok": False, "error": "unbound", "detail": "dialect %s: only a bound order (xno-binding/v1/rep) "
-                "is paid%s" % (dialect, " (a send-hash quote needs allow_unbound)" if dialect == "send-hash"
-                               else "")}
+                "is paid%s" % (dialect, hint)}
+    if not exact and signer is None:
+        return {"ok": False, "error": "no_signer", "detail": "dialect %s needs a signer that publishes a send"
+                % dialect}
     amount = int(plan["amount_raw"])
     spent = journal.spent_raw()
     if spent + amount > int(budget_raw):
         return {"ok": False, "error": "over_budget", "detail": "%d raw spent + %d > budget %d raw"
                 % (spent, amount, int(budget_raw))}
+    if exact:
+        return _settle_exact(plan, headers, body, url, block_signer, journal)
     accepted = None
     if dialect == "rep-binding":
         accepted = accepted_entry(_quote_doc(headers, body), plan)
@@ -227,6 +318,78 @@ def settle_402(headers, body, url, signer, journal, cap_raw, budget_raw, allow_u
     else:
         header = payment_header(plan, accepted, block_hash)
     return {"ok": True, "header": header, "plan": plan, "blockHash": block_hash}
+
+
+_INVOICE_ID = re.compile(r"[A-Za-z0-9_-]{8,128}")
+_INVOICE_TOKEN = re.compile(r"[A-Za-z0-9_-]{16,256}")
+_ISO_UTC = re.compile(r"(\d{4})-(\d\d)-(\d\d)T(\d\d):(\d\d):(\d\d)(?:\.\d+)?Z")
+
+
+def _expiry(text):
+    """'2026-11-26T19:00:00.000Z' -> seconds since the epoch, or None when it is not that shape."""
+    m = _ISO_UTC.fullmatch(text) if isinstance(text, str) else None
+    if not m:
+        return None
+    try:
+        return calendar.timegm(tuple(int(x) for x in m.groups()) + (0, 0, 0))
+    except (OverflowError, ValueError):
+        return None
+
+
+def settle_invoice(plan, invoice, url, signer, journal, cap_raw, budget_raw, now, margin_s=120):
+    """An invoice quote's second step, with no network: the invoice the seller created -> the result request.
+
+    plan: the 402's plan (dialect "invoice"), invoice: the created invoice (JSON object). The invoice must name
+    the 402's own pay_to and network, an id and a private token, a price in digits no lower than the 402's base
+    price and within the per-call cap, and an expires_at at least margin_s ahead of `now` (epoch seconds).
+    Then the budget, an fsynced intent line (with the invoice id and token, so the paid invoice can be redeemed
+    by hand after a crash), the signer (publishes the exact send, returns its confirmed hash), a paid line.
+    Returns {"ok": True, "body": <JSON bytes {invoice_id, payment_hash}>, "auth": ("Authorization", "Bearer .."),
+    "blockHash", "amount_raw", "invoice_id"} or {"ok": False, "error", "detail"}. One invoice id is handed to
+    the signer once, across restarts."""
+    if not isinstance(invoice, dict):
+        return {"ok": False, "error": "invoice_shape", "detail": "the created invoice is not a JSON object"}
+    inv_id, token = invoice.get("invoice_id"), invoice.get("invoice_token")
+    if not (isinstance(inv_id, str) and _INVOICE_ID.fullmatch(inv_id)):
+        return {"ok": False, "error": "invoice_shape", "detail": "invoice_id %r" % (inv_id,)}
+    if not (isinstance(token, str) and _INVOICE_TOKEN.fullmatch(token)):
+        return {"ok": False, "error": "invoice_shape", "detail": "no private invoice_token in the invoice"}
+    if invoice.get("pay_to") != plan["payTo"]:
+        return {"ok": False, "error": "invoice_pay_to", "detail": "the invoice pays %r, the 402 named %r"
+                % (invoice.get("pay_to"), plan["payTo"])}
+    if invoice.get("network") not in ("nano:mainnet", plan.get("network_seen")):
+        return {"ok": False, "error": "wrong_network", "detail": "invoice network %r" % (invoice.get("network"),)}
+    price = invoice.get("price_raw")
+    if not (isinstance(price, str) and price.isascii() and price.isdigit()):
+        return {"ok": False, "error": "amount_ambiguous", "detail": "invoice price_raw %r is not digits" % (price,)}
+    if int(price) < int(plan["amount_raw"]):
+        return {"ok": False, "error": "invoice_price", "detail": "invoice price %s raw is below the 402's base %s"
+                % (price, plan["amount_raw"])}
+    if int(price) > int(cap_raw):
+        return {"ok": False, "error": "over_cap", "detail": "invoice price %s raw > cap %s raw" % (price, cap_raw)}
+    expires = _expiry(invoice.get("expires_at"))
+    if expires is None or expires < now + margin_s:
+        return {"ok": False, "error": "invoice_expiry", "detail": "expires_at %r is not %d s ahead; not paying"
+                % (invoice.get("expires_at"), margin_s)}
+    # not keyed on the URL: the same invoice (account, exact price, id) reached by another address is one order
+    key = "invoice|%s|%s|%s" % (plan["payTo"], price, inv_id)
+    if key in journal:
+        return {"ok": False, "error": "replayed", "detail": "this invoice is already in the journal: " + key}
+    spent = journal.spent_raw()
+    if spent + int(price) > int(budget_raw):
+        return {"ok": False, "error": "over_budget", "detail": "%d raw spent + %s > budget %d raw"
+                % (spent, price, int(budget_raw))}
+    journal.write({"key": key, "state": "intent", "amount_raw": price, "orderId": inv_id,
+                   "invoice_token": token, "url": url})
+    block_hash = signer({"network": "nano:mainnet", "payTo": plan["payTo"], "amount_raw": price,
+                         "representative": None, "orderId": inv_id})
+    if not isinstance(block_hash, str) or not _HEX64.fullmatch(block_hash):
+        return {"ok": False, "error": "signer_no_hash", "detail": "signer returned %r" % (block_hash,)}
+    block_hash = block_hash.upper()
+    journal.write({"key": key, "state": "paid", "amount_raw": price, "orderId": inv_id, "blockHash": block_hash})
+    body = json.dumps({"invoice_id": inv_id, "payment_hash": block_hash}).encode("utf-8")
+    return {"ok": True, "body": body, "auth": ("Authorization", "Bearer " + token), "blockHash": block_hash,
+            "amount_raw": price, "invoice_id": inv_id}
 
 
 class NanoPaymentMiddleware:

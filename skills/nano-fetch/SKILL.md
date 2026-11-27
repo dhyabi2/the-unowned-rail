@@ -59,6 +59,21 @@ python3 fetch.py https://seller.example/api -X POST -H 'Content-Type: applicatio
 `--allow-unbound` also pays a quote that only asks for a send hash, with nothing binding the send to
 this one request. Leave it off unless the operator asked for it.
 
+`--block-signer mywallet.sign_block` pays a plain x402 `exact` accept on `nano:mainnet`: the hook gets
+`{network, payTo, amount_raw, work_threshold}` and returns a signed send block that it does NOT publish;
+fetch.py checks that the block's link is payTo and that it is signed, computes its hash, and presents it in
+`payload.block`, where the seller's facilitator publishes it. With no `--block-signer`, an exact accept is
+refused `unbound`. It needs `--journal` as `--signer` does.
+
+`--invoice-body JSON` (with `--signer`) pays a private-token invoice quote: the 402 names a create path and
+a result path on its own host. The JSON object is the order you buy (for example `'{"url": "https://www.gnu.org/"}'`);
+fetch.py POSTs it to the create path, checks that the invoice pays the 402's own account on `nano:mainnet`, that
+its `price_raw` is not below the 402's base price and is within `--cap-raw`, that it carries a private token and
+that `expires_at` is at least two minutes away. Then your signer publishes exactly `price_raw` and fetch.py
+POSTs `{invoice_id, payment_hash}` to the result path with `Authorization: Bearer <token>`, again with the same
+invoice and hash on 202 or 503 (three tries at most, never a second payment). The amount and the token bind
+the payment to this one invoice. Without `--invoice-body` an invoice quote is refused `invoice_flow`.
+
 ## Read the answer
 
 | exit | meaning | what you do |
@@ -70,14 +85,21 @@ this one request. Leave it off unless the operator asked for it.
 | 4 | paid, and the retry still met 402 | stop; the payment is in the journal; report the hash on stderr |
 
 Reasons on stderr after `402 not paid:` include `not_configured` (no signer or journal), `over_cap`, `over_budget`,
-`unbound` (a send-hash quote without `--allow-unbound`), `signer_no_hash` (the signer did not return a
+`unbound` (a send-hash quote without `--allow-unbound`, or an exact accept without `--block-signer`),
+`invoice_flow` (an invoice quote without `--invoice-body`), `invoice_pay_to`, `invoice_price`, `invoice_expiry`,
+`invoice_shape`, `invoice_not_created` or `invoice_offsite` (the invoice was refused before anything was signed),
+`signer_bad_block` (the block signer's answer is not a signed send to payTo; the intent stays),
+`no_signer` (a bound order with only `--block-signer`), `signer_no_hash` (the signer did not return a
 hash; the intent stays in the journal and is never paid again) and `replayed` (this order is already in
 the journal).
 
 ## The journal
 
 One JSON object a line, fsynced: an `intent` line (`key`, `amount_raw`, `orderId`, `url`) before the
-signer is called, and a `paid` line (`key`, `amount_raw`, `orderId`, `blockHash`) after. To know what
+signer is called, and a `paid` line (`key`, `amount_raw`, `orderId`, `blockHash`) after (`signed`, for a
+block the seller publishes). An invoice's intent line also holds its `invoice_token`, as the seller asks
+you to keep it before paying: with the `orderId` and the `blockHash` it redeems a paid invoice by hand.
+Keep the file private. To know what
 you spent, add `amount_raw` over the `paid` lines. Never edit or delete the file: it is what stops a
 second payment for one order.
 

@@ -126,6 +126,7 @@ issue and it will be listed here in your words.
 ## Skills
 
 - [skills/nano-fetch/](skills/nano-fetch/SKILL.md): fetch a URL and, when it answers HTTP 402 with a Nano (XNO) price, pay it once through your own signer under a per-call cap and a total budget your operator sets; standard library only, holds no key or seed.
+  [PAYABLE.md](skills/nano-fetch/PAYABLE.md): which outside sellers it can pay - 11 on paper, each needing a flag; 0 by default; no paid call yet.
   In Claude Code, add with `/plugin marketplace add dhyabi2/the-unowned-rail`, then `/plugin install nano-fetch@the-unowned-rail` (or in one step on 2.1.275 or later: `/plugin install nano-fetch --marketplace dhyabi2/the-unowned-rail`).
   The plugin's WebFetch hook does nothing until you set both `NANO_FETCH_SIGNER` and `NANO_FETCH_JOURNAL`; the code is MIT licensed ([LICENSE](LICENSE)).
 
@@ -144,7 +145,7 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/OBJECTIONS.md](docs/OBJECTIONS.md) | why outside agents say no, counted by class |
 | [docs/ADOPTION-CONDITIONS.md](docs/ADOPTION-CONDITIONS.md) | what each agent said would make it adopt, and our status per row |
 | [docs/VENUES.md](docs/VENUES.md) | which venues answer, which show paying wallets, which have zero jobs |
-| [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 50 outside pull requests that merged (24 are code), with merge commits |
+| [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 52 outside pull requests that merged (26 are code), with merge commits |
 | [docs/UNSOLICITED-STARTER-POLICY.md](docs/UNSOLICITED-STARTER-POLICY.md) | what to do when a stranger sends you XNO unasked: five lines, an envelope schema, [tools/starter_policy.py](tools/starter_policy.py) |
 | [docs/PLAIN-TEXT-VERIFY.md](docs/PLAIN-TEXT-VERIFY.md) | check a payment with no node, script or link: one request body and five fields, read in plain text |
 | [docs/DUAL-EVIDENCE-RECEIPT.md](docs/DUAL-EVIDENCE-RECEIPT.md) | card or Lightning seller: keep your own order record, add an optional XNO line beside it |

@@ -245,7 +245,8 @@ def _plan_flat(dialect, doc, cap_raw, seller_url, journal):
                          "journal the hash before retrying, so a crash re-presents it instead of paying again",
                          "retry the request with %s: <hash>" % header]
     else:
-        nxt = t.get("next") if isinstance(t.get("next"), str) else ""
+        # the steps are prose: `next` in the registry's copy, `flow` in the seller's own 402 (pinnacle 107b978)
+        nxt = next((t[k] for k in ("next", "flow") if isinstance(t.get(k), str)), "")
         paths = re.findall(r"POST\s+(/[^\s,;]+)", nxt)
         plan["invoice_create"] = paths[0] if paths else None
         plan["invoice_result"] = paths[1] if len(paths) > 1 else None
