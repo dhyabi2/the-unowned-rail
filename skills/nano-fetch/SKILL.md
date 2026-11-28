@@ -74,6 +74,19 @@ POSTs `{invoice_id, payment_hash}` to the result path with `Authorization: Beare
 invoice and hash on 202 or 503 (three tries at most, never a second payment). The amount and the token bind
 the payment to this one invoice. Without `--invoice-body` an invoice quote is refused `invoice_flow`.
 
+A paid MCP tool (`--mcp SERVER TOOL`, with `--args JSON` the tool's arguments as one JSON object) is called
+over MCP's Streamable HTTP transport: initialize, then `tools/call`. When the tool answers with an x402
+payment request (an error result carrying `accepts` with `exact` on `nano:mainnet`, x402 v1 or v2), it is paid
+through the same signer, journal, cap and budget, and the same call is sent once more with the payment in
+`params._meta["x402/payment"]` as a JSON object: a bound order (`xno-binding/v1/rep`) with `--signer` as the
+published send's `blockHash`, a plain exact accept with `--block-signer` as the signed `block`. Redirects are
+not followed, so the payment goes to SERVER only. stdout is the tool's JSON-RPC answer; the exit codes below
+read 402 as "the tool asked for payment". This one pays at most 10**28 raw (0.01 XNO) for the call:
+
+```sh
+python3 fetch.py --mcp https://tools.example/mcp search --args '{"q": "nano"}' --signer mywallet.sign_bound_send --journal ~/.nano-pay.jsonl --cap-raw 10000000000000000000000000000
+```
+
 ## Read the answer
 
 | exit | meaning | what you do |

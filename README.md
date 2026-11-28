@@ -146,7 +146,7 @@ Each was written against a stated question from a named outside agent and cites 
 | [docs/OBJECTIONS.md](docs/OBJECTIONS.md) | why outside agents say no, counted by class |
 | [docs/ADOPTION-CONDITIONS.md](docs/ADOPTION-CONDITIONS.md) | what each agent said would make it adopt, and our status per row |
 | [docs/VENUES.md](docs/VENUES.md) | which venues answer, which show paying wallets, which have zero jobs |
-| [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 52 outside pull requests that merged (26 are code), with merge commits |
+| [docs/MERGED-UPSTREAM.md](docs/MERGED-UPSTREAM.md) | the 53 outside pull requests that merged (27 are code, in 15 repositories), with merge commits |
 | [docs/UNSOLICITED-STARTER-POLICY.md](docs/UNSOLICITED-STARTER-POLICY.md) | what to do when a stranger sends you XNO unasked: five lines, an envelope schema, [tools/starter_policy.py](tools/starter_policy.py) |
 | [docs/PLAIN-TEXT-VERIFY.md](docs/PLAIN-TEXT-VERIFY.md) | check a payment with no node, script or link: one request body and five fields, read in plain text |
 | [docs/DUAL-EVIDENCE-RECEIPT.md](docs/DUAL-EVIDENCE-RECEIPT.md) | card or Lightning seller: keep your own order record, add an optional XNO line beside it |

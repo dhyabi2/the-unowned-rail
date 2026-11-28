@@ -55,6 +55,19 @@ and presents the hash with the token. The price below is the base; the invoice a
 |---|---|---|---|---|
 | pinnacle-url-check | Daltonray625/pinnacle-url-check @ 107b978, src/app.js POST /v1/invoices, POST /v1/result | invoice | 10000000000000000000000000000 | yes, with --invoice-body |
 
+## Paid by fetch.py with `--mcp` (an MCP tool, not a URL)
+
+An MCP tool asks for payment in its tool result (x402 over MCP: an error result whose `structuredContent`
+holds the offer) and takes it in `params._meta["x402/payment"]` of the same `tools/call`. `fetch.py --mcp
+SERVER TOOL` pays it through the same signer, journal, cap and budget: a bound order with `--signer` (the
+published send's `blockHash`), a plain exact offer with `--block-signer` (the signed `block`). The row was
+paid once against a local copy of the seller's nano path with stub signers; the price is whatever the tool's
+author sets.
+
+| seller | public source | offer | price | fetch.py |
+|---|---|---|---|---|
+| xmcp-nano-tool | basementstudio/xmcp @ 1a0409a packages/plugins/x402 verify.ts:284-292 (settles payload.blockHash and payload.block), the same in npm @xmcp-dev/x402 1.4.0 dist/verify.js:204-210 | xmcp >= 1.4.0 nano tool, x402 v1 or v2, bound or plain exact | set per tool | yes, with --mcp, on paper, no paid call yet |
+
 ## Read, but not paid by fetch.py
 
 | seller | public source | dialect | price as published (raw) | fetch.py |
